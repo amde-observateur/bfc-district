@@ -50,6 +50,7 @@ if (process.env.DB_HOST) {
     });
     console.log('✅ MySQL connecté');
     // Créer les tables si besoin
+    (async () => {
     const c = await pool.getConnection();
     await c.query(`CREATE TABLE IF NOT EXISTS reports (
       id BIGINT PRIMARY KEY, data JSON, createdAt DATETIME DEFAULT NOW()
@@ -67,6 +68,7 @@ if (process.env.DB_HOST) {
       token VARCHAR(512) PRIMARY KEY, userId BIGINT, createdAt DATETIME DEFAULT NOW()
     )`);
     c.release();
+    })();
   } catch(e) {
     console.warn('⚠️  MySQL indisponible, stockage JSON utilisé :', e.message);
     pool = null;
