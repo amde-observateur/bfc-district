@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // ── Secrets JWT ──────────────────────────────────────────
 const JWT_SECRET  = process.env.JWT_SECRET  || 'bfc-district-secret-2024';
 const JWT_REFRESH = process.env.JWT_REFRESH || 'bfc-refresh-secret-2024';
-const DATA_DIR    = process.env.DATA_DIR    || path.join(__dirname, 'data');
+const DATA_DIR    = process.env.DATA_DIR    || (process.env.RENDER ? '/tmp/data' : path.join(__dirname, 'data'));
 
 // ════════════════════════════════════════════════════════
 //  STOCKAGE JSON (fichiers dans /data)
