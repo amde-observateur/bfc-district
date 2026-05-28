@@ -3,6 +3,10 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=dev<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rapport Arbitre — District BFC</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -45,7 +49,7 @@ header{background:var(--bleu);color:#fff;padding:.58rem .9rem;display:flex;align
 .container{max-width:980px;margin:0 auto;padding:.9rem .85rem 3rem;}
 .section{display:none;}.section.active{display:block;}
 .steps-nav{display:flex;background:#fff;border-radius:11px;padding:.28rem;gap:.12rem;margin-bottom:.9rem;box-shadow:0 1px 3px rgba(0,0,0,.07);overflow-x:auto;}
-.step-btn{flex:1;min-width:62px;padding:.35rem .18rem;border:none;border-radius:7px;cursor:pointer;font-size:.6rem;font-weight:500;color:var(--doux);background:transparent;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:.1rem;}
+.step-btn{flex:1;min-width:62px;padding:.35rem .18rem;border:none;border-radius:7px;cursor:pointer;font-size:.6rem;font-weight:500;color:var(--doux);background:transparent;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:.1rem;position:relative;z-index:10;}
 .step-btn .sn{width:16px;height:16px;border-radius:50%;background:var(--bord);color:var(--doux);font-weight:700;font-size:.55rem;display:flex;align-items:center;justify-content:center;transition:all .2s;}
 .step-btn.active{color:var(--bleu2);background:var(--bleu-pale);}.step-btn.active .sn{background:var(--bleu2);color:#fff;}
 .step-btn.done .sn{background:var(--vert);color:#fff;}.step-btn.done{color:var(--vert);}
@@ -520,6 +524,7 @@ Object.keys(SECTIONS).forEach(s=>{evalData[s]=SECTIONS[s].criteres.map(()=>({not
 const gv=id=>document.getElementById(id)?.value||'';
 
 // ══ JWT ═══════════════════════════════════════════════════
+const API_BASE = window.location.hostname === 'bfc-district.onrender.com' ? '' : 'https://bfc-district.onrender.com';
 const TM={
   _a:null,_r:null,
   init(){try{this._a=localStorage.getItem('bfc_access');this._r=localStorage.getItem('bfc_refresh');}catch{}},
@@ -533,7 +538,7 @@ async function apiFetch(url,opts={}){
   const h={'Content-Type':'application/json',...(opts.headers||{}),...(TM.access?{'Authorization':`Bearer ${TM.access}`}:{})};
   let res=await fetch(url,{...opts,headers:h});
   if(res.status===401&&TM.refresh){
-    try{const r2=await fetch('/api/auth/refresh',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({refreshToken:TM.refresh})});
+    try{const r2=await fetch(API_BASE+'/api/auth/refresh',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({refreshToken:TM.refresh})});
     if(r2.ok){const d=await r2.json();TM.set(d.data?.accessToken);h['Authorization']=`Bearer ${TM.access}`;res=await fetch(url,{...opts,headers:h});}
     else{TM.clear();doLogout();return null;}}catch{doLogout();return null;}
   }
@@ -611,7 +616,7 @@ async function doLogin(){
   const u=document.getElementById('login-user').value.trim();const p=document.getElementById('login-pass').value;
   const errEl=document.getElementById('login-err');
   const showErr=msg=>{errEl.textContent=msg;errEl.style.display='block';setTimeout(()=>errEl.style.display='none',3500);};
-  try{const res=await fetch('/api/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:u,password:p})});
+  try{const res=await fetch(API_BASE+'/api/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:u,password:p})});
   const d=await res.json();if(!res.ok){showErr(d.error?.message||'Identifiant ou mot de passe incorrect.');return;}
   const pay=d.data||d;if(!pay?.accessToken){showErr('Erreur serveur.');return;}
   TM.set(pay.accessToken,pay.refreshToken);cRole=pay.role;cUser={id:pay.id,username:u,nom:pay.nom,role:pay.role};
@@ -662,7 +667,7 @@ function showSec(n){
   if(n==='arbitres-suivi')renderArbitreList();if(n==='admin')renderAdmin();
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function goP(n){
+function goP(n){if(n===undefined||n===null)return;
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+n)?.classList.add('active');
   document.querySelectorAll('.step-btn').forEach((b,i)=>{b.classList.remove('active','done');if(i<n)b.classList.add('done');});
@@ -1002,4 +1007,3 @@ async function renderAdmin(){
 function openUserModal(userId){
   document.getElementById('modal-user-id').value=userId||'';document.getElementById('modal-title').textContent=userId?'Modifier le compte':'Créer un compte';
   ['mu-username','mu-nom','mu-email','mu-pass'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});document.getElementById('mu-role').value='obs';
-  if(userId){loadUsers().then(users=>{const u=users.find(x=>x.id===userId);if(u){document.getElementById('mu-username').value=u.username;document.getElementById('mu-nom').value=u.nom;document.getElem
