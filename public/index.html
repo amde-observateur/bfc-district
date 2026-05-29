@@ -1019,6 +1019,16 @@ function doLogin() {
   const user = document.getElementById('login-user').value.trim();
   const pass = document.getElementById('login-pass').value.trim();
 
-  alert("Test connexion : " + user + " / " + pass);
+  if (user === "obs" && pass === "obs123") {
+    document.getElementById("login-screen").style.display = "none";
+  } else if (user === "gest" && pass === "gest456") {
+    document.getElementById("login-screen").style.display = "none";
+  } else if (user === "admin" && pass === "admin789") {
+    document.getElementById("login-screen").style.display = "none";
+  } else {
+    alert("Identifiant ou mot de passe incorrect");
+  }
 }
-</script>  
+</script>
+</body>
+</html>
