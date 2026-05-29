@@ -1015,18 +1015,28 @@ function setLR(role) {
   if (role === 'admin') document.querySelectorAll('.ltab')[2].classList.add('active');
 }
 
-function doLogin() {
-  const user = document.getElementById('login-user').value.trim();
-  const pass = document.getElementById('login-pass').value.trim();
+async function doLogin() {
+  const username = document.getElementById('login-user').value.trim();
+  const password = document.getElementById('login-pass').value.trim();
 
-  if (user === "obs" && pass === "obs123") {
-    document.getElementById("login-screen").style.display = "none";
-  } else if (user === "gest" && pass === "gest456") {
-    document.getElementById("login-screen").style.display = "none";
-  } else if (user === "admin" && pass === "admin789") {
-    document.getElementById("login-screen").style.display = "none";
-  } else {
-    alert("Identifiant ou mot de passe incorrect");
+  try {
+    const r = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    });
+
+    if (!r.ok) {
+      alert('Identifiant ou mot de passe incorrect');
+      return;
+    }
+
+    const data = await r.json();
+    localStorage.setItem('token', data.token);
+    localStorage.setItem('user', JSON.stringify(data.user));
+    document.getElementById('login-screen').style.display = 'none';
+  } catch (e) {
+    alert('Erreur de connexion au serveur');
   }
 }
 </script>
