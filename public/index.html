@@ -603,8 +603,10 @@ document.addEventListener('click',e=>{if(!e.target.closest('.arb-search-wrap'))d
 
 // ══ AUTH ══════════════════════════════════════════════════
 function setLR(r){
+  LR = r;
   document.querySelectorAll('.ltab').forEach((b,i)=>b.classList.toggle('active',['obs','gest','admin'][i]===r));
-  const desc=document.getElementById('role-desc');desc.className='role-badge-lg '+RC[r].badge;
+  const desc=document.getElementById('role-desc');
+  desc.className='role-badge-lg '+RC[r].badge;
   desc.innerHTML=`<span>${RC[r].label.split(' ')[0]}</span><span>${RC[r].desc}</span>`;
 }
 async function doLogin(){
