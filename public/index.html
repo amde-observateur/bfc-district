@@ -1,4 +1,5 @@
 
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -999,69 +1000,7 @@ async function renderAdmin(){
   try{const r=await apiFetch('/api/connlog');if(r?.ok){const d=await r.json();const log=d.data||[];
   document.getElementById('conn-log-wrap').innerHTML=log.length?`<table class="user-table"><thead><tr><th>Date/Heure</th><th>Utilisateur</th><th>Rôle</th><th>Action</th></tr></thead><tbody>${log.slice(0,30).map(l=>`<tr><td style="font-size:.68rem">${new Date(l.timestamp).toLocaleString('fr')}</td><td>${l.nom}</td><td><span class="role-dot rd-${l.role}">${RC[l.role]?.label.split(' ')[0]||''}</span></td><td>${l.action}</td></tr>`).join('')}</tbody></table>`:'<p style="color:var(--doux);font-size:.78rem;padding:.5rem;">Aucune connexion enregistrée.</p>';}}catch{}
 }
-function openUserModal(userId){
+async function openUserModal(userId){
   document.getElementById('modal-user-id').value=userId||'';document.getElementById('modal-title').textContent=userId?'Modifier le compte':'Créer un compte';
-  ['mu-username','mu-nom','mu-email','mu-pass'].forEach(id=>{const el=document.getElementById
-async function saveUser(){
-  const id=document.getElementById('modal-user-id').value;const username=document.getElementById('mu-username').value.trim();const nom=document.getElementById('mu-nom').value.trim();const role=document.getElementById('mu-role').value;const pass=document.getElementById('mu-pass').value;const email=document.getElementById('mu-email').value.trim();
-  if(!username||!nom){toast('Remplissez tous les champs.','err');return;}
-  try{let res;if(id){res=await apiFetch(`/api/users/${id}`,{method:'PUT',body:JSON.stringify({nom,role,email,pass:pass||undefined})});}
-  else{if(!pass){toast('Saisissez un mot de passe.','err');return;}res=await apiFetch('/api/users',{method:'POST',body:JSON.stringify({username,nom,role,email,pass})});}
-  if(!res?.ok){const d=await res?.json();toast(d?.error?.message||'Erreur.','err');return;}closeUserModal();renderAdmin();toast('✅ Compte enregistré !','ok');}catch{toast('Erreur serveur.','err');}
-}
-async function toggleUser(userId){
-  try{const users=await loadUsers();const u=users.find(x=>x.id===userId);if(!u)return;await apiFetch(`/api/users/${userId}`,{method:'PUT',body:JSON.stringify({actif:!u.actif})});renderAdmin();toast('Statut mis à jour.','ok');}catch{toast('Erreur serveur.','err');}
-}
-
-// ══ NOTIFICATIONS ═══════════════════════════════════════════
-async function updateNotifBadge(){if(cRole!=='admin')return;allReports=await loadReports();const pending=allReports.filter(r=>!r.statut||r.statut.includes('attente'));const badge=document.getElementById('notif-badge');if(badge){badge.textContent=pending.length;badge.style.display=pending.length?'flex':'none';}}
-async function showNotifs(){allReports=await loadReports();const pending=allReports.filter(r=>!r.statut||r.statut.includes('attente'));document.getElementById('notif-content').innerHTML=pending.length?pending.map(r=>`<div style="padding:.55rem;border-bottom:1px solid var(--bord);"><strong>${r.arbitre||'—'}</strong><br><span style="font-size:.7rem;color:var(--doux)">${r.date||'—'} · ${r.equipes||'—'}</span></div>`).join(''):'<p style="color:var(--doux);font-size:.82rem;text-align:center;padding:1rem">✅ Aucun rapport en attente.</p>';document.getElementById('notif-modal').style.display='flex';}
-
-// ══ CORRECTION IA ══════════════════════════════════════════
-async function corrigerIA(){
-  buildResume();Object.keys(SECTIONS).forEach(s=>SECTIONS[s].criteres.forEach((_,i)=>{const el=document.getElementById(`cm-${s}-${i}`);if(el)evalData[s][i].commentaire=el.value;}));
-  const content={ctx:gv('ctx'),apf:gv('apf'),aaxes:gv('aaxes'),agene:gv('agene'),commentaires:{}};
-  Object.keys(SECTIONS).forEach(sid=>SECTIONS[sid].criteres.forEach((crit,idx)=>{const ev=evalData[sid][idx];if(ev.commentaire)content.commentaires[`${sid}-${idx}`]={critere:crit,note:ev.note,texte:ev.commentaire};}));
-  const panel=document.getElementById('corr-panel');const loading=document.getElementById('corr-loading');const results=document.getElementById('corr-results');
-  panel.style.display='block';loading.style.display='block';results.innerHTML='';results.style.display='none';
-  try{const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:`Correcteur expert FFF District BFC. JSON uniquement:\n{"corrections":[{"champ":"ctx|apf|aaxes|agene|commentaire-SID-IDX","original":"...","corrige":"...","raison":"..."}]}`,messages:[{role:'user',content:`Rapport:\n${JSON.stringify(content,null,2)}`}]})});
-  const d=await r.json();const raw=d.content?.map(b=>b.text||'').join('').trim();const json=JSON.parse(raw.replace(/```json|```/g,'').trim());corrList=json.corrections||[];
-  loading.style.display='none';results.style.display='block';
-  if(!corrList.length){results.innerHTML='<div style="text-align:center;padding:1rem;color:var(--vert);font-weight:600">✅ Aucune correction — rapport impeccable !</div>';return;}
-  const LBL={ctx:'Contexte',apf:'Points forts',aaxes:'Axes de progression',agene:'Appréciation générale'};
-  let html=`<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.8rem;flex-wrap:wrap;gap:.4rem"><span style="font-size:.78rem;color:var(--doux)">${corrList.length} correction(s)</span><button class="btn btn-s" onclick="appliquerTout()" style="font-size:.74rem;padding:.28rem .7rem">✅ Appliquer tout</button></div>`;
-  html+=corrList.map((c,i)=>{const lbl=LBL[c.champ]||(()=>{const p=c.champ.split('-');return`Commentaire #${parseInt(p[2]||0)+1}`;})();return`<div id="ci-${i}" style="background:#faf5ff;border:1px solid #c4b5fd;border-radius:10px;padding:.82rem;margin-bottom:.58rem"><div style="font-size:.67rem;font-weight:700;color:#7c3aed;margin-bottom:.42rem">✏️ ${lbl}</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.42rem"><div><div style="font-size:.6rem;color:var(--doux);font-weight:600;margin-bottom:.15rem">ORIGINAL</div><div style="background:#fee2e2;border-radius:6px;padding:.4rem;font-size:.76rem;color:#991b1b">${c.original}</div></div><div><div style="font-size:.6rem;color:var(--doux);font-weight:600;margin-bottom:.15rem">CORRIGÉ</div><div style="background:#dcfce7;border-radius:6px;padding:.4rem;font-size:.76rem;color:#15803d">${c.corrige}</div></div></div><div style="font-size:.7rem;color:var(--doux);margin-bottom:.42rem">💡 ${c.raison}</div><button class="btn btn-s" onclick="appliquerCorr(${i})" style="font-size:.7rem;padding:.26rem .62rem">✅ Appliquer</button><button class="btn btn-o" onclick="ignorer(${i})" style="font-size:.7rem;padding:.26rem .62rem;margin-left:.32rem">Ignorer</button></div>`;}).join('');
-  results.innerHTML=html;}catch{loading.style.display='none';results.style.display='block';results.innerHTML='<div style="color:var(--rouge);text-align:center;padding:1rem;">❌ Erreur IA. Réessayez.</div>';}
-}
-function appliquerCorr(i){const c=corrList[i];if(!c)return;const FM={ctx:'ctx',apf:'apf',aaxes:'aaxes',agene:'agene'};if(FM[c.champ]){const el=document.getElementById(FM[c.champ]);if(el)el.value=c.corrige;}else if(c.champ.startsWith('commentaire-')){const p=c.champ.split('-');const sid=p[1],idx=parseInt(p[2]);const el=document.getElementById(`cm-${sid}-${idx}`);if(el){el.value=c.corrige;evalData[sid][idx].commentaire=c.corrige;}}const item=document.getElementById(`ci-${i}`);if(item){item.style.background='#f0fdf4';item.style.borderColor='#86efac';item.innerHTML='<div style="color:var(--vert);font-weight:600;padding:.32rem">✅ Correction appliquée</div>';}}
-function ignorer(i){const el=document.getElementById(`ci-${i}`);if(el){el.style.opacity='.3';el.style.pointerEvents='none';}}
-function appliquerTout(){corrList.forEach((_,i)=>appliquerCorr(i));toast('✅ Toutes les corrections appliquées !','ok');}
-
-// ══ QUICK NAV ══════════════════════════════════════════════
-let qnavOpen=false;
-function toggleQNav(){qnavOpen=!qnavOpen;document.getElementById('qnav-panel').classList.toggle('show',qnavOpen);document.getElementById('qnav-overlay').classList.toggle('show',qnavOpen);if(qnavOpen)populateQNav('');}
-async function populateQNav(filter){
-  if(!allArbitres.length)await loadArbitres();
-  const f=(filter||'').toLowerCase();
-  const filtArb=f?allArbitres.filter(a=>(a.nom||'').toLowerCase().includes(f)||(a.prenom||'').toLowerCase().includes(f)||(a.licence||'').toLowerCase().includes(f)):allArbitres;
-  let html='';
-  if(filtArb.length){html+=`<div class="qnav-sec"><div class="qnav-sec-title">🏟️ Arbitres inscrits (${filtArb.length})</div>`;html+=filtArb.slice(0,25).map(a=>`<button class="qnav-item" onclick="quickFillArbitre(${a.id})"><span class="qi-label">👤 ${a.nom} ${a.prenom}</span><span class="qi-note">${a.licence||''}</span><span class="qi-badge">${a.categorie||'—'}</span></button>`).join('');html+='</div>';}
-  if(!html)html='<div style="padding:1.8rem;text-align:center;color:var(--doux);font-size:.82rem;">Aucun résultat.</div>';
-  document.getElementById('qnav-body').innerHTML=html;
-}
-function filterQNav(val){populateQNav(val);}
-function quickFillArbitre(id){selectArbitre(id);showSec('rapport');goP(0);toggleQNav();}
-
-// ══ TOAST ════════════════════════════════════════════════
-function toast(msg,type=''){const el=document.getElementById('toast');el.textContent=msg;el.className='toast show '+type;clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('show'),3500);}
-
-// ══ INIT ══════════════════════════════════════════════════
-window.addEventListener('DOMContentLoaded',()=>{
-  buildSec('qa');buildSec('ct');buildSec('cd');buildSec('pm');
-  document.getElementById('date-match').valueAsDate=new Date();updateScore();
-  document.getElementById('prog-arb')?.addEventListener('change',renderProgression);
-  const yearSel=document.getElementById('prog-year');if(yearSel){const y=new Date().getFullYear();for(let i=y;i>=y-3;i--){const o=document.createElement('option');o.value=i;o.textContent=`${i}-${i+1}`;yearSel.appendChild(o);}}
-});
-</script>
-</body>
-</html>
+  ['mu-username','mu-nom','mu-email','mu-pass'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  const users=await loadUsers?.()??[];con
