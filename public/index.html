@@ -1005,7 +1005,7 @@ async function openUserModal(userId){
   document.getElementById('modal-user-id').value=userId||'';document.getElementById('modal-title').textContent=userId?'Modifier le compte':'Créer un compte';
   ['mu-username','mu-nom','mu-email','mu-pass'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
   const users=await loadUsers?.()??[];
-
+}
 
 let LR = 'obs';
 function setLR(role) {
