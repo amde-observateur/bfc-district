@@ -1006,8 +1006,7 @@ async function openUserModal(userId){
   ['mu-username','mu-nom','mu-email','mu-pass'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
   const users=await loadUsers?.()??[];con
 
-<script>
-let LR = 'obs';
+
 
 function setLR(role) {
   LR = role;
