@@ -438,3 +438,14 @@ app.delete('/api/arbitres/:id', auth, adminOnly, async (req, res) => {
     res.json({ ok: true });
   } catch(e) { res.status(500).json({ error:{ message:'Erreur serveur' }}); }
 });
+
+
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+app.listen(PORT, () => {
+  console.log("Serveur BFC démarré sur le port " + PORT);
+});
