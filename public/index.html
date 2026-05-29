@@ -1010,10 +1010,15 @@ async function openUserModal(userId){
 let LR = 'obs';
 function setLR(role) {
   LR = role;
+
   document.querySelectorAll('.ltab').forEach(b => b.classList.remove('active'));
   if (role === 'obs') document.querySelectorAll('.ltab')[0].classList.add('active');
   if (role === 'gest') document.querySelectorAll('.ltab')[1].classList.add('active');
   if (role === 'admin') document.querySelectorAll('.ltab')[2].classList.add('active');
+
+  const desc = document.getElementById('role-desc');
+  desc.className = 'role-badge-lg ' + RC[role].badge;
+  desc.innerHTML = `<span>${RC[role].label.split(' ')[0]}</span><span>${RC[role].desc}</span>`;
 }
 
 async function doLogin() {
