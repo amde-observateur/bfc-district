@@ -1042,6 +1042,8 @@ async function doLogin() {
     localStorage.setItem('user', JSON.stringify(data.user));
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('app').style.display = 'block';
+    applyRoleUI();
+    showSec('rapport');
   } catch (e) {
     alert('Erreur de connexion au serveur');
   }
