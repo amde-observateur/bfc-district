@@ -1313,6 +1313,8 @@ function renderRep(){
   if(actCol) actCol.style.display = isAdmin?'':'none';
   const addBtn=document.getElementById('btn-add-arb');
   if(addBtn) addBtn.style.display = isAdmin?'':'none';
+  const impBtn=document.getElementById('btn-import-arb');
+  if(impBtn) impBtn.style.display = isAdmin?'':'none';
   if(count) count.textContent = filteredArbitres.length+' arbitre'+(filteredArbitres.length!==1?'s':'');
   tbody.innerHTML = filteredArbitres.map(a=>`
     <tr style="cursor:pointer" onclick="selectArbFromRep(${a.id})">
