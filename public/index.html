@@ -110,6 +110,15 @@ input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{ac
 
 
 /* ── INCIDENTS BOUTONS ── */
+
+/* ── ACCORDÉON INCIDENTS ── */
+.acc-block{border-radius:8px;margin-bottom:.45rem;overflow:hidden;border:1px solid var(--bord);}
+.acc-hdr{padding:.5rem .75rem;font-size:.76rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none;transition:opacity .15s;}
+.acc-hdr:hover{opacity:.85;}
+.acc-arrow{font-size:.65rem;transition:transform .2s;}
+.acc-hdr.open .acc-arrow{transform:rotate(90deg);}
+.acc-body{padding:.5rem .6rem .6rem;}
+
 .inc-cat-block{margin-bottom:.75rem;}
 .inc-cat-hdr{font-size:.73rem;font-weight:700;padding:.28rem .6rem;border-radius:6px;margin-bottom:.38rem;display:inline-block;}
 .cj-hdr{background:#fef9c3;color:#854d0e;}
@@ -190,7 +199,32 @@ input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{ac
     <div class="card">
       <div class="card-header"><span class="card-icon">🏟️</span><div><div class="card-title">Informations du Match</div><div class="card-sub">Données générales de la rencontre</div></div></div>
       <div class="fgrid">
-        <div class="fg"><label>Catégorie</label><select id="categorie"><option>D1</option><option>D2</option><option selected>D3</option><option>D4</option><option>U18</option><option>U15</option><option>U13</option><option>U11</option><option>U9</option><option>Régional</option></select></div>
+        <div class="fg"><label>Catégorie</label>
+          <select id="categorie">
+            <optgroup label="🏆 Arbitre Ligue">
+              <option>R1</option><option>R2</option><option>R3</option>
+            </optgroup>
+            <optgroup label="🌟 Jeune Arbitre de Ligue">
+              <option>U18 - R1</option><option>U18 - R2</option>
+              <option>U16 - R1</option><option>U16 - R2</option>
+              <option>U15 - R1</option><option>U15 - R2</option>
+              <option>U14 - R1</option><option>U14 - R2</option>
+            </optgroup>
+            <optgroup label="📋 Arbitre de District">
+              <option>D1</option><option>D2</option><option selected>D3</option><option>D4</option>
+            </optgroup>
+            <optgroup label="🌱 Jeune Arbitre de District">
+              <option>U18 - D1</option><option>U18 - D2</option>
+              <option>U15 - D1</option><option>U15 - D2</option><option>U15 - D3</option>
+            </optgroup>
+            <optgroup label="🌿 Très Jeune Arbitre de District">
+              <option>U13 - D1</option><option>U13 - D2</option><option>U13 - D3</option>
+            </optgroup>
+            <optgroup label="⭐ Autre">
+              <option>Jeune Arbitre FIA</option><option>Senior Arbitre FIA</option>
+            </optgroup>
+          </select>
+        </div>
         <div class="fg"><label>Nom de l'Arbitre <button class="arb-picker-btn" onclick="openArbPicker()" type="button">🔍 Répertoire</button></label><input type="text" id="arbitre-nom" placeholder="NOM Prénom"></div>
         <div class="fg"><label>Email de l'Arbitre (optionnel)</label><input type="email" id="arbitre-email" placeholder="arbitre@exemple.fr"></div>
         <div class="fg"><label>Observateur</label><input type="text" id="obs-nom" placeholder="NOM Prénom"></div>
@@ -220,66 +254,74 @@ input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{ac
 
   <div class="page" id="page-1">
     <div class="card">
-      <div class="card-header"><span class="card-icon">⚠️</span><div><div class="card-title">Incidents & Accidents</div><div class="card-sub">Sélectionnez un type puis ajoutez une description</div></div></div>
+      <div class="card-header"><span class="card-icon">⚠️</span><div><div class="card-title">Incidents & Accidents</div><div class="card-sub">Cliquez sur une catégorie pour la déplier</div></div></div>
 
       <!-- 🟡 CARTON JAUNE -->
-      <div class="inc-cat-block">
-        <div class="inc-cat-hdr cj-hdr">🟡 Carton Jaune</div>
-        <div class="inc-btns">
-          <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j1')">J1 — Comportement antisportif</button>
-          <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j2')">J2 — Désapprobation paroles/actes</button>
-          <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j3')">J3 — Infraction persistante</button>
-          <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j4')">J4 — Retarder la reprise</button>
-          <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j5')">J5 — Non-respect distance</button>
-          <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j6')">J6 — Entrée sans autorisation</button>
-          <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j7')">J7 — Quitter terrain</button>
+      <div class="acc-block">
+        <div class="acc-hdr cj-hdr" onclick="toggleAcc(this)">🟡 Carton Jaune <span class="acc-arrow">▶</span></div>
+        <div class="acc-body" style="display:none;">
+          <div class="inc-btns">
+            <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j1',this)">J1 — Comportement antisportif</button>
+            <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j2',this)">J2 — Désapprobation paroles/actes</button>
+            <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j3',this)">J3 — Infraction persistante</button>
+            <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j4',this)">J4 — Retarder la reprise</button>
+            <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j5',this)">J5 — Non-respect distance</button>
+            <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j6',this)">J6 — Entrée sans autorisation</button>
+            <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j7',this)">J7 — Quitter terrain</button>
+          </div>
         </div>
       </div>
 
       <!-- 🔴 CARTON ROUGE -->
-      <div class="inc-cat-block">
-        <div class="inc-cat-hdr cr-hdr">🔴 Carton Rouge</div>
-        <div class="inc-btns">
-          <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r1')">R1 — Faute grossière</button>
-          <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r2')">R2 — Acte de brutalité</button>
-          <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r3')">R3 — Crachat</button>
-          <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r4')">R4 — Main délibérée</button>
-          <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r5')">R5 — Occasion manifeste</button>
-          <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r6')">R6 — Langage offensant</button>
-          <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r7')">R7 — Second avertissement</button>
+      <div class="acc-block">
+        <div class="acc-hdr cr-hdr" onclick="toggleAcc(this)">🔴 Carton Rouge <span class="acc-arrow">▶</span></div>
+        <div class="acc-body" style="display:none;">
+          <div class="inc-btns">
+            <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r1',this)">R1 — Faute grossière</button>
+            <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r2',this)">R2 — Acte de brutalité</button>
+            <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r3',this)">R3 — Crachat</button>
+            <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r4',this)">R4 — Main délibérée</button>
+            <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r5',this)">R5 — Occasion manifeste</button>
+            <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r6',this)">R6 — Langage offensant</button>
+            <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r7',this)">R7 — Second avertissement</button>
+          </div>
         </div>
       </div>
 
       <!-- ⚪ CARTON BLANC -->
-      <div class="inc-cat-block">
-        <div class="inc-cat-hdr cb-hdr">⚪ Carton Blanc (BFC)</div>
-        <div class="inc-btns">
-          <button class="inc-btn inc-btn-cb" onclick="selectInc('cb_b1')">CB1 — Désapprobation</button>
-          <button class="inc-btn inc-btn-cb" onclick="selectInc('cb_b2')">CB2 — Retard reprise</button>
-          <button class="inc-btn inc-btn-cb" onclick="selectInc('cb_coach')">CB Coach → sort Capitaine</button>
-          <button class="inc-btn inc-btn-cb" onclick="selectInc('cb_coach2')">CB Coach → sort Vice-Cap.</button>
+      <div class="acc-block">
+        <div class="acc-hdr cb-hdr" onclick="toggleAcc(this)">⚪ Carton Blanc (BFC) <span class="acc-arrow">▶</span></div>
+        <div class="acc-body" style="display:none;">
+          <div class="inc-btns">
+            <button class="inc-btn inc-btn-cb" onclick="selectInc('cb_b1',this)">CB1 — Désapprobation</button>
+            <button class="inc-btn inc-btn-cb" onclick="selectInc('cb_b2',this)">CB2 — Retard reprise</button>
+            <button class="inc-btn inc-btn-cb" onclick="selectInc('cb_coach',this)">CB Coach → sort Capitaine</button>
+            <button class="inc-btn inc-btn-cb" onclick="selectInc('cb_coach2',this)">CB Coach → sort Vice-Cap.</button>
+          </div>
         </div>
       </div>
 
       <!-- ⚠️ AUTRE -->
-      <div class="inc-cat-block">
-        <div class="inc-cat-hdr au-hdr">⚠️ Autre</div>
-        <div class="inc-btns">
-          <button class="inc-btn inc-btn-au" onclick="selectInc('match_arrete')">Match arrêté</button>
-          <button class="inc-btn inc-btn-au" onclick="selectInc('match_reporte')">Match reporté</button>
-          <button class="inc-btn inc-btn-au" onclick="selectInc('arb_absent')">Arbitre absent</button>
-          <button class="inc-btn inc-btn-au" onclick="selectInc('arb_remplace')">Arbitre remplacé</button>
-          <button class="inc-btn inc-btn-au" onclick="selectInc('but')">⚽ But</button>
-          <button class="inc-btn inc-btn-au" onclick="selectInc('autre')">📌 Autre</button>
+      <div class="acc-block">
+        <div class="acc-hdr au-hdr" onclick="toggleAcc(this)">⚠️ Autre <span class="acc-arrow">▶</span></div>
+        <div class="acc-body" style="display:none;">
+          <div class="inc-btns">
+            <button class="inc-btn inc-btn-au" onclick="selectInc('match_arrete',this)">Match arrêté</button>
+            <button class="inc-btn inc-btn-au" onclick="selectInc('match_reporte',this)">Match reporté</button>
+            <button class="inc-btn inc-btn-au" onclick="selectInc('arb_absent',this)">Arbitre absent</button>
+            <button class="inc-btn inc-btn-au" onclick="selectInc('arb_remplace',this)">Arbitre remplacé</button>
+            <button class="inc-btn inc-btn-au" onclick="selectInc('but',this)">⚽ But</button>
+            <button class="inc-btn inc-btn-au" onclick="selectInc('autre',this)">📌 Autre</button>
+          </div>
         </div>
       </div>
 
       <!-- Zone description + ajout -->
       <div id="inc-add-zone" style="display:none;background:#f8fafc;border-radius:9px;padding:.75rem;margin-top:.6rem;border:1.5px solid var(--bord);">
         <div style="font-size:.73rem;font-weight:600;color:var(--bleu);margin-bottom:.4rem;" id="inc-selected-label"></div>
-        <div style="display:flex;gap:.5rem;align-items:center;">
-          <input type="text" id="inc-desc" placeholder="Joueur, équipe, motif… (optionnel)" style="flex:1;padding:.38rem .6rem;border:1.5px solid var(--bord);border-radius:7px;font-family:Inter,sans-serif;font-size:.76rem;outline:none;" onkeydown="if(event.key==='Enter')addInc()">
-          <button class="btn btn-p" onclick="addInc()" style="white-space:nowrap;padding:.38rem .75rem;font-size:.76rem;">+ Ajouter</button>
+        <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;">
+          <input type="text" id="inc-desc" placeholder="Joueur, équipe, motif… (optionnel)" style="flex:1;min-width:140px;padding:.38rem .6rem;border:1.5px solid var(--bord);border-radius:7px;font-family:Inter,sans-serif;font-size:.76rem;outline:none;" onkeydown="if(event.key==='Enter')addInc()">
+          <button class="btn btn-p" onclick="addInc()" style="white-space:nowrap;padding:.38rem .75rem;font-size:.76rem;">✅ Ajouter</button>
           <button class="btn btn-o" onclick="cancelInc()" style="padding:.38rem .6rem;font-size:.76rem;">✕</button>
         </div>
       </div>
@@ -289,7 +331,7 @@ input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{ac
     <div class="btn-row"><button class="btn btn-o" onclick="goP(0)">← Retour</button><button class="btn btn-p" onclick="goP(2)">Suivant → Athlétique</button></div>
   </div>
 
-  <div class="page" id="page-2"><div class="card"><div class="card-header"><span class="card-icon">🏃</span><div><div class="card-title">Qualités Athlétiques au Service du Jeu</div></div></div><div id="sec-qa"></div></div><div class="btn-row"><button class="btn btn-o" onclick="goP(1)">← Retour</button><button class="btn btn-p" onclick="goP(3)">Suivant →</button></div></div>
+    <div class="page" id="page-2"><div class="card"><div class="card-header"><span class="card-icon">🏃</span><div><div class="card-title">Qualités Athlétiques au Service du Jeu</div></div></div><div id="sec-qa"></div></div><div class="btn-row"><button class="btn btn-o" onclick="goP(1)">← Retour</button><button class="btn btn-p" onclick="goP(3)">Suivant →</button></div></div>
   <div class="page" id="page-3"><div class="card"><div class="card-header"><span class="card-icon">⚖️</span><div><div class="card-title">Compétences Techniques</div></div></div><div id="sec-ct"></div></div><div class="btn-row"><button class="btn btn-o" onclick="goP(2)">← Retour</button><button class="btn btn-p" onclick="goP(4)">Suivant →</button></div></div>
   <div class="page" id="page-4"><div class="card"><div class="card-header"><span class="card-icon">🟡</span><div><div class="card-title">Compétences Disciplinaires</div></div></div><div id="sec-cd"></div></div><div class="btn-row"><button class="btn btn-o" onclick="goP(3)">← Retour</button><button class="btn btn-p" onclick="goP(5)">Suivant →</button></div></div>
   <div class="page" id="page-5"><div class="card"><div class="card-header"><span class="card-icon">🎯</span><div><div class="card-title">Personnalité & Management</div></div></div><div id="sec-pm"></div></div><div class="btn-row"><button class="btn btn-o" onclick="goP(4)">← Retour</button><button class="btn btn-p" onclick="goP(6)">Suivant →</button></div></div>
@@ -723,16 +765,46 @@ function updateScore(){
 // ══════════════════════════════════════
 //  INCIDENTS
 // ══════════════════════════════════════
-function addInc(){
-  const t=document.getElementById('inc-type').value;const d=document.getElementById('inc-desc').value.trim();
-  if(!d){toast('Saisissez une description.','err');return;}
-  incidents.push({id:Date.now(),type:t,desc:d});document.getElementById('inc-desc').value='';renderInc();
+let currentIncType='';
+
+function toggleAcc(hdr){
+  hdr.classList.toggle('open');
+  const body=hdr.nextElementSibling;
+  body.style.display=body.style.display==='none'?'block':'none';
 }
+
+function selectInc(type, btn){
+  currentIncType=type;
+  document.getElementById('inc-add-zone').style.display='block';
+  document.getElementById('inc-selected-label').textContent=(TI[type]||'')+'  '+(TL[type]||type);
+  document.getElementById('inc-desc').value='';
+  document.querySelectorAll('.inc-btn').forEach(b=>b.classList.remove('inc-btn-sel'));
+  if(btn) btn.classList.add('inc-btn-sel');
+  setTimeout(()=>{ const el=document.getElementById('inc-desc'); if(el) el.focus(); },50);
+}
+
+function cancelInc(){
+  currentIncType='';
+  document.getElementById('inc-add-zone').style.display='none';
+  document.querySelectorAll('.inc-btn').forEach(b=>b.classList.remove('inc-btn-sel'));
+}
+
+function addInc(){
+  if(!currentIncType){toast('Sélectionnez un type d\'incident.','err');return;}
+  const d=document.getElementById('inc-desc').value.trim();
+  const t=currentIncType;
+  incidents.push({id:Date.now(),type:t,desc:d});
+  cancelInc();
+  renderInc();
+  toast((TI[t]||'✅')+' '+TL[t]+' ajouté','ok');
+}
+
 function removeInc(id){incidents=incidents.filter(i=>i.id!==id);renderInc();}
+
 function renderInc(){
   const el=document.getElementById('inc-list');
   if(!incidents.length){el.innerHTML='<p style="color:var(--doux);font-size:.74rem;text-align:center;padding:.62rem;">Aucun incident.</p>';return;}
-  el.innerHTML=incidents.map(i=>`<div class="inc-tag t-${i.type}"><span class="tbadge">${TI[i.type]} ${TL[i.type]}</span><span class="desc">${i.desc}</span><button class="btn-rm" onclick="removeInc(${i.id})">✕</button></div>`).join('');
+  el.innerHTML=incidents.map(i=>`<div class="inc-tag t-${i.type}"><span class="tbadge">${TI[i.type]||'📌'} ${TL[i.type]||i.type}</span><span class="desc">${i.desc}</span><button class="btn-rm" onclick="removeInc(${i.id})">✕</button></div>`).join('');
 }
 
 // ══════════════════════════════════════
@@ -1368,6 +1440,39 @@ function pickArbitre(id){
 }
 
 
+function importCSV(input){
+  const file=input.files[0]; if(!file) return;
+  const reader=new FileReader();
+  reader.onload=async function(e){
+    const text=e.target.result;
+    const lines=text.split(/\r?\n/).filter(l=>l.trim());
+    if(!lines.length){toast('Fichier vide.','err');return;}
+    // Détecter séparateur (virgule ou point-virgule)
+    const sep=lines[0].includes(';')?';':',';
+    // Essayer de détecter l'entête
+    const headers=lines[0].split(sep).map(h=>h.trim().toLowerCase().replace(/['"]/g,''));
+    const colMap={nom:-1,prenom:-1,licence:-1,localite:-1,telephone:-1,email:-1,club:-1};
+    const aliases={nom:['nom','name','last'],prenom:['prenom','prénom','first','firstname'],licence:['licence','license','no licence','n° licence'],localite:['localite','localité','ville','city'],telephone:['telephone','téléphone','tel','phone','mobile'],email:['email','mail','courriel'],club:['club','appartenance','club appartenance']};
+    headers.forEach((h,i)=>{Object.entries(aliases).forEach(([k,vals])=>{if(vals.some(v=>h.includes(v)))colMap[k]=i;});});
+    // Si pas d'entête détectée, supposer l'ordre standard
+    if(colMap.nom===-1){colMap.nom=0;colMap.prenom=1;colMap.licence=2;colMap.localite=3;colMap.telephone=4;colMap.email=5;colMap.club=6;}
+    const startLine=headers.some(h=>h.includes('nom')||h.includes('name'))?1:0;
+    let count=0, errors=0;
+    for(let i=startLine;i<lines.length;i++){
+      const cols=lines[i].split(sep).map(c=>c.trim().replace(/^["']|["']$/g,''));
+      const nom=(colMap.nom>=0?cols[colMap.nom]||'':'').toUpperCase().trim();
+      if(!nom) continue;
+      const body={nom,prenom:colMap.prenom>=0?cols[colMap.prenom]||'':'',licence:colMap.licence>=0?cols[colMap.licence]||'':'',localite:colMap.localite>=0?cols[colMap.localite]||'':'',telephone:colMap.telephone>=0?cols[colMap.telephone]||'':'',email:colMap.email>=0?cols[colMap.email]||'':'',club:colMap.club>=0?cols[colMap.club]||'':''};
+      try{ await apiFetch('/api/arbitres',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}); count++; }
+      catch(e){ errors++; }
+    }
+    input.value='';
+    await loadArbitres();
+    toast('✅ '+count+' arbitre(s) importé(s)'+(errors?' ('+errors+' erreur(s))':''),'ok');
+  };
+  reader.readAsText(file,'UTF-8');
+}
+
 function updateEquipes(){
   const a=(document.getElementById('equipe-a').value||'').trim();
   const b=(document.getElementById('equipe-b').value||'').trim();
@@ -1419,6 +1524,9 @@ window.addEventListener('DOMContentLoaded',()=>{
       <input type="text" id="rep-search" placeholder="🔍 Rechercher nom, prénom, licence, club…" oninput="filterRep(this.value)">
       <span class="rep-count" id="rep-count"></span>
       <button class="btn btn-p" onclick="toggleArbForm()" id="btn-add-arb" style="display:none;font-size:.72rem;padding:.32rem .75rem;">➕ Ajouter</button>
+      <label class="btn btn-o" id="btn-import-arb" style="display:none;font-size:.72rem;padding:.32rem .75rem;cursor:pointer;">📥 Importer CSV
+        <input type="file" accept=".csv,.xlsx,.xls" style="display:none;" onchange="importCSV(this)">
+      </label>
     </div>
 
     <div id="arb-add-form" style="display:none;">
