@@ -1043,7 +1043,6 @@ localStorage.setItem('token', user.accessToken);
 localStorage.setItem('user', JSON.stringify(user));
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('app').style.display = 'block';
-    applyRoleUI();
     showSec('rapport');
   } catch (e) {
     alert('Erreur : ' + e.message);
