@@ -17,7 +17,11 @@ const PORT               = process.env.PORT               || 3000;
 const JWT_SECRET         = process.env.JWT_SECRET         || 'dev-secret-change-in-prod-AAAA';
 const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET || 'dev-refresh-change-in-prod-BBBB';
 const GEMINI_API_KEY     = process.env.GEMINI_API_KEY     || '';
-const DATABASE_URL       = process.env.DATABASE_URL       || '';
+const pool = new Pool({
+  connectionString: DATABASE_URL,
+  ssl: { rejectUnauthorized: false },
+  family: 4
+});
 
 // ═══════════════════════════════════════
 //  BASE DE DONNÉES PostgreSQL (Supabase)
