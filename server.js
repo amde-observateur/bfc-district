@@ -26,10 +26,7 @@ const pool = new Pool({
 // ═══════════════════════════════════════
 //  BASE DE DONNÉES PostgreSQL (Supabase)
 // ═══════════════════════════════════════
-const pool = new Pool({
-  connectionString: DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
-});
+
 
 const dbRun = async (sql, p = []) => { const r = await pool.query(sql, p); return r; };
 const dbGet = async (sql, p = []) => { const r = await pool.query(sql, p); return r.rows[0]; };
