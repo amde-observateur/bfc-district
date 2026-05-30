@@ -108,6 +108,25 @@ input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{ac
 .arb-form{background:#f8fafc;border-radius:9px;padding:.85rem;margin-bottom:.9rem;border:1.5px solid var(--bord);}
 .arb-form h4{font-size:.78rem;font-weight:700;margin-bottom:.65rem;color:var(--bleu);}
 
+
+/* ── INCIDENTS BOUTONS ── */
+.inc-cat-block{margin-bottom:.75rem;}
+.inc-cat-hdr{font-size:.73rem;font-weight:700;padding:.28rem .6rem;border-radius:6px;margin-bottom:.38rem;display:inline-block;}
+.cj-hdr{background:#fef9c3;color:#854d0e;}
+.cr-hdr{background:#fee2e2;color:#991b1b;}
+.cb-hdr{background:#f1f5f9;color:#475569;}
+.au-hdr{background:#fff7ed;color:#9a3412;}
+.inc-btns{display:flex;flex-wrap:wrap;gap:.32rem;}
+.inc-btn{padding:.28rem .55rem;border-radius:6px;border:1.5px solid;font-size:.68rem;font-weight:500;cursor:pointer;transition:all .15s;background:#fff;font-family:Inter,sans-serif;}
+.inc-btn-cj{border-color:#eab308;color:#854d0e;background:#fefce8;}
+.inc-btn-cj:hover,.inc-btn-cj.inc-btn-sel{background:#eab308;color:#fff;border-color:#eab308;}
+.inc-btn-cr{border-color:#ef4444;color:#991b1b;background:#fff5f5;}
+.inc-btn-cr:hover,.inc-btn-cr.inc-btn-sel{background:#ef4444;color:#fff;border-color:#ef4444;}
+.inc-btn-cb{border-color:#94a3b8;color:#475569;background:#f8fafc;}
+.inc-btn-cb:hover,.inc-btn-cb.inc-btn-sel{background:#64748b;color:#fff;border-color:#64748b;}
+.inc-btn-au{border-color:#f97316;color:#9a3412;background:#fff7ed;}
+.inc-btn-au:hover,.inc-btn-au.inc-btn-sel{background:#f97316;color:#fff;border-color:#f97316;}
+
 @media print{#login-screen,.main-nav,.note-flottante,header,.steps-nav,.btn,.btn-row,.autosave,#corr-panel,.toast,.modal-bg{display:none!important;}.section{display:block!important;}#section-historique,#section-stats,#section-arbitres,#section-admin{display:none!important;}body{background:#fff!important;}.card{border:1px solid #ccc;box-shadow:none;}.eval-table{font-size:8pt;}.preview-box{max-height:none;}.note-box{background:#1a3a6b!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
 @media(max-width:600px){.inc-row{grid-template-columns:1fr 1fr;}.eval-table{font-size:.68rem;}#score-display{font-size:1.7rem;}.data-table th:nth-child(3),.data-table td:nth-child(3){display:none;}.comp-selectors{flex-direction:column;}}
 </style>
@@ -177,7 +196,14 @@ input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{ac
         <div class="fg"><label>Observateur</label><input type="text" id="obs-nom" placeholder="NOM Prénom"></div>
         <div class="fg"><label>Assistants</label><input type="text" id="assistants" placeholder="Officiels ou bénévoles"></div>
         <div class="fg"><label>Compétition</label><input type="text" id="competition" placeholder="Ex : DISTRICT D3"></div>
-        <div class="fg"><label>Équipes</label><input type="text" id="equipes" placeholder="EQ A / EQ B"></div>
+        <div class="fg full"><label>Équipes</label>
+          <div style="display:flex;align-items:center;gap:.5rem;">
+            <input type="text" id="equipe-a" placeholder="Équipe Domicile" style="flex:1;" oninput="updateEquipes()">
+            <span style="font-size:1.1rem;font-weight:700;color:var(--bleu);white-space:nowrap;">🆚</span>
+            <input type="text" id="equipe-b" placeholder="Équipe Visiteur" style="flex:1;" oninput="updateEquipes()">
+          </div>
+          <input type="hidden" id="equipes">
+        </div>
         <div class="fg"><label>Date du Match</label><input type="date" id="date-match"></div>
         <div class="fg full"><label>Score Final (0 – 20)</label>
           <div class="score-box">
@@ -194,20 +220,71 @@ input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{ac
 
   <div class="page" id="page-1">
     <div class="card">
-      <div class="card-header"><span class="card-icon">⚠️</span><div><div class="card-title">Incidents & Accidents</div></div></div>
-      <div class="inc-row">
-        <div class="fg"><label>Type</label>
-          <select id="inc-type">
-            <optgroup label="🟡 CARTON JAUNE"><option value="cj_j1">🟡 J1 — Comportement antisportif</option><option value="cj_j2">🟡 J2 — Désapprobation paroles/actes</option><option value="cj_j3">🟡 J3 — Infraction persistante</option><option value="cj_j4">🟡 J4 — Retarder la reprise</option><option value="cj_j5">🟡 J5 — Non-respect distance</option><option value="cj_j6">🟡 J6 — Entrée sans autorisation</option><option value="cj_j7">🟡 J7 — Quitter terrain</option></optgroup>
-            <optgroup label="🔴 CARTON ROUGE"><option value="cr_r1">🔴 R1 — Faute grossière</option><option value="cr_r2">🔴 R2 — Acte de brutalité</option><option value="cr_r3">🔴 R3 — Crachat</option><option value="cr_r4">🔴 R4 — Main délibérée</option><option value="cr_r5">🔴 R5 — Occasion manifeste</option><option value="cr_r6">🔴 R6 — Langage offensant</option><option value="cr_r7">🔴 R7 — Second avertissement</option></optgroup>
-            <optgroup label="⬜ CARTON BLANC (BFC)"><option value="cb_b1">⬜ CB1 — Désapprobation</option><option value="cb_b2">⬜ CB2 — Retard reprise</option><option value="cb_coach">⬜ CB Coach → sort Capitaine</option><option value="cb_coach2">⬜ CB Coach → sort Vice-Cap.</option></optgroup>
-            <option value="but">⚽ But</option><option value="autre">📌 Autre</option>
-          </select>
+      <div class="card-header"><span class="card-icon">⚠️</span><div><div class="card-title">Incidents & Accidents</div><div class="card-sub">Sélectionnez un type puis ajoutez une description</div></div></div>
+
+      <!-- 🟡 CARTON JAUNE -->
+      <div class="inc-cat-block">
+        <div class="inc-cat-hdr cj-hdr">🟡 Carton Jaune</div>
+        <div class="inc-btns">
+          <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j1')">J1 — Comportement antisportif</button>
+          <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j2')">J2 — Désapprobation paroles/actes</button>
+          <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j3')">J3 — Infraction persistante</button>
+          <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j4')">J4 — Retarder la reprise</button>
+          <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j5')">J5 — Non-respect distance</button>
+          <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j6')">J6 — Entrée sans autorisation</button>
+          <button class="inc-btn inc-btn-cj" onclick="selectInc('cj_j7')">J7 — Quitter terrain</button>
         </div>
-        <div class="fg"><label>Description</label><input type="text" id="inc-desc" placeholder="Joueur, équipe, motif…" onkeydown="if(event.key==='Enter')addInc()"></div>
-        <div class="fg"><label>&nbsp;</label><button class="btn btn-p" onclick="addInc()">+ Ajouter</button></div>
       </div>
-      <div class="inc-list" id="inc-list"><p style="color:var(--doux);font-size:.76rem;text-align:center;padding:.65rem;">Aucun incident.</p></div>
+
+      <!-- 🔴 CARTON ROUGE -->
+      <div class="inc-cat-block">
+        <div class="inc-cat-hdr cr-hdr">🔴 Carton Rouge</div>
+        <div class="inc-btns">
+          <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r1')">R1 — Faute grossière</button>
+          <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r2')">R2 — Acte de brutalité</button>
+          <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r3')">R3 — Crachat</button>
+          <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r4')">R4 — Main délibérée</button>
+          <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r5')">R5 — Occasion manifeste</button>
+          <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r6')">R6 — Langage offensant</button>
+          <button class="inc-btn inc-btn-cr" onclick="selectInc('cr_r7')">R7 — Second avertissement</button>
+        </div>
+      </div>
+
+      <!-- ⚪ CARTON BLANC -->
+      <div class="inc-cat-block">
+        <div class="inc-cat-hdr cb-hdr">⚪ Carton Blanc (BFC)</div>
+        <div class="inc-btns">
+          <button class="inc-btn inc-btn-cb" onclick="selectInc('cb_b1')">CB1 — Désapprobation</button>
+          <button class="inc-btn inc-btn-cb" onclick="selectInc('cb_b2')">CB2 — Retard reprise</button>
+          <button class="inc-btn inc-btn-cb" onclick="selectInc('cb_coach')">CB Coach → sort Capitaine</button>
+          <button class="inc-btn inc-btn-cb" onclick="selectInc('cb_coach2')">CB Coach → sort Vice-Cap.</button>
+        </div>
+      </div>
+
+      <!-- ⚠️ AUTRE -->
+      <div class="inc-cat-block">
+        <div class="inc-cat-hdr au-hdr">⚠️ Autre</div>
+        <div class="inc-btns">
+          <button class="inc-btn inc-btn-au" onclick="selectInc('match_arrete')">Match arrêté</button>
+          <button class="inc-btn inc-btn-au" onclick="selectInc('match_reporte')">Match reporté</button>
+          <button class="inc-btn inc-btn-au" onclick="selectInc('arb_absent')">Arbitre absent</button>
+          <button class="inc-btn inc-btn-au" onclick="selectInc('arb_remplace')">Arbitre remplacé</button>
+          <button class="inc-btn inc-btn-au" onclick="selectInc('but')">⚽ But</button>
+          <button class="inc-btn inc-btn-au" onclick="selectInc('autre')">📌 Autre</button>
+        </div>
+      </div>
+
+      <!-- Zone description + ajout -->
+      <div id="inc-add-zone" style="display:none;background:#f8fafc;border-radius:9px;padding:.75rem;margin-top:.6rem;border:1.5px solid var(--bord);">
+        <div style="font-size:.73rem;font-weight:600;color:var(--bleu);margin-bottom:.4rem;" id="inc-selected-label"></div>
+        <div style="display:flex;gap:.5rem;align-items:center;">
+          <input type="text" id="inc-desc" placeholder="Joueur, équipe, motif… (optionnel)" style="flex:1;padding:.38rem .6rem;border:1.5px solid var(--bord);border-radius:7px;font-family:Inter,sans-serif;font-size:.76rem;outline:none;" onkeydown="if(event.key==='Enter')addInc()">
+          <button class="btn btn-p" onclick="addInc()" style="white-space:nowrap;padding:.38rem .75rem;font-size:.76rem;">+ Ajouter</button>
+          <button class="btn btn-o" onclick="cancelInc()" style="padding:.38rem .6rem;font-size:.76rem;">✕</button>
+        </div>
+      </div>
+
+      <div class="inc-list" id="inc-list" style="margin-top:.7rem;"><p style="color:var(--doux);font-size:.76rem;text-align:center;padding:.65rem;">Aucun incident.</p></div>
     </div>
     <div class="btn-row"><button class="btn btn-o" onclick="goP(0)">← Retour</button><button class="btn btn-p" onclick="goP(2)">Suivant → Athlétique</button></div>
   </div>
@@ -417,8 +494,8 @@ const SECTIONS={
 };
 const NV={pf:15,qa:13,pa:11,atp:9};
 const TOTAL=20;
-const TL={cj_j1:'J1 Antisportif',cj_j2:'J2 Désapprobation',cj_j3:'J3 Infraction',cj_j4:'J4 Retarder',cj_j5:'J5 Distance',cj_j6:'J6 Entrée',cj_j7:'J7 Quitter',cr_r1:'R1 Faute grossière',cr_r2:'R2 Brutalité',cr_r3:'R3 Crachat',cr_r4:'R4 Main délib.',cr_r5:'R5 Occasion',cr_r6:'R6 Langage',cr_r7:'R7 2e avert.',cb_b1:'CB1',cb_b2:'CB2',cb_coach:'CB Coach→Cap',cb_coach2:'CB Coach→VCap',but:'But',autre:'Autre'};
-const TI={cj_j1:'🟡',cj_j2:'🟡',cj_j3:'🟡',cj_j4:'🟡',cj_j5:'🟡',cj_j6:'🟡',cj_j7:'🟡',cr_r1:'🔴',cr_r2:'🔴',cr_r3:'🔴',cr_r4:'🔴',cr_r5:'🔴',cr_r6:'🔴',cr_r7:'🔴',cb_b1:'⬜',cb_b2:'⬜',cb_coach:'⬜',cb_coach2:'⬜',but:'⚽',autre:'📌'};
+const TL={cj_j1:'J1 Antisportif',cj_j2:'J2 Désapprobation',cj_j3:'J3 Infraction',cj_j4:'J4 Retarder',cj_j5:'J5 Distance',cj_j6:'J6 Entrée',cj_j7:'J7 Quitter',cr_r1:'R1 Faute grossière',cr_r2:'R2 Brutalité',cr_r3:'R3 Crachat',cr_r4:'R4 Main délib.',cr_r5:'R5 Occasion',cr_r6:'R6 Langage',cr_r7:'R7 2e avert.',cb_b1:'CB1 Désapprobation',cb_b2:'CB2 Retard reprise',cb_coach:'CB Coach→Capitaine',cb_coach2:'CB Coach→Vice-Cap.',match_arrete:'Match arrêté',match_reporte:'Match reporté',arb_absent:'Arbitre absent',arb_remplace:'Arbitre remplacé',but:'But',autre:'Autre'};
+const TI={cj_j1:'🟡',cj_j2:'🟡',cj_j3:'🟡',cj_j4:'🟡',cj_j5:'🟡',cj_j6:'🟡',cj_j7:'🟡',cr_r1:'🔴',cr_r2:'🔴',cr_r3:'🔴',cr_r4:'🔴',cr_r5:'🔴',cr_r6:'🔴',cr_r7:'🔴',cb_b1:'⚪',cb_b2:'⚪',cb_coach:'⚪',cb_coach2:'⚪',match_arrete:'⚠️',match_reporte:'⚠️',arb_absent:'⚠️',arb_remplace:'⚠️',but:'⚽',autre:'📌'};
 const RC={obs:{label:'👁️ Observateur',pill:'rp-obs',badge:'rb-obs',desc:'Observateur — Saisie et génération de rapports'},gest:{label:'📋 Gestionnaire',pill:'rp-gest',badge:'rb-gest',desc:'Gestionnaire — Saisie, suivi et correction'},admin:{label:'🔐 Administrateur',pill:'rp-admin',badge:'rb-admin',desc:'Administrateur — Accès complet'}};
 const CC=['#2563eb','#16a34a','#dc2626','#7c3aed','#f59e0b','#0891b2'];
 
@@ -559,7 +636,15 @@ async function checkDraft(){
 
 function restoreDraft(draft){
   const f=draft.fields||{};
-  const map={'categorie':'categorie','arbitre-nom':'arbitreNom','arbitre-email':'arbitreEmail','obs-nom':'obsNom','assistants':'assistants','competition':'competition','equipes':'equipes','date-match':'date','ctx':'ctx','apf':'apf','aaxes':'aaxes','agene':'agene','signature':'signature'};
+  const map={'categorie':'categorie','arbitre-nom':'arbitreNom','arbitre-email':'arbitreEmail','obs-nom':'obsNom','assistants':'assistants','competition':'competition','date-match':'date','ctx':'ctx','apf':'apf','aaxes':'aaxes','agene':'agene','signature':'signature'};
+  // Charger les équipes séparément
+  if(draft.equipes){
+    const parts=(draft.equipes||'').split(' 🆚 ');
+    const ea=document.getElementById('equipe-a');const eb=document.getElementById('equipe-b');
+    if(ea) ea.value=parts[0]||'';
+    if(eb) eb.value=parts[1]||'';
+    updateEquipes();
+  }
   Object.entries(map).forEach(([id,k])=>{const el=document.getElementById(id);if(el&&f[k])el.value=f[k];});
   if(f.sRec)document.getElementById('sc-rec').value=f.sRec;
   if(f.sVis)document.getElementById('sc-vis').value=f.sVis;
@@ -620,7 +705,7 @@ function showSubTab(t){
 async function nouveauRapport(){
   if(!confirm('Commencer un nouveau rapport ? Le formulaire actuel sera effacé.'))return;
   incidents=[];Object.keys(SECTIONS).forEach(s=>{evalData[s]=SECTIONS[s].criteres.map(()=>({note:'',commentaire:''}));});
-  ['categorie','arbitre-nom','arbitre-email','obs-nom','assistants','competition','equipes','ctx','apf','aaxes','agene','signature','note-20','note-100'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  ['categorie','arbitre-nom','arbitre-email','obs-nom','assistants','competition','equipes','equipe-a','equipe-b','ctx','apf','aaxes','agene','signature','note-20','note-100'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});;
   document.getElementById('sc-rec').value=0;document.getElementById('sc-vis').value=0;updateScore();
   document.getElementById('date-match').valueAsDate=new Date();document.getElementById('note-box').style.display='none';
   renderInc();['qa','ct','cd','pm'].forEach(buildSec);showSec('rapport');goP(0);await clearDraft();toast('🆕 Nouveau rapport prêt.','ok');
@@ -1111,6 +1196,186 @@ function filterQNav(q){
 //  TOAST
 // ══════════════════════════════════════
 let toastTimer=null;
+
+// ═══════════════════════════════════════
+//  RÉPERTOIRE ARBITRES
+// ═══════════════════════════════════════
+let allArbitres=[], repSortCol='nom', repSortAsc=true, filteredArbitres=[];
+
+async function loadArbitres(){
+  try {
+    const r = await apiFetch('/api/arbitres');
+    allArbitres = (r&&r.data) ? r.data : [];
+    filteredArbitres = [...allArbitres];
+    renderRep();
+  } catch(e){ console.error('Erreur chargement arbitres:', e); }
+}
+
+function filterRep(q){
+  const s = q.toLowerCase().trim();
+  filteredArbitres = s ? allArbitres.filter(a =>
+    (a.nom+' '+a.prenom+' '+a.licence+' '+a.club+' '+a.localite).toLowerCase().includes(s)
+  ) : [...allArbitres];
+  renderRep();
+}
+
+function sortRep(col){
+  if(repSortCol===col) repSortAsc=!repSortAsc; else { repSortCol=col; repSortAsc=true; }
+  document.querySelectorAll('.sort-icon').forEach(el=>el.textContent='↕');
+  const si=document.getElementById('si-'+col);
+  if(si) si.textContent=repSortAsc?'↑':'↓';
+  filteredArbitres.sort((a,b)=>{
+    const va=(a[col]||'').toLowerCase(), vb=(b[col]||'').toLowerCase();
+    return repSortAsc ? va.localeCompare(vb,'fr') : vb.localeCompare(va,'fr');
+  });
+  renderRep();
+}
+
+function renderRep(){
+  const tbody=document.getElementById('rep-tbody');
+  const count=document.getElementById('rep-count');
+  if(!tbody) return;
+  const isAdmin = cRole==='admin'||cRole==='gest';
+  const actCol=document.getElementById('rep-actions-col');
+  if(actCol) actCol.style.display = isAdmin?'':'none';
+  const addBtn=document.getElementById('btn-add-arb');
+  if(addBtn) addBtn.style.display = isAdmin?'':'none';
+  if(count) count.textContent = filteredArbitres.length+' arbitre'+(filteredArbitres.length!==1?'s':'');
+  tbody.innerHTML = filteredArbitres.map(a=>`
+    <tr style="cursor:pointer" onclick="selectArbFromRep(${a.id})">
+      <td><strong>${a.nom||''}</strong></td>
+      <td>${a.prenom||''}</td>
+      <td style="font-size:.68rem;">${a.licence||''}</td>
+      <td>${a.localite||''}</td>
+      <td><a href="tel:${(a.telephone||'').replace(/\s/g,'')}" onclick="event.stopPropagation()">${a.telephone||''}</a></td>
+      <td style="font-size:.68rem;"><a href="mailto:${a.email||''}" onclick="event.stopPropagation()">${a.email||''}</a></td>
+      <td style="font-size:.68rem;">${a.club||''}</td>
+      ${isAdmin?`<td><button class="rep-select-btn" onclick="event.stopPropagation();editArbitre(${a.id})">✏️</button> <button class="rep-select-btn" style="background:#ef4444;" onclick="event.stopPropagation();deleteArbitre(${a.id},'${(a.nom+' '+a.prenom).replace(/'/g,"\'")}')">🗑️</button></td>`:''}
+    </tr>`).join('');
+}
+
+function selectArbFromRep(id){
+  const a=allArbitres.find(x=>x.id===id); if(!a) return;
+  showSec('rapport'); goP(0);
+  setTimeout(()=>{
+    const n=document.getElementById('arbitre-nom');
+    const e=document.getElementById('arbitre-email');
+    if(n) n.value=(a.nom+(a.prenom?' '+a.prenom:'')).trim();
+    if(e) e.value=a.email||'';
+    toast('✅ Arbitre sélectionné : '+(a.nom+' '+a.prenom).trim(),'ok');
+  },200);
+}
+
+function toggleArbForm(){
+  const f=document.getElementById('arb-add-form');
+  const show=f.style.display==='none';
+  f.style.display=show?'block':'none';
+  if(!show){['nom','prenom','licence','localite','tel','email','club'].forEach(k=>{const el=document.getElementById('arb-f-'+k);if(el)el.value='';});}
+  if(f.dataset) f.dataset.editId='';
+  const h=f.querySelector('h4');
+  if(h) h.textContent='➕ Nouvel Arbitre';
+}
+
+async function saveArbitre(){
+  const nom=(document.getElementById('arb-f-nom').value||'').trim().toUpperCase();
+  const prenom=(document.getElementById('arb-f-prenom').value||'').trim();
+  if(!nom){toast('Le nom est requis.','err');return;}
+  const body={nom,prenom,
+    licence:(document.getElementById('arb-f-licence').value||''),
+    localite:(document.getElementById('arb-f-localite').value||''),
+    telephone:(document.getElementById('arb-f-tel').value||''),
+    email:(document.getElementById('arb-f-email').value||''),
+    club:(document.getElementById('arb-f-club').value||'')};
+  try {
+    const f=document.getElementById('arb-add-form');
+    const editId=f&&f.dataset?f.dataset.editId:'';
+    if(editId){
+      await apiFetch('/api/arbitres/'+editId,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+      toast('✅ Arbitre modifié.','ok');
+    } else {
+      await apiFetch('/api/arbitres',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+      toast('✅ Arbitre ajouté.','ok');
+    }
+    toggleArbForm();
+    await loadArbitres();
+  } catch(e){toast('Erreur: '+e.message,'err');}
+}
+
+function editArbitre(id){
+  const a=allArbitres.find(x=>x.id===id); if(!a) return;
+  const f=document.getElementById('arb-add-form');
+  f.style.display='block';
+  if(f.dataset) f.dataset.editId=id;
+  document.getElementById('arb-f-nom').value=a.nom||'';
+  document.getElementById('arb-f-prenom').value=a.prenom||'';
+  document.getElementById('arb-f-licence').value=a.licence||'';
+  document.getElementById('arb-f-localite').value=a.localite||'';
+  document.getElementById('arb-f-tel').value=a.telephone||'';
+  document.getElementById('arb-f-email').value=a.email||'';
+  document.getElementById('arb-f-club').value=a.club||'';
+  const h=f.querySelector('h4');
+  if(h) h.textContent='✏️ Modifier l\'Arbitre';
+  f.scrollIntoView({behavior:'smooth'});
+}
+
+async function deleteArbitre(id,nom){
+  if(!confirm('Supprimer '+nom+' ?')) return;
+  await apiFetch('/api/arbitres/'+id,{method:'DELETE'});
+  toast('🗑️ Arbitre supprimé.','ok');
+  await loadArbitres();
+}
+
+function openArbPicker(){
+  if(!allArbitres.length){ loadArbitres().then(()=>{ document.getElementById('arb-modal-bg').classList.add('show'); renderArbModal(allArbitres); }); return; }
+  document.getElementById('arb-modal-bg').classList.add('show');
+  document.getElementById('arb-modal-search-input').value='';
+  renderArbModal(allArbitres);
+  setTimeout(()=>document.getElementById('arb-modal-search-input').focus(),100);
+}
+
+function closeArbPicker(){
+  document.getElementById('arb-modal-bg').classList.remove('show');
+}
+
+function filterArbModal(q){
+  const s=q.toLowerCase().trim();
+  renderArbModal(s?allArbitres.filter(a=>(a.nom+' '+a.prenom+' '+a.club).toLowerCase().includes(s)):[...allArbitres]);
+}
+
+function renderArbModal(list){
+  const el=document.getElementById('arb-modal-list');
+  if(!el) return;
+  if(!list.length){el.innerHTML='<div style="padding:1rem;text-align:center;color:var(--doux);font-size:.78rem;">Aucun résultat</div>';return;}
+  el.innerHTML=list.map(a=>`
+    <div class="arb-modal-item" onclick="pickArbitre(${a.id})">
+      <div>
+        <div class="ami-name">${a.nom} ${a.prenom}</div>
+        <div class="ami-info">Licence: ${a.licence||'—'} · ${a.localite||'—'} · ${a.telephone||'—'}</div>
+        <div class="ami-club">${a.club||''}</div>
+      </div>
+      <button class="rep-select-btn">Sélectionner</button>
+    </div>`).join('');
+}
+
+function pickArbitre(id){
+  const a=allArbitres.find(x=>x.id===id); if(!a) return;
+  const n=document.getElementById('arbitre-nom');
+  const e=document.getElementById('arbitre-email');
+  if(n) n.value=(a.nom+(a.prenom?' '+a.prenom:'')).trim();
+  if(e) e.value=a.email||'';
+  closeArbPicker();
+  toast('✅ '+(a.nom+' '+a.prenom).trim()+' sélectionné','ok');
+}
+
+
+function updateEquipes(){
+  const a=(document.getElementById('equipe-a').value||'').trim();
+  const b=(document.getElementById('equipe-b').value||'').trim();
+  const combined = a&&b ? a+' 🆚 '+b : (a||b||'');
+  const el=document.getElementById('equipes');
+  if(el) el.value=combined;
+}
+
 function toast(msg,type=''){
   const el=document.getElementById('toast');el.textContent=msg;el.className='toast'+(type?' '+type:'');
   void el.offsetWidth;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3500);
