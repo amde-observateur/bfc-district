@@ -1020,7 +1020,7 @@ function setLR(role) {
   desc.className = 'role-badge-lg ' + RC[role].badge;
   desc.innerHTML = `<span>${RC[role].label.split(' ')[0]}</span><span>${RC[role].desc}</span>`;
 }
-
+const API_BASE = '';
 async function doLogin() {
   const username = document.getElementById('login-user').value.trim();
   const password = document.getElementById('login-pass').value.trim();
