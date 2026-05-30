@@ -347,23 +347,39 @@ app.get('/api/connlog', authMiddleware, requireRole('admin'), async (req, res) =
   res.json({ data: log });
 });
 
-// ═══════════════════════════════════════
-//  PROXY CLAUDE
-// ═══════════════════════════════════════
-app.post('/api/claude', authMiddleware, claudeLimiter, async (req, res) => {
-  if (!ANTHROPIC_API_KEY)
-    return res.status(503).json({ error: { message: 'Clé API Anthropic non configurée.' } });
-  try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-api-key': ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
-      body: JSON.stringify(req.body)
-    });
-    const data = await response.json();
-    res.status(response.status).json(data);
-  } catch (e) { res.status(500).json({ error: { message: 'Erreur proxy: ' + e.message } }); }
-});
+app.post('/api/GEMINI', authMiddleware, claudeLimiter, async (req, res) => {
+  if (!process.env.GEMINI_API_KEY) {
+    return res.status(503).json({ error: { message: 'Clé API Gemini non configurée.' } });
+  }
 
+  try {
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{
+            parts: [{
+              text: JSON.stringify(req.body)
+            }]
+          }]
+        })
+      }
+    );
+
+    const data = await response.json();
+    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+
+    res.status(response.status).json({
+      content: [{ text }],
+      raw: data
+    });
+
+  } catch (e) {
+    res.status(500).json({ error: { message: 'Erreur proxy Gemini : ' + e.message } });
+  }
+});
 // ═══════════════════════════════════════
 //  FALLBACK SPA
 // ═══════════════════════════════════════
@@ -376,5 +392,5 @@ app.get('*', (req, res) =>
 app.listen(PORT, () => {
   console.log(`🟡 District BFC — http://localhost:${PORT}`);
   console.log(`   DB : ${DB_PATH}`);
-  console.log(`   IA : ${ANTHROPIC_API_KEY ? '✅' : '⚠️  non configurée'}`);
+  console.log(` IA : ${process.env.GEMINI_API_KEY ? '✅' : '⚠️ non configurée'}`);
 });
