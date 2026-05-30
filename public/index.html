@@ -707,7 +707,11 @@ async function autoSave(){
 //  NAVIGATION
 // ══════════════════════════════════════
 function showSec(n){
-  if(n==='repertoire' && allArbitres.length===0) loadArbitres();
+  if(n==='repertoire'){
+    const si=document.getElementById('rep-search');
+    if(si) si.value='';
+    loadArbitres();
+  }
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.mnav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('section-'+n)?.classList.add('active');
