@@ -1046,7 +1046,8 @@ localStorage.setItem('user', JSON.stringify(user));
     applyRoleUI();
     showSec('rapport');
   } catch (e) {
-    alert('Erreur de connexion au serveur');
+    alert('Erreur : ' + e.message);
+console.error(e);
   }
 }
 </script>
