@@ -1036,9 +1036,11 @@ async function doLogin() {
       return;
     }
 
-    const data = await r.json();
-    localStorage.setItem('token', data.token);
-    localStorage.setItem('user', JSON.stringify(data.user));
+    const result = await r.json();
+const user = result.data;
+
+localStorage.setItem('token', user.accessToken);
+localStorage.setItem('user', JSON.stringify(user));
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('app').style.display = 'block';
     applyRoleUI();
