@@ -13,173 +13,73 @@
 body{font-family:'Inter',sans-serif;background:#f1f5f9;color:var(--texte);min-height:100vh;}
 #login-screen{position:fixed;inset:0;background:linear-gradient(135deg,#0f172a,#1a3a6b,#0f172a);display:flex;align-items:center;justify-content:center;z-index:9999;padding:1rem;}
 .login-card{background:#fff;border-radius:20px;padding:2.2rem 1.8rem;max-width:400px;width:100%;box-shadow:0 25px 60px rgba(0,0,0,.4);}
-.login-logo{text-align:center;margin-bottom:1.2rem;}.login-logo .icon{font-size:2.6rem;}
-.login-logo h1{font-size:1rem;font-weight:700;color:var(--bleu);margin-top:.4rem;}.login-logo p{font-size:.7rem;color:var(--doux);}
-.login-tabs{display:flex;gap:.3rem;margin-bottom:1.1rem;background:#f1f5f9;border-radius:10px;padding:.3rem;}
-.ltab{flex:1;padding:.42rem .2rem;border:none;border-radius:7px;cursor:pointer;font-family:'Inter',sans-serif;font-size:.7rem;font-weight:600;color:var(--doux);background:transparent;transition:all .2s;}
-.ltab.active{background:#fff;color:var(--bleu);box-shadow:0 1px 4px rgba(0,0,0,.1);}
-.role-badge-lg{display:flex;align-items:center;gap:.5rem;padding:.55rem .85rem;border-radius:10px;margin-bottom:.9rem;font-size:.78rem;font-weight:600;}
-.rb-obs{background:var(--bleu-pale);color:#1d4ed8;}.rb-gest{background:var(--vert-pale);color:#15803d;}.rb-admin{background:var(--violet-pale);color:#6d28d9;}
-.login-fg{display:flex;flex-direction:column;gap:.22rem;margin-bottom:.75rem;}
-.login-fg label{font-size:.65rem;font-weight:700;color:var(--doux);text-transform:uppercase;letter-spacing:.5px;}
-.login-fg input{padding:.55rem .8rem;border:1.5px solid var(--bord);border-radius:8px;font-family:'Inter',sans-serif;font-size:.84rem;outline:none;transition:border-color .2s;}
-.login-fg input:focus{border-color:var(--bleu2);}
+.login-logo{text-align:center;margin-bottom:1.2rem;}.login-logo .icon{font-size:2.6rem;}.login-logo h1{font-size:1rem;font-weight:700;color:var(--bleu);margin-top:.4rem;}.login-logo p{font-size:.7rem;color:var(--doux);}
+.login-tabs{display:flex;gap:.3rem;margin-bottom:1.1rem;background:#f1f5f9;border-radius:10px;padding:.3rem;}.ltab{flex:1;padding:.42rem .2rem;border:none;border-radius:7px;cursor:pointer;font-family:'Inter',sans-serif;font-size:.7rem;font-weight:600;color:var(--doux);background:transparent;transition:all .2s;}.ltab.active{background:#fff;color:var(--bleu);box-shadow:0 1px 4px rgba(0,0,0,.1);}
+.role-badge-lg{display:flex;align-items:center;gap:.5rem;padding:.55rem .85rem;border-radius:10px;margin-bottom:.9rem;font-size:.78rem;font-weight:600;}.rb-obs{background:var(--bleu-pale);color:#1d4ed8;}.rb-gest{background:var(--vert-pale);color:#15803d;}.rb-admin{background:var(--violet-pale);color:#6d28d9;}
+.login-fg{display:flex;flex-direction:column;gap:.22rem;margin-bottom:.75rem;}.login-fg label{font-size:.65rem;font-weight:700;color:var(--doux);text-transform:uppercase;letter-spacing:.5px;}.login-fg input{padding:.55rem .8rem;border:1.5px solid var(--bord);border-radius:8px;font-family:'Inter',sans-serif;font-size:.84rem;outline:none;transition:border-color .2s;}.login-fg input:focus{border-color:var(--bleu2);}
 .login-err{background:var(--rouge-pale);color:var(--rouge);padding:.48rem .8rem;border-radius:8px;font-size:.76rem;font-weight:500;margin-bottom:.65rem;display:none;}
-.btn-login{width:100%;padding:.68rem;border:none;border-radius:10px;background:var(--bleu);color:#fff;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .2s;}
-.btn-login:hover{background:var(--bleu2);}
-header{background:var(--bleu);color:#fff;padding:.58rem .9rem;display:flex;align-items:center;gap:.55rem;box-shadow:0 2px 8px rgba(0,0,0,.2);position:sticky;top:0;z-index:100;}
-.h-icon{font-size:1.2rem;}.h-text{flex:1;}.h-text h1{font-size:.76rem;font-weight:700;}.h-text p{font-size:.58rem;opacity:.7;}
+.btn-login{width:100%;padding:.68rem;border:none;border-radius:10px;background:var(--bleu);color:#fff;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .2s;}.btn-login:hover{background:var(--bleu2);}
+header{background:var(--bleu);color:#fff;padding:.58rem .9rem;display:flex;align-items:center;gap:.55rem;box-shadow:0 2px 8px rgba(0,0,0,.2);position:sticky;top:0;z-index:100;}.h-icon{font-size:1.2rem;}.h-text{flex:1;}.h-text h1{font-size:.76rem;font-weight:700;}.h-text p{font-size:.58rem;opacity:.7;}
 .notif-btn{position:relative;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .notif-badge{position:absolute;top:-3px;right:-3px;background:var(--rouge);color:#fff;border-radius:50%;width:14px;height:14px;font-size:.5rem;font-weight:700;display:none;align-items:center;justify-content:center;}
-.role-pill{display:flex;align-items:center;gap:.28rem;padding:.22rem .52rem;border-radius:20px;font-size:.62rem;font-weight:700;flex-shrink:0;}
-.rp-obs{background:rgba(219,234,254,.2);border:1px solid rgba(219,234,254,.4);color:#bfdbfe;}
-.rp-gest{background:rgba(220,252,231,.15);border:1px solid rgba(220,252,231,.3);color:#86efac;}
-.rp-admin{background:rgba(237,233,254,.15);border:1px solid rgba(237,233,254,.3);color:#c4b5fd;}
+.role-pill{display:flex;align-items:center;gap:.28rem;padding:.22rem .52rem;border-radius:20px;font-size:.62rem;font-weight:700;flex-shrink:0;}.rp-obs{background:rgba(219,234,254,.2);border:1px solid rgba(219,234,254,.4);color:#bfdbfe;}.rp-gest{background:rgba(220,252,231,.15);border:1px solid rgba(220,252,231,.3);color:#86efac;}.rp-admin{background:rgba(237,233,254,.15);border:1px solid rgba(237,233,254,.3);color:#c4b5fd;}
 .btn-logout{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;padding:.22rem .52rem;border-radius:6px;cursor:pointer;font-family:'Inter',sans-serif;font-size:.62rem;font-weight:600;}
-.main-nav{background:#fff;border-bottom:1px solid var(--bord);padding:0 .8rem;display:flex;overflow-x:auto;position:sticky;top:50px;z-index:90;box-shadow:0 1px 3px rgba(0,0,0,.04);}
-.mnav-btn{padding:.58rem .75rem;border:none;background:transparent;cursor:pointer;font-family:'Inter',sans-serif;font-size:.73rem;font-weight:600;color:var(--doux);border-bottom:2.5px solid transparent;white-space:nowrap;transition:all .2s;}
-.mnav-btn.active{color:var(--bleu2);border-bottom-color:var(--bleu2);}.mnav-btn.admin-nav{color:#7c3aed;}.mnav-btn.admin-nav.active{color:#6d28d9;border-bottom-color:#6d28d9;}
-.note-flottante{position:fixed;top:92px;right:.65rem;background:var(--bleu);color:#fff;border-radius:11px;padding:.36rem .68rem;font-family:'Bebas Neue',cursive;font-size:1.25rem;line-height:1;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:80;display:flex;flex-direction:column;align-items:center;min-width:50px;text-align:center;transition:background .4s;}
-.nf-label,.nf-sub{font-family:'Inter',sans-serif;font-size:.46rem;font-weight:700;opacity:.8;text-transform:uppercase;}
+.main-nav{background:#fff;border-bottom:1px solid var(--bord);padding:0 .8rem;display:flex;overflow-x:auto;position:sticky;top:50px;z-index:90;box-shadow:0 1px 3px rgba(0,0,0,.04);}.mnav-btn{padding:.58rem .75rem;border:none;background:transparent;cursor:pointer;font-family:'Inter',sans-serif;font-size:.73rem;font-weight:600;color:var(--doux);border-bottom:2.5px solid transparent;white-space:nowrap;transition:all .2s;}.mnav-btn.active{color:var(--bleu2);border-bottom-color:var(--bleu2);}.mnav-btn.admin-nav{color:#7c3aed;}.mnav-btn.admin-nav.active{color:#6d28d9;border-bottom-color:#6d28d9;}
+.note-flottante{position:fixed;top:92px;right:.65rem;background:var(--bleu);color:#fff;border-radius:11px;padding:.36rem .68rem;font-family:'Bebas Neue',cursive;font-size:1.25rem;line-height:1;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:80;display:flex;flex-direction:column;align-items:center;min-width:50px;text-align:center;transition:background .4s;}.nf-label,.nf-sub{font-family:'Inter',sans-serif;font-size:.46rem;font-weight:700;opacity:.8;text-transform:uppercase;}
 .container{max-width:980px;margin:0 auto;padding:.9rem .85rem 3rem;}
 .section{display:none;}.section.active{display:block;}
-.steps-nav{display:flex;background:#fff;border-radius:11px;padding:.28rem;gap:.12rem;margin-bottom:.9rem;box-shadow:0 1px 3px rgba(0,0,0,.07);overflow-x:auto;}
-.step-btn{flex:1;min-width:62px;padding:.35rem .18rem;border:none;border-radius:7px;cursor:pointer;font-size:.6rem;font-weight:500;color:var(--doux);background:transparent;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:.1rem;position:relative;z-index:10;}
-.step-btn .sn{width:16px;height:16px;border-radius:50%;background:var(--bord);color:var(--doux);font-weight:700;font-size:.55rem;display:flex;align-items:center;justify-content:center;transition:all .2s;}
-.step-btn.active{color:var(--bleu2);background:var(--bleu-pale);}.step-btn.active .sn{background:var(--bleu2);color:#fff;}
-.step-btn.done .sn{background:var(--vert);color:#fff;}.step-btn.done{color:var(--vert);}
-.card{background:#fff;border-radius:11px;padding:.95rem;margin-bottom:.82rem;box-shadow:0 1px 4px rgba(0,0,0,.07);border:1px solid var(--bord);}
-.card-header{display:flex;align-items:center;gap:.58rem;margin-bottom:.82rem;padding-bottom:.58rem;border-bottom:2px solid var(--bleu-pale);}
-.card-icon{font-size:1rem;}.card-title{font-size:.86rem;font-weight:700;color:var(--bleu);}.card-sub{font-size:.68rem;color:var(--doux);margin-top:1px;}
+.steps-nav{display:flex;background:#fff;border-radius:11px;padding:.28rem;gap:.12rem;margin-bottom:.9rem;box-shadow:0 1px 3px rgba(0,0,0,.07);overflow-x:auto;}.step-btn{flex:1;min-width:62px;padding:.35rem .18rem;border:none;border-radius:7px;cursor:pointer;font-size:.6rem;font-weight:500;color:var(--doux);background:transparent;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:.1rem;}.step-btn .sn{width:16px;height:16px;border-radius:50%;background:var(--bord);color:var(--doux);font-weight:700;font-size:.55rem;display:flex;align-items:center;justify-content:center;transition:all .2s;}.step-btn.active{color:var(--bleu2);background:var(--bleu-pale);}.step-btn.active .sn{background:var(--bleu2);color:#fff;}.step-btn.done .sn{background:var(--vert);color:#fff;}.step-btn.done{color:var(--vert);}
+.card{background:#fff;border-radius:11px;padding:.95rem;margin-bottom:.82rem;box-shadow:0 1px 4px rgba(0,0,0,.07);border:1px solid var(--bord);}.card-header{display:flex;align-items:center;gap:.58rem;margin-bottom:.82rem;padding-bottom:.58rem;border-bottom:2px solid var(--bleu-pale);}.card-icon{font-size:1rem;}.card-title{font-size:.86rem;font-weight:700;color:var(--bleu);}.card-sub{font-size:.68rem;color:var(--doux);margin-top:1px;}
 .fg{display:flex;flex-direction:column;gap:.22rem;}.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:.72rem;}.full{grid-column:1/-1;}
 label{font-size:.66rem;font-weight:600;color:var(--doux);text-transform:uppercase;letter-spacing:.4px;}
 input,select,textarea{padding:.46rem .62rem;border:1.5px solid var(--bord);border-radius:8px;font-family:'Inter',sans-serif;font-size:.8rem;color:var(--texte);background:#fff;transition:border-color .2s,box-shadow .2s;outline:none;}
 input:focus,select:focus,textarea:focus{border-color:var(--bleu2);box-shadow:0 0 0 3px rgba(37,99,235,.1);}
-textarea{resize:vertical;min-height:52px;}input[readonly]{background:#f0fdf4;border-color:#86efac;font-weight:700;cursor:default;}
-/* AUTOCOMPLETE ARBITRE */
-.arb-search-wrap{position:relative;margin-bottom:.85rem;}
-.arb-dropdown{position:absolute;top:100%;left:0;right:0;background:#fff;border:1.5px solid var(--bleu2);border-radius:0 0 10px 10px;box-shadow:0 8px 24px rgba(37,99,235,.15);z-index:200;max-height:220px;overflow-y:auto;display:none;}
-.arb-dropdown.show{display:block;}
-.arb-item{padding:.5rem .75rem;cursor:pointer;border-bottom:1px solid var(--bord);transition:background .12s;}
-.arb-item:last-child{border-bottom:none;}.arb-item:hover{background:var(--bleu-pale);}
-.arb-item-nom{font-weight:700;font-size:.82rem;color:var(--bleu);}
-.arb-item-info{font-size:.68rem;color:var(--doux);margin-top:.08rem;}
-.arb-found-card{background:linear-gradient(135deg,var(--bleu-pale),#eff6ff);border:1.5px solid var(--bleu2);border-radius:10px;padding:.65rem .85rem;margin-bottom:.85rem;display:none;align-items:center;gap:.75rem;flex-wrap:wrap;}
-.arb-found-card.show{display:flex;}.arb-found-icon{font-size:1.6rem;}.arb-found-info{flex:1;}
-.arb-found-nom{font-size:.88rem;font-weight:700;color:var(--bleu);}
-.arb-found-details{font-size:.7rem;color:var(--doux);margin-top:.15rem;display:flex;gap:.6rem;flex-wrap:wrap;}
-.btn-clear-arb{background:none;border:none;color:#94a3b8;cursor:pointer;font-size:1rem;padding:.2rem;}
-/* SCORE */
-.score-box{background:var(--gris);border-radius:10px;padding:.72rem .88rem;border:1.5px solid var(--bord);display:flex;align-items:center;gap:.85rem;flex-wrap:wrap;}
-.score-side{flex:1;min-width:110px;}.score-side-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:.28rem;}
-.score-side-label.rec{color:var(--bleu);}.score-side-label.vis{color:var(--rouge);}
+textarea{resize:vertical;min-height:52px;}
+input[readonly]{background:#f0fdf4;border-color:#86efac;font-weight:700;cursor:default;}
+.score-box{background:var(--gris);border-radius:10px;padding:.72rem .88rem;border:1.5px solid var(--bord);display:flex;align-items:center;gap:.85rem;flex-wrap:wrap;}.score-side{flex:1;min-width:110px;}.score-side-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:.28rem;}.score-side-label.rec{color:var(--bleu);}.score-side-label.vis{color:var(--rouge);}
 input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{accent-color:var(--rouge);}
 .range-ticks{display:flex;justify-content:space-between;font-size:.52rem;color:var(--doux);margin-top:1px;}
-.score-center{display:flex;align-items:center;justify-content:center;min-width:72px;}
-#score-display{font-family:'Bebas Neue',cursive;font-size:2.2rem;color:var(--bleu);letter-spacing:2px;line-height:1;}
-/* INCIDENTS */
-.inc-row{display:grid;grid-template-columns:1fr 1fr auto;gap:.58rem;align-items:end;margin-bottom:.58rem;}
-.inc-list{display:flex;flex-direction:column;gap:.35rem;}
-.inc-tag{display:flex;align-items:center;gap:.42rem;background:var(--gris);border-radius:7px;padding:.36rem .62rem;border:1px solid var(--bord);font-size:.76rem;}
-.inc-tag .tbadge{border-radius:5px;padding:.08rem .42rem;font-weight:600;font-size:.62rem;white-space:nowrap;}.inc-tag .desc{flex:1;}
-.btn-rm{background:none;border:none;color:#94a3b8;cursor:pointer;font-size:.82rem;padding:.08rem;}.btn-rm:hover{color:var(--rouge);}
-.t-cj_j1 .tbadge,.t-cj_j2 .tbadge,.t-cj_j3 .tbadge,.t-cj_j4 .tbadge,.t-cj_j5 .tbadge,.t-cj_j6 .tbadge,.t-cj_j7 .tbadge{background:var(--jaune-pale);color:#a16207;}
-.t-cr_r1 .tbadge,.t-cr_r2 .tbadge,.t-cr_r3 .tbadge,.t-cr_r4 .tbadge,.t-cr_r5 .tbadge,.t-cr_r6 .tbadge,.t-cr_r7 .tbadge{background:var(--rouge-pale);color:#b91c1c;}
-.t-cb_b1 .tbadge,.t-cb_b2 .tbadge,.t-cb_coach .tbadge,.t-cb_coach2 .tbadge{background:#f1f5f9;color:#475569;border:1px solid #cbd5e1;}
-.t-but .tbadge{background:var(--vert-pale);color:var(--vert);}.t-autre .tbadge{background:#f3e8ff;color:#7c3aed;}
-/* EVAL */
-.eval-table{width:100%;border-collapse:collapse;font-size:.76rem;}
-.eval-table th{background:var(--bleu);color:#fff;padding:.42rem .36rem;text-align:center;font-weight:600;font-size:.63rem;}
-.eval-table th.cc{text-align:left;min-width:155px;}
-.eval-table td{padding:.36rem;border:1px solid var(--bord);vertical-align:middle;}
-.eval-table tr:nth-child(even) td{background:#f8fafc;}.crit-name{font-weight:500;font-size:.76rem;}
-.rg{display:flex;justify-content:center;gap:.16rem;}.rpill input{display:none;}
-.rpill label{display:block;width:29px;height:22px;line-height:22px;text-align:center;border-radius:5px;border:1.5px solid var(--bord);cursor:pointer;font-size:.6rem;font-weight:700;color:var(--doux);transition:all .15s;padding:0;text-transform:none;letter-spacing:0;}
-.rpill input:checked+label.pf{background:#1d4ed8;color:#fff;border-color:#1d4ed8;}
-.rpill input:checked+label.qa{background:#16a34a;color:#fff;border-color:#16a34a;}
-.rpill input:checked+label.pa{background:#d97706;color:#fff;border-color:#d97706;}
-.rpill input:checked+label.atp{background:#dc2626;color:#fff;border-color:#dc2626;}
-.rpill label:hover{border-color:var(--bleu2);}.comm-ta{width:100%;min-height:42px;font-size:.7rem;padding:.26rem .46rem;}
-.legende{display:flex;gap:.55rem;flex-wrap:wrap;font-size:.65rem;margin-bottom:.72rem;padding:.44rem .72rem;background:var(--gris);border-radius:8px;border:1px solid var(--bord);}
-.leg-item{display:flex;align-items:center;gap:.26rem;font-weight:600;}
-.b-pf{background:#dbeafe;color:#1d4ed8;padding:.06rem .36rem;border-radius:4px;}.b-qa{background:var(--vert-pale);color:#15803d;padding:.06rem .36rem;border-radius:4px;}
-.b-pa{background:var(--orange-pale);color:#b45309;padding:.06rem .36rem;border-radius:4px;}.b-atp{background:var(--rouge-pale);color:#b91c1c;padding:.06rem .36rem;border-radius:4px;}
-.note-box{background:linear-gradient(135deg,var(--bleu),var(--bleu2));border-radius:11px;padding:.95rem;color:#fff;text-align:center;margin-bottom:.85rem;}
-.note-big{font-family:'Bebas Neue',cursive;font-size:3.2rem;line-height:1;margin:.28rem 0;}.note-lbl{font-size:.72rem;opacity:.85;}
-.btn{padding:.48rem 1.05rem;border-radius:8px;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:.78rem;transition:all .2s;display:inline-flex;align-items:center;gap:.36rem;}
-.btn-p{background:var(--bleu2);color:#fff;}.btn-p:hover{background:#1d4ed8;}
-.btn-s{background:var(--vert);color:#fff;}.btn-s:hover{background:#15803d;}
-.btn-o{background:#fff;color:var(--texte);border:1.5px solid var(--bord);}.btn-o:hover{background:var(--gris);}
-.btn-v{background:var(--violet);color:#fff;}.btn-v:hover{background:#6d28d9;}
-.btn-r{background:var(--rouge);color:#fff;}.btn-r:hover{background:#b91c1c;}
+.score-center{display:flex;align-items:center;justify-content:center;min-width:72px;}#score-display{font-family:'Bebas Neue',cursive;font-size:2.2rem;color:var(--bleu);letter-spacing:2px;line-height:1;}
+.inc-row{display:grid;grid-template-columns:1fr 1fr auto;gap:.58rem;align-items:end;margin-bottom:.58rem;}.inc-list{display:flex;flex-direction:column;gap:.35rem;}.inc-tag{display:flex;align-items:center;gap:.42rem;background:var(--gris);border-radius:7px;padding:.36rem .62rem;border:1px solid var(--bord);font-size:.76rem;}.inc-tag .tbadge{border-radius:5px;padding:.08rem .42rem;font-weight:600;font-size:.62rem;white-space:nowrap;}.inc-tag .desc{flex:1;}.btn-rm{background:none;border:none;color:#94a3b8;cursor:pointer;font-size:.82rem;padding:.08rem;}.btn-rm:hover{color:var(--rouge);}
+.t-cj_j1 .tbadge,.t-cj_j2 .tbadge,.t-cj_j3 .tbadge,.t-cj_j4 .tbadge,.t-cj_j5 .tbadge,.t-cj_j6 .tbadge,.t-cj_j7 .tbadge{background:var(--jaune-pale);color:#a16207;}.t-cr_r1 .tbadge,.t-cr_r2 .tbadge,.t-cr_r3 .tbadge,.t-cr_r4 .tbadge,.t-cr_r5 .tbadge,.t-cr_r6 .tbadge,.t-cr_r7 .tbadge{background:var(--rouge-pale);color:#b91c1c;}.t-cb_b1 .tbadge,.t-cb_b2 .tbadge,.t-cb_coach .tbadge,.t-cb_coach2 .tbadge{background:#f1f5f9;color:#475569;border:1px solid #cbd5e1;}.t-but .tbadge{background:var(--vert-pale);color:var(--vert);}.t-autre .tbadge{background:#f3e8ff;color:#7c3aed;}
+.eval-table{width:100%;border-collapse:collapse;font-size:.76rem;}.eval-table th{background:var(--bleu);color:#fff;padding:.42rem .36rem;text-align:center;font-weight:600;font-size:.63rem;}.eval-table th.cc{text-align:left;min-width:155px;}.eval-table td{padding:.36rem;border:1px solid var(--bord);vertical-align:middle;}.eval-table tr:nth-child(even) td{background:#f8fafc;}.crit-name{font-weight:500;font-size:.76rem;}
+.rg{display:flex;justify-content:center;gap:.16rem;}.rpill input{display:none;}.rpill label{display:block;width:29px;height:22px;line-height:22px;text-align:center;border-radius:5px;border:1.5px solid var(--bord);cursor:pointer;font-size:.6rem;font-weight:700;color:var(--doux);transition:all .15s;padding:0;text-transform:none;letter-spacing:0;}
+.rpill input:checked+label.pf{background:#1d4ed8;color:#fff;border-color:#1d4ed8;}.rpill input:checked+label.qa{background:#16a34a;color:#fff;border-color:#16a34a;}.rpill input:checked+label.pa{background:#d97706;color:#fff;border-color:#d97706;}.rpill input:checked+label.atp{background:#dc2626;color:#fff;border-color:#dc2626;}.rpill label:hover{border-color:var(--bleu2);}
+.comm-ta{width:100%;min-height:42px;font-size:.7rem;padding:.26rem .46rem;}
+.legende{display:flex;gap:.55rem;flex-wrap:wrap;font-size:.65rem;margin-bottom:.72rem;padding:.44rem .72rem;background:var(--gris);border-radius:8px;border:1px solid var(--bord);}.leg-item{display:flex;align-items:center;gap:.26rem;font-weight:600;}.b-pf{background:#dbeafe;color:#1d4ed8;padding:.06rem .36rem;border-radius:4px;}.b-qa{background:var(--vert-pale);color:#15803d;padding:.06rem .36rem;border-radius:4px;}.b-pa{background:var(--orange-pale);color:#b45309;padding:.06rem .36rem;border-radius:4px;}.b-atp{background:var(--rouge-pale);color:#b91c1c;padding:.06rem .36rem;border-radius:4px;}
+.note-box{background:linear-gradient(135deg,var(--bleu),var(--bleu2));border-radius:11px;padding:.95rem;color:#fff;text-align:center;margin-bottom:.85rem;}.note-big{font-family:'Bebas Neue',cursive;font-size:3.2rem;line-height:1;margin:.28rem 0;}.note-lbl{font-size:.72rem;opacity:.85;}
+.btn{padding:.48rem 1.05rem;border-radius:8px;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:.78rem;transition:all .2s;display:inline-flex;align-items:center;gap:.36rem;}.btn-p{background:var(--bleu2);color:#fff;}.btn-p:hover{background:#1d4ed8;}.btn-s{background:var(--vert);color:#fff;}.btn-s:hover{background:#15803d;}.btn-o{background:#fff;color:var(--texte);border:1.5px solid var(--bord);}.btn-o:hover{background:var(--gris);}.btn-v{background:var(--violet);color:#fff;}.btn-v:hover{background:#6d28d9;}.btn-r{background:var(--rouge);color:#fff;}.btn-r:hover{background:#b91c1c;}
 .btn-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.72rem;}
 .autosave{font-size:.6rem;color:var(--doux);text-align:right;margin-bottom:.32rem;height:.72rem;}.autosave.saved{color:var(--vert);}
-.admin-section{background:linear-gradient(135deg,#faf5ff,#ede9fe);border:1.5px solid #c4b5fd;border-radius:11px;padding:.95rem;margin-bottom:.82rem;}
-.admin-section h2{font-size:.82rem;font-weight:700;color:#6d28d9;margin-bottom:.82rem;display:flex;align-items:center;gap:.42rem;}
-.data-table{width:100%;border-collapse:collapse;font-size:.78rem;}
-.data-table th{background:var(--bleu);color:#fff;padding:.48rem .52rem;text-align:left;font-weight:600;font-size:.68rem;white-space:nowrap;}
-.data-table td{padding:.42rem .52rem;border-bottom:1px solid var(--bord);vertical-align:middle;}
-.data-table tr:hover td{background:#f0f9ff;}.data-table tr:last-child td{border-bottom:none;}
-.user-table{width:100%;border-collapse:collapse;font-size:.74rem;}
-.user-table th{background:#6d28d9;color:#fff;padding:.42rem .48rem;text-align:left;font-weight:600;font-size:.66rem;}
-.user-table td{padding:.38rem .48rem;border:1px solid #c4b5fd;vertical-align:middle;}
-.user-table tr:nth-child(even) td{background:#f5f3ff;}
-.arb-table th{background:#0891b2 !important;}
-.arb-table td{border:1px solid #bae6fd !important;}
-.arb-table tr:nth-child(even) td{background:#f0f9ff !important;}
-.status-badge{padding:.1rem .44rem;border-radius:20px;font-size:.62rem;font-weight:700;white-space:nowrap;}
-.sb-wait{background:var(--jaune-pale);color:#a16207;}.sb-ok{background:var(--vert-pale);color:#15803d;}
-.sb-ret{background:var(--rouge-pale);color:#b91c1c;}.sb-arch{background:#f1f5f9;color:#475569;}
-.role-dot{display:inline-flex;align-items:center;gap:.2rem;padding:.08rem .4rem;border-radius:20px;font-size:.62rem;font-weight:700;}
-.rd-obs{background:var(--bleu-pale);color:#1d4ed8;}.rd-gest{background:var(--vert-pale);color:#15803d;}.rd-admin{background:var(--violet-pale);color:#6d28d9;}
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:.72rem;margin-bottom:.85rem;}
-.stat-card{background:#fff;border-radius:11px;padding:.82rem;text-align:center;border:1px solid var(--bord);box-shadow:0 1px 4px rgba(0,0,0,.06);}
-.stat-val{font-family:'Bebas Neue',cursive;font-size:2.2rem;line-height:1;color:var(--bleu);}.stat-lbl{font-size:.65rem;color:var(--doux);margin-top:.18rem;}
-.chart-box{background:#fff;border-radius:11px;padding:.85rem;border:1px solid var(--bord);box-shadow:0 1px 4px rgba(0,0,0,.06);margin-bottom:.82rem;}
-.chart-title{font-size:.82rem;font-weight:700;color:var(--bleu);margin-bottom:.72rem;}
-.sub-tabs{display:flex;gap:.3rem;margin-bottom:.9rem;background:#f1f5f9;border-radius:10px;padding:.3rem;}
-.stab{flex:1;padding:.46rem .3rem;border:none;border-radius:7px;cursor:pointer;font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;color:var(--doux);background:transparent;transition:all .2s;text-align:center;}
-.stab.active{background:#fff;color:var(--bleu);box-shadow:0 1px 4px rgba(0,0,0,.1);}
+.admin-section{background:linear-gradient(135deg,#faf5ff,#ede9fe);border:1.5px solid #c4b5fd;border-radius:11px;padding:.95rem;margin-bottom:.82rem;}.admin-section h2{font-size:.82rem;font-weight:700;color:#6d28d9;margin-bottom:.82rem;display:flex;align-items:center;gap:.42rem;}
+.data-table{width:100%;border-collapse:collapse;font-size:.78rem;}.data-table th{background:var(--bleu);color:#fff;padding:.48rem .52rem;text-align:left;font-weight:600;font-size:.68rem;white-space:nowrap;}.data-table td{padding:.42rem .52rem;border-bottom:1px solid var(--bord);vertical-align:middle;}.data-table tr:hover td{background:#f0f9ff;}.data-table tr:last-child td{border-bottom:none;}
+.user-table{width:100%;border-collapse:collapse;font-size:.74rem;}.user-table th{background:#6d28d9;color:#fff;padding:.42rem .48rem;text-align:left;font-weight:600;font-size:.66rem;}.user-table td{padding:.38rem .48rem;border:1px solid #c4b5fd;vertical-align:middle;}.user-table tr:nth-child(even) td{background:#f5f3ff;}
+.status-badge{padding:.1rem .44rem;border-radius:20px;font-size:.62rem;font-weight:700;white-space:nowrap;}.sb-wait{background:var(--jaune-pale);color:#a16207;}.sb-ok{background:var(--vert-pale);color:#15803d;}.sb-ret{background:var(--rouge-pale);color:#b91c1c;}.sb-arch{background:#f1f5f9;color:#475569;}
+.role-dot{display:inline-flex;align-items:center;gap:.2rem;padding:.08rem .4rem;border-radius:20px;font-size:.62rem;font-weight:700;}.rd-obs{background:var(--bleu-pale);color:#1d4ed8;}.rd-gest{background:var(--vert-pale);color:#15803d;}.rd-admin{background:var(--violet-pale);color:#6d28d9;}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:.72rem;margin-bottom:.85rem;}.stat-card{background:#fff;border-radius:11px;padding:.82rem;text-align:center;border:1px solid var(--bord);box-shadow:0 1px 4px rgba(0,0,0,.06);}.stat-val{font-family:'Bebas Neue',cursive;font-size:2.2rem;line-height:1;color:var(--bleu);}.stat-lbl{font-size:.65rem;color:var(--doux);margin-top:.18rem;}
+.chart-box{background:#fff;border-radius:11px;padding:.85rem;border:1px solid var(--bord);box-shadow:0 1px 4px rgba(0,0,0,.06);margin-bottom:.82rem;}.chart-title{font-size:.82rem;font-weight:700;color:var(--bleu);margin-bottom:.72rem;}
+.sub-tabs{display:flex;gap:.3rem;margin-bottom:.9rem;background:#f1f5f9;border-radius:10px;padding:.3rem;}.stab{flex:1;padding:.46rem .3rem;border:none;border-radius:7px;cursor:pointer;font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;color:var(--doux);background:transparent;transition:all .2s;text-align:center;}.stab.active{background:#fff;color:var(--bleu);box-shadow:0 1px 4px rgba(0,0,0,.1);}
 .sub-page{display:none;}.sub-page.active{display:block;}
-.search-bar{display:flex;gap:.52rem;margin-bottom:.82rem;flex-wrap:wrap;}
-.search-bar input{flex:1;min-width:145px;}.search-bar select{min-width:125px;}
+.search-bar{display:flex;gap:.52rem;margin-bottom:.82rem;flex-wrap:wrap;}.search-bar input{flex:1;min-width:145px;}.search-bar select{min-width:125px;}
 .comp-selectors{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:.9rem;}.comp-sel-wrap{flex:1;min-width:160px;}
-.note-history-row{display:flex;align-items:center;gap:.6rem;padding:.42rem .6rem;border-bottom:1px solid var(--bord);font-size:.8rem;}
-.note-bar{height:8px;border-radius:4px;background:var(--bleu2);transition:width .4s;}
-.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:500;padding:1rem;}
-.modal{background:#fff;border-radius:14px;padding:1.2rem;max-width:520px;width:100%;box-shadow:0 25px 60px rgba(0,0,0,.3);max-height:90vh;overflow-y:auto;}
-.modal h2{font-size:.92rem;font-weight:700;color:var(--bleu);margin-bottom:.85rem;}
-.modal-close{float:right;background:none;border:none;font-size:1.1rem;cursor:pointer;color:var(--doux);}
+.note-history-row{display:flex;align-items:center;gap:.6rem;padding:.42rem .6rem;border-bottom:1px solid var(--bord);font-size:.8rem;}.note-history-row:last-child{border-bottom:none;}.note-bar{height:8px;border-radius:4px;background:var(--bleu2);transition:width .4s;}
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:500;padding:1rem;}.modal{background:#fff;border-radius:14px;padding:1.2rem;max-width:520px;width:100%;box-shadow:0 25px 60px rgba(0,0,0,.3);max-height:90vh;overflow-y:auto;}.modal h2{font-size:.92rem;font-weight:700;color:var(--bleu);margin-bottom:.85rem;}.modal-close{float:right;background:none;border:none;font-size:1.1rem;cursor:pointer;color:var(--doux);}
 .preview-box{background:#f8fafc;border:1.5px dashed var(--bord);border-radius:9px;padding:.88rem;font-size:.73rem;line-height:1.7;white-space:pre-wrap;max-height:230px;overflow-y:auto;color:var(--doux);}
 .empty-state{text-align:center;padding:2rem 1rem;color:var(--doux);}.empty-state .ei{font-size:2.6rem;margin-bottom:.55rem;}.empty-state p{font-size:.86rem;}
-.toast{position:fixed;bottom:1rem;right:1rem;background:#1e293b;color:#fff;padding:.62rem .95rem;border-radius:9px;font-size:.78rem;font-weight:500;transform:translateY(80px);opacity:0;transition:all .3s;z-index:999;box-shadow:0 8px 24px rgba(0,0,0,.3);max-width:270px;}
-.toast.show{transform:translateY(0);opacity:1;}.toast.ok{background:var(--vert);}.toast.err{background:var(--rouge);}
-.menu-btn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.qnav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.38);z-index:300;display:none;}.qnav-overlay.show{display:block;}
-.qnav-panel{position:fixed;top:0;left:-310px;width:295px;height:100vh;background:#fff;box-shadow:4px 0 24px rgba(0,0,0,.18);z-index:301;transition:left .28s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;}.qnav-panel.show{left:0;}
-.qnav-hdr{background:var(--bleu);color:#fff;padding:.85rem 1rem;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
-.qnav-hdr h2{font-size:.86rem;font-weight:700;}
-.qnav-close{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;width:28px;height:28px;border-radius:7px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;}
-.qnav-search{padding:.55rem .85rem;border-bottom:1px solid var(--bord);flex-shrink:0;}
-.qnav-search input{width:100%;padding:.4rem .62rem;border:1.5px solid var(--bord);border-radius:8px;font-family:'Inter',sans-serif;font-size:.78rem;outline:none;}
-.qnav-search input:focus{border-color:var(--bleu2);}
-.qnav-body{flex:1;overflow-y:auto;}.qnav-sec{border-bottom:1px solid var(--bord);}
-.qnav-sec-title{padding:.45rem .9rem;font-size:.62rem;font-weight:700;color:var(--doux);text-transform:uppercase;letter-spacing:.5px;background:#f8fafc;}
-.qnav-item{display:flex;align-items:center;justify-content:space-between;padding:.38rem .9rem;cursor:pointer;font-size:.78rem;color:var(--texte);transition:background .12s;border:none;background:none;width:100%;text-align:left;gap:.5rem;}
-.qnav-item:hover{background:#eff6ff;color:var(--bleu2);}
-.qnav-item .qi-label{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.qnav-item .qi-badge{background:var(--bleu-pale);color:var(--bleu2);border-radius:20px;font-size:.6rem;font-weight:700;padding:.06rem .38rem;flex-shrink:0;}
-.qnav-item .qi-note{font-size:.65rem;color:var(--doux);flex-shrink:0;}
-@media print{#login-screen,.main-nav,.note-flottante,header,.steps-nav,.btn,.btn-row,.autosave,#corr-panel,.toast,.modal-bg{display:none!important;}.section{display:block!important;}#section-historique,#section-stats,#section-arbitres-suivi,#section-admin{display:none!important;}body{background:#fff!important;}.card{border:1px solid #ccc;box-shadow:none;}}
-@media(max-width:600px){.inc-row{grid-template-columns:1fr 1fr;}.eval-table{font-size:.68rem;}#score-display{font-size:1.7rem;}}
+.toast{position:fixed;bottom:1rem;right:1rem;background:#1e293b;color:#fff;padding:.62rem .95rem;border-radius:9px;font-size:.78rem;font-weight:500;transform:translateY(80px);opacity:0;transition:all .3s;z-index:999;box-shadow:0 8px 24px rgba(0,0,0,.3);max-width:270px;}.toast.show{transform:translateY(0);opacity:1;}.toast.ok{background:var(--vert);}.toast.err{background:var(--rouge);}
+.qnav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.38);z-index:300;display:none;}.qnav-overlay.show{display:block;}.qnav-panel{position:fixed;top:0;left:-310px;width:295px;height:100vh;background:#fff;box-shadow:4px 0 24px rgba(0,0,0,.18);z-index:301;transition:left .28s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;}.qnav-panel.show{left:0;}.qnav-hdr{background:var(--bleu);color:#fff;padding:.85rem 1rem;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}.qnav-hdr h2{font-size:.86rem;font-weight:700;letter-spacing:.3px;}.qnav-close{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;width:28px;height:28px;border-radius:7px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;}.qnav-search{padding:.55rem .85rem;border-bottom:1px solid var(--bord);flex-shrink:0;}.qnav-search input{width:100%;padding:.4rem .62rem;border:1.5px solid var(--bord);border-radius:8px;font-family:'Inter',sans-serif;font-size:.78rem;outline:none;}.qnav-search input:focus{border-color:var(--bleu2);}.qnav-body{flex:1;overflow-y:auto;}.qnav-sec{border-bottom:1px solid var(--bord);}.qnav-sec-title{padding:.45rem .9rem;font-size:.62rem;font-weight:700;color:var(--doux);text-transform:uppercase;letter-spacing:.5px;background:#f8fafc;}.qnav-item{display:flex;align-items:center;justify-content:space-between;padding:.38rem .9rem;cursor:pointer;font-size:.78rem;color:var(--texte);transition:background .12s;border:none;background:none;width:100%;text-align:left;gap:.5rem;}.qnav-item:hover{background:#eff6ff;color:var(--bleu2);}.qnav-item .qi-label{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}.qnav-item .qi-badge{background:var(--bleu-pale);color:var(--bleu2);border-radius:20px;font-size:.6rem;font-weight:700;padding:.06rem .38rem;flex-shrink:0;}.qnav-item .qi-note{font-size:.65rem;color:var(--doux);flex-shrink:0;}
+.menu-btn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}.menu-btn:hover{background:rgba(255,255,255,.25);}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;}@keyframes spin{to{transform:rotate(360deg);}}
+@media print{#login-screen,.main-nav,.note-flottante,header,.steps-nav,.btn,.btn-row,.autosave,#corr-panel,.toast,.modal-bg{display:none!important;}.section{display:block!important;}#section-historique,#section-stats,#section-arbitres,#section-admin{display:none!important;}body{background:#fff!important;}.card{border:1px solid #ccc;box-shadow:none;}.eval-table{font-size:8pt;}.preview-box{max-height:none;}.note-box{background:#1a3a6b!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
+@media(max-width:600px){.inc-row{grid-template-columns:1fr 1fr;}.eval-table{font-size:.68rem;}#score-display{font-size:1.7rem;}.data-table th:nth-child(3),.data-table td:nth-child(3){display:none;}.comp-selectors{flex-direction:column;}}
 </style>
 </head>
 <body>
 
-<!-- LOGIN -->
+<!-- ══ LOGIN ══ -->
 <div id="login-screen">
   <div class="login-card">
-    <div class="login-logo"><div class="icon">🟡</div><h1>Observateur arbitre</h1><p>Commission Départementale de l'Arbitrage · FFF</p></div>
+    <div class="login-logo"><div class="icon">🟡</div><h1>DISTRICT BFC — ARBITRAGE</h1><p>Commission Départementale de l'Arbitrage · FFF</p></div>
     <div class="login-tabs">
       <button class="ltab active" onclick="setLR('obs')">👁️ Observateur</button>
       <button class="ltab" onclick="setLR('gest')">📋 Gestionnaire</button>
@@ -187,30 +87,31 @@ input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{ac
     </div>
     <div id="role-desc" class="role-badge-lg rb-obs"><span>👁️</span><span>Observateur — Saisie et génération de rapports</span></div>
     <div class="login-fg"><label>Identifiant</label><input type="text" id="login-user" placeholder="Identifiant" autocomplete="username"></div>
-    <div class="login-fg"><label>Mot de passe</label><input type="password" id="login-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
-    <div class="login-err" id="login-err">❌ Identifiant ou mot de passe incorrect.</div>
-    <button class="btn-login" onclick="doLogin()">Se connecter →</button>
+    <div class="login-fg"><label>Mot de passe</label><input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()"></div>
+    <div class="login-err" id="login-err"></div>
+    <button class="btn-login" id="btn-login-submit" onclick="doLogin()">Se connecter →</button>
   </div>
 </div>
 
-<!-- APP -->
+<!-- ══ APP ══ -->
 <div id="app" style="display:none;">
 <div class="note-flottante" id="nf"><div class="nf-label">Note</div><div id="nf-val">—</div><div class="nf-sub">/20</div></div>
 <header>
   <button class="menu-btn" id="qnav-btn" onclick="toggleQNav()" style="display:none;">☰</button>
   <div class="h-icon">🟡</div>
   <div class="h-text"><h1>RAPPORT ARBITRE CENTRAL — DISTRICT BFC</h1><p>Commission Départementale de l'Arbitrage · Bourgogne Franche-Comté · FFF</p></div>
-  <button class="notif-btn" onclick="showNotifs()">🔔<span class="notif-badge" id="notif-badge">0</span></button>
+  <button class="notif-btn" onclick="showNotifs()" title="Notifications">🔔<span class="notif-badge" id="notif-badge">0</span></button>
   <div class="role-pill" id="role-pill"></div>
   <button class="btn-logout" onclick="doLogout()">⏻ Déco</button>
 </header>
-<nav class="main-nav">
+<nav class="main-nav" id="main-nav">
   <button class="mnav-btn active" onclick="showSec('rapport')" id="mn-rapport">📝 Rapport</button>
   <button class="mnav-btn admin-nav" onclick="showSec('historique')" id="mn-historique" style="display:none;">📁 Historique</button>
   <button class="mnav-btn admin-nav" onclick="showSec('stats')" id="mn-stats" style="display:none;">📊 Tableau de bord</button>
-  <button class="mnav-btn admin-nav" onclick="showSec('arbitres-suivi')" id="mn-arbitres-suivi" style="display:none;">👥 Suivi Arbitres</button>
+  <button class="mnav-btn admin-nav" onclick="showSec('arbitres')" id="mn-arbitres" style="display:none;">👥 Arbitres</button>
   <button class="mnav-btn admin-nav" onclick="showSec('admin')" id="mn-admin" style="display:none;">🔐 Administration</button>
 </nav>
+
 <div class="container">
 
 <!-- ══ RAPPORT ══ -->
@@ -228,36 +129,12 @@ input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{ac
   </div>
 
   <div class="page active" id="page-0">
-    <!-- RECHERCHE ARBITRE AUTOCOMPLETE -->
-    <div class="card" style="border-color:var(--bleu2);background:#f0f9ff;">
-      <div class="card-header" style="border-bottom-color:#bfdbfe;"><span class="card-icon">🔍</span>
-        <div><div class="card-title">Recherche de l'Arbitre</div><div class="card-sub">Tapez le nom pour trouver automatiquement licence · email · niveau</div></div>
-      </div>
-      <div class="arb-search-wrap">
-        <label>Rechercher par nom, prénom ou numéro de licence</label>
-        <input type="text" id="arb-search-input" placeholder="Ex : DUPONT ou 089..." oninput="searchArbitre(this.value)" autocomplete="off" style="border-color:var(--bleu2);">
-        <div class="arb-dropdown" id="arb-dropdown"></div>
-      </div>
-      <div class="arb-found-card" id="arb-found-card">
-        <div class="arb-found-icon">👤</div>
-        <div class="arb-found-info">
-          <div class="arb-found-nom" id="arb-found-nom">—</div>
-          <div class="arb-found-details">
-            <span id="arb-found-licence"></span>
-            <span id="arb-found-email"></span>
-            <span id="arb-found-cat"></span>
-          </div>
-        </div>
-        <button class="btn-clear-arb" onclick="clearArbitre()" title="Effacer la sélection">✕</button>
-      </div>
-    </div>
     <div class="card">
-      <div class="card-header"><span class="card-icon">🏟️</span><div><div class="card-title">Informations du Match</div></div></div>
+      <div class="card-header"><span class="card-icon">🏟️</span><div><div class="card-title">Informations du Match</div><div class="card-sub">Données générales de la rencontre</div></div></div>
       <div class="fgrid">
-        <div class="fg"><label>Catégorie</label><select id="categorie"><optgroup label="⚽ SÉNIORS LIGUE"><option>R1</option><option>R2</option><option>R3</option></optgroup><optgroup label="⚽ SÉNIORS DISTRICT"><option selected>D1</option><option>D2</option><option>D3</option><option>D4</option></optgroup><optgroup label="🟡 JAL"><option>JAL-U18 D1</option><option>JAL-U18 D2</option><option>JAL-U16 D1</option><option>JAL-U16 D2</option><option>JAL-U15 D1</option><option>JAL-U15 D2</option><option>JAL-U14 D1</option><option>JAL-U14 D2</option></optgroup><optgroup label="🟢 JAD"><option>JAD-U18 D1</option><option>JAD-U18 D2</option><option>JAD-U15 D1</option><option>JAD-U15 D2</option><option>JAD-U15 D3</option></optgroup><optgroup label="🔵 PLUS JEUNE"><option>U13-D1</option><option>U13-D2</option><option>U13-D3</option></optgroup><optgroup label="🎓 STAGIAIRE FIA"><option>FIA Senior</option><option>FIA Jeune</option></optgroup></select></div>
-        <div class="fg"><label>N° Licence Arbitre</label><input type="text" id="arbitre-licence" placeholder="Rempli automatiquement" readonly></div>
-        <div class="fg"><label>Nom et Prénom Arbitre</label><input type="text" id="arbitre-nom" placeholder="NOM Prénom"></div>
-        <div class="fg"><label>Email Arbitre</label><input type="email" id="arbitre-email" placeholder="Rempli automatiquement"></div>
+        <div class="fg"><label>Catégorie</label><select id="categorie"><option>D1</option><option>D2</option><option selected>D3</option><option>D4</option><option>U18</option><option>U15</option><option>U13</option><option>U11</option><option>U9</option><option>Régional</option></select></div>
+        <div class="fg"><label>Nom de l'Arbitre</label><input type="text" id="arbitre-nom" placeholder="NOM Prénom"></div>
+        <div class="fg"><label>Email de l'Arbitre (optionnel)</label><input type="email" id="arbitre-email" placeholder="arbitre@exemple.fr"></div>
         <div class="fg"><label>Observateur</label><input type="text" id="obs-nom" placeholder="NOM Prénom"></div>
         <div class="fg"><label>Assistants</label><input type="text" id="assistants" placeholder="Officiels ou bénévoles"></div>
         <div class="fg"><label>Compétition</label><input type="text" id="competition" placeholder="Ex : DISTRICT D3"></div>
@@ -280,12 +157,14 @@ input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{ac
     <div class="card">
       <div class="card-header"><span class="card-icon">⚠️</span><div><div class="card-title">Incidents & Accidents</div></div></div>
       <div class="inc-row">
-        <div class="fg"><label>Type</label><select id="inc-type">
-          <optgroup label="🟡 CARTON JAUNE"><option value="cj_j1">🟡 J1 — Comportement antisportif</option><option value="cj_j2">🟡 J2 — Désapprobation</option><option value="cj_j3">🟡 J3 — Infraction persistante</option><option value="cj_j4">🟡 J4 — Retarder la reprise</option><option value="cj_j5">🟡 J5 — Non-respect distance</option><option value="cj_j6">🟡 J6 — Entrée sans autorisation</option><option value="cj_j7">🟡 J7 — Quitter terrain</option></optgroup>
-          <optgroup label="🔴 CARTON ROUGE"><option value="cr_r1">🔴 R1 — Faute grossière</option><option value="cr_r2">🔴 R2 — Brutalité</option><option value="cr_r3">🔴 R3 — Crachat</option><option value="cr_r4">🔴 R4 — Main délibérée</option><option value="cr_r5">🔴 R5 — Occasion manifeste</option><option value="cr_r6">🔴 R6 — Langage offensant</option><option value="cr_r7">🔴 R7 — Second avertissement</option></optgroup>
-          <optgroup label="⬜ CARTON BLANC"><option value="cb_b1">⬜ CB1 — Désapprobation</option><option value="cb_b2">⬜ CB2 — Retard reprise</option><option value="cb_coach">⬜ CB Coach → sort Capitaine</option><option value="cb_coach2">⬜ CB Coach → sort Vice-Cap.</option></optgroup>
-          <option value="but">⚽ But</option><option value="autre">📌 Autre</option>
-        </select></div>
+        <div class="fg"><label>Type</label>
+          <select id="inc-type">
+            <optgroup label="🟡 CARTON JAUNE"><option value="cj_j1">🟡 J1 — Comportement antisportif</option><option value="cj_j2">🟡 J2 — Désapprobation paroles/actes</option><option value="cj_j3">🟡 J3 — Infraction persistante</option><option value="cj_j4">🟡 J4 — Retarder la reprise</option><option value="cj_j5">🟡 J5 — Non-respect distance</option><option value="cj_j6">🟡 J6 — Entrée sans autorisation</option><option value="cj_j7">🟡 J7 — Quitter terrain</option></optgroup>
+            <optgroup label="🔴 CARTON ROUGE"><option value="cr_r1">🔴 R1 — Faute grossière</option><option value="cr_r2">🔴 R2 — Acte de brutalité</option><option value="cr_r3">🔴 R3 — Crachat</option><option value="cr_r4">🔴 R4 — Main délibérée</option><option value="cr_r5">🔴 R5 — Occasion manifeste</option><option value="cr_r6">🔴 R6 — Langage offensant</option><option value="cr_r7">🔴 R7 — Second avertissement</option></optgroup>
+            <optgroup label="⬜ CARTON BLANC (BFC)"><option value="cb_b1">⬜ CB1 — Désapprobation</option><option value="cb_b2">⬜ CB2 — Retard reprise</option><option value="cb_coach">⬜ CB Coach → sort Capitaine</option><option value="cb_coach2">⬜ CB Coach → sort Vice-Cap.</option></optgroup>
+            <option value="but">⚽ But</option><option value="autre">📌 Autre</option>
+          </select>
+        </div>
         <div class="fg"><label>Description</label><input type="text" id="inc-desc" placeholder="Joueur, équipe, motif…" onkeydown="if(event.key==='Enter')addInc()"></div>
         <div class="fg"><label>&nbsp;</label><button class="btn btn-p" onclick="addInc()">+ Ajouter</button></div>
       </div>
@@ -293,7 +172,8 @@ input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{ac
     </div>
     <div class="btn-row"><button class="btn btn-o" onclick="goP(0)">← Retour</button><button class="btn btn-p" onclick="goP(2)">Suivant → Athlétique</button></div>
   </div>
-  <div class="page" id="page-2"><div class="card"><div class="card-header"><span class="card-icon">🏃</span><div><div class="card-title">Qualités Athlétiques</div></div></div><div id="sec-qa"></div></div><div class="btn-row"><button class="btn btn-o" onclick="goP(1)">← Retour</button><button class="btn btn-p" onclick="goP(3)">Suivant →</button></div></div>
+
+  <div class="page" id="page-2"><div class="card"><div class="card-header"><span class="card-icon">🏃</span><div><div class="card-title">Qualités Athlétiques au Service du Jeu</div></div></div><div id="sec-qa"></div></div><div class="btn-row"><button class="btn btn-o" onclick="goP(1)">← Retour</button><button class="btn btn-p" onclick="goP(3)">Suivant →</button></div></div>
   <div class="page" id="page-3"><div class="card"><div class="card-header"><span class="card-icon">⚖️</span><div><div class="card-title">Compétences Techniques</div></div></div><div id="sec-ct"></div></div><div class="btn-row"><button class="btn btn-o" onclick="goP(2)">← Retour</button><button class="btn btn-p" onclick="goP(4)">Suivant →</button></div></div>
   <div class="page" id="page-4"><div class="card"><div class="card-header"><span class="card-icon">🟡</span><div><div class="card-title">Compétences Disciplinaires</div></div></div><div id="sec-cd"></div></div><div class="btn-row"><button class="btn btn-o" onclick="goP(3)">← Retour</button><button class="btn btn-p" onclick="goP(5)">Suivant →</button></div></div>
   <div class="page" id="page-5"><div class="card"><div class="card-header"><span class="card-icon">🎯</span><div><div class="card-title">Personnalité & Management</div></div></div><div id="sec-pm"></div></div><div class="btn-row"><button class="btn btn-o" onclick="goP(4)">← Retour</button><button class="btn btn-p" onclick="goP(6)">Suivant →</button></div></div>
@@ -317,127 +197,128 @@ input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{ac
 
   <div class="page" id="page-7">
     <div class="card" style="border:1.5px solid #c4b5fd;background:#faf5ff;">
-      <div class="card-header" style="border-bottom-color:#e9d5ff;"><span class="card-icon">🤖</span>
-        <div><div class="card-title" style="color:#7c3aed;">Correction IA</div></div>
+      <div class="card-header" style="border-bottom-color:#e9d5ff;margin-bottom:.72rem;">
+        <span class="card-icon">🤖</span>
+        <div><div class="card-title" style="color:#7c3aed;">Correction IA</div><div class="card-sub">Claude relit et corrige orthographe, style et vocabulaire</div></div>
       </div>
-      <div style="display:flex;justify-content:center;">
-        <button class="btn btn-v" onclick="corrigerIA()" style="font-size:.92rem;padding:.82rem 2rem;border-radius:11px;">🔍 Corriger tous les textes</button>
+      <div style="display:flex;justify-content:center;margin-bottom:.4rem;">
+        <button class="btn btn-v" onclick="corrigerIA()" style="font-size:.92rem;padding:.82rem 2rem;border-radius:11px;box-shadow:0 4px 14px rgba(124,58,237,.3);">🔍 Corriger tous les textes</button>
       </div>
       <div id="corr-panel" style="display:none;padding-top:.72rem;">
-        <div id="corr-loading" style="text-align:center;padding:.95rem;"><div style="font-size:1.4rem;">⏳</div></div>
+        <div id="corr-loading" style="text-align:center;padding:.95rem;"><div style="font-size:1.4rem;">⏳</div><div style="color:var(--doux);font-size:.78rem;margin-top:.32rem;">Analyse en cours…</div></div>
         <div id="corr-results"></div>
       </div>
     </div>
     <div class="card">
       <div class="card-header"><span class="card-icon">📄</span><div><div class="card-title">Aperçu & Export</div></div></div>
       <div id="resume-box" class="preview-box" style="margin-bottom:.88rem;"></div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:.58rem;">
-        <button class="btn btn-s" onclick="submitReport()" style="font-size:.95rem;padding:.82rem 2.5rem;border-radius:11px;">📤 Envoyer &amp; Enregistrer</button>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:.58rem;margin:.2rem 0;">
+        <button class="btn btn-s" onclick="submitReport()" style="font-size:.95rem;padding:.82rem 2.5rem;border-radius:11px;box-shadow:0 4px 14px rgba(22,163,74,.3);">📤 Envoyer &amp; Enregistrer</button>
         <div style="display:flex;gap:.45rem;flex-wrap:wrap;justify-content:center;">
           <button class="btn btn-o" onclick="window.print()" style="font-size:.76rem;">🖨️ Imprimer</button>
           <button class="btn btn-o" id="btn-email" onclick="openEmail()" style="font-size:.76rem;display:none;">📧 Email arbitre</button>
-          <button class="btn btn-o" onclick="nouveauRapport()" style="font-size:.76rem;">🆕 Nouveau</button>
+          <button class="btn btn-o" onclick="nouveauRapport()" style="font-size:.76rem;">🆕 Nouveau rapport</button>
           <button class="btn btn-o" onclick="goP(0)" style="font-size:.76rem;">✏️ Modifier</button>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div><!-- /section-rapport -->
 
 <!-- ══ HISTORIQUE ══ -->
 <div class="section" id="section-historique">
   <div class="card">
-    <div class="card-header"><span class="card-icon">📁</span><div><div class="card-title">Historique des Rapports</div></div>
+    <div class="card-header">
+      <span class="card-icon">📁</span><div><div class="card-title">Historique des Rapports</div><div class="card-sub" id="hist-role-label"></div></div>
       <div style="margin-left:auto;display:flex;gap:.42rem;">
         <button class="btn btn-o" onclick="exportZip()" style="font-size:.72rem;padding:.28rem .65rem;">📦 ZIP</button>
         <button class="btn btn-p" onclick="showSec('rapport');goP(0)" style="font-size:.72rem;padding:.28rem .65rem;">+ Nouveau</button>
       </div>
     </div>
     <div class="search-bar">
-      <input type="text" id="hist-search" placeholder="🔍 Nom, licence…" oninput="renderHist()">
+      <input type="text" id="hist-search" placeholder="🔍 Rechercher un arbitre…" oninput="renderHist()">
       <select id="hist-statut" onchange="renderHist()"><option value="">Tous statuts</option><option value="attente">En attente</option><option value="Validé">✅ Validé</option><option value="Retourné">🔴 Retourné</option><option value="Archivé">📁 Archivé</option></select>
       <select id="hist-cat" onchange="renderHist()"><option value="">Toutes catégories</option><option>D1</option><option>D2</option><option>D3</option><option>D4</option><option>U18</option><option>U15</option></select>
     </div>
-    <div id="hist-content"><div class="empty-state"><div class="ei">📋</div><p>Aucun rapport enregistré.</p></div></div>
+    <div id="hist-content"><div class="empty-state"><div class="ei">📋</div><p>Chargement…</p></div></div>
   </div>
 </div>
 
 <!-- ══ STATS ══ -->
 <div class="section" id="section-stats">
+  <div class="card" style="border-color:#c4b5fd;background:#faf5ff;padding:.6rem .9rem;margin-bottom:.82rem;"><span style="font-size:.72rem;font-weight:700;color:#7c3aed;">🔐 Tableau de bord — Accès réservé à l'Administrateur</span></div>
   <div class="stats-grid" id="stats-cards"></div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:.82rem;">
-    <div class="chart-box"><div class="chart-title">📈 Évolution des notes</div><canvas id="chart-evolution" height="185"></canvas></div>
+    <div class="chart-box"><div class="chart-title">📈 Évolution des notes (6 mois)</div><canvas id="chart-evolution" height="185"></canvas></div>
     <div class="chart-box"><div class="chart-title">🥧 Répartition par mention</div><canvas id="chart-repartition" height="185"></canvas></div>
     <div class="chart-box"><div class="chart-title">📊 Moyennes par section</div><canvas id="chart-sections" height="185"></canvas></div>
     <div class="chart-box"><div class="chart-title">📅 Rapports par mois</div><canvas id="chart-mois" height="185"></canvas></div>
   </div>
-  <div class="chart-box"><div class="chart-title">📋 Historique des notes</div><div id="notes-history-list" style="max-height:320px;overflow-y:auto;"></div></div>
+  <div class="chart-box"><div class="chart-title">📋 Historique de toutes les notes</div><div id="notes-history-list" style="max-height:320px;overflow-y:auto;"></div></div>
 </div>
 
-<!-- ══ ARBITRES SUIVI ══ -->
-<div class="section" id="section-arbitres-suivi">
+<!-- ══ ARBITRES ══ -->
+<div class="section" id="section-arbitres">
+  <div class="card" style="border-color:#c4b5fd;background:#faf5ff;padding:.6rem .9rem;margin-bottom:.82rem;"><span style="font-size:.72rem;font-weight:700;color:#7c3aed;">🔐 Suivi des Arbitres — Accès réservé à l'Administrateur</span></div>
   <div class="sub-tabs">
     <button class="stab active" onclick="showSubTab('suivi')">👤 Suivi individuel</button>
     <button class="stab" onclick="showSubTab('comparaison')">⚖️ Comparaison</button>
-    <button class="stab" onclick="showSubTab('progression')">📈 Progression</button>
+    <button class="stab" onclick="showSubTab('progression')">📈 Progression saison</button>
   </div>
   <div class="sub-page active" id="subtab-suivi">
-    <div class="card"><div class="card-header"><span class="card-icon">👤</span><div><div class="card-title">Fiche Arbitre</div></div></div>
-      <div class="fg" style="margin-bottom:.85rem;"><label>Sélectionner un arbitre</label><select id="arb-select" onchange="renderArbitre()"><option value="">-- Choisir --</option></select></div>
+    <div class="card">
+      <div class="card-header"><span class="card-icon">👤</span><div><div class="card-title">Fiche Arbitre</div></div></div>
+      <div class="fg" style="margin-bottom:.85rem;"><label>Sélectionner un arbitre</label><select id="arb-select" onchange="renderArbitre()"><option value="">-- Choisir un arbitre --</option></select></div>
       <div id="arb-content"><div class="empty-state"><div class="ei">👤</div><p>Sélectionnez un arbitre.</p></div></div>
     </div>
   </div>
   <div class="sub-page" id="subtab-comparaison">
-    <div class="card"><div class="card-header"><span class="card-icon">⚖️</span><div><div class="card-title">Comparaison</div></div></div>
-      <div class="comp-selectors">
+    <div class="card">
+      <div class="card-header"><span class="card-icon">⚖️</span><div><div class="card-title">Comparaison entre Arbitres</div></div></div>
+      <div class="comp-selectors" id="comp-selectors">
         <div class="comp-sel-wrap"><label>Arbitre 1</label><select class="comp-sel" onchange="renderComparaison()"><option value="">-- Choisir --</option></select></div>
         <div class="comp-sel-wrap"><label>Arbitre 2</label><select class="comp-sel" onchange="renderComparaison()"><option value="">-- Choisir --</option></select></div>
         <div class="comp-sel-wrap"><label>Arbitre 3</label><select class="comp-sel" onchange="renderComparaison()"><option value="">-- Choisir --</option></select></div>
         <div class="comp-sel-wrap"><label>Arbitre 4</label><select class="comp-sel" onchange="renderComparaison()"><option value="">-- Choisir --</option></select></div>
       </div>
       <div id="comp-content"><div class="empty-state"><div class="ei">⚖️</div><p>Sélectionnez au moins 2 arbitres.</p></div></div>
-      <div class="chart-box" id="comp-radar-box" style="display:none;"><canvas id="chart-radar" height="260"></canvas></div>
-      <div class="chart-box" id="comp-bar-box" style="display:none;"><canvas id="chart-comp-bar" height="180"></canvas></div>
+      <div class="chart-box" id="comp-radar-box" style="display:none;"><div class="chart-title">🕸️ Profil comparatif</div><canvas id="chart-radar" height="260"></canvas></div>
+      <div class="chart-box" id="comp-bar-box" style="display:none;"><div class="chart-title">📊 Notes globales comparées</div><canvas id="chart-comp-bar" height="180"></canvas></div>
     </div>
   </div>
   <div class="sub-page" id="subtab-progression">
-    <div class="card"><div class="card-header"><span class="card-icon">📈</span><div><div class="card-title">Progression Saison</div></div></div>
+    <div class="card">
+      <div class="card-header"><span class="card-icon">📈</span><div><div class="card-title">Courbe de Progression Saison</div></div></div>
       <div style="display:flex;gap:.6rem;margin-bottom:.85rem;flex-wrap:wrap;">
-        <div class="fg" style="flex:1;min-width:160px;"><label>Arbitre(s)</label><select id="prog-arb" multiple style="min-height:80px;"></select></div>
-        <div class="fg" style="flex:1;min-width:140px;"><label>Saison</label><select id="prog-year" onchange="renderProgression()"></select></div>
+        <div class="fg" style="flex:1;min-width:160px;"><label>Arbitres (multi-sélection)</label><select id="prog-arb" multiple style="min-height:80px;"></select></div>
+        <div class="fg" style="flex:1;min-width:140px;"><label>Année</label><select id="prog-year" onchange="renderProgression()"></select></div>
+        <div class="fg" style="flex:1;min-width:140px;"><label>Catégorie</label><select id="prog-cat" onchange="renderProgression()"><option value="">Toutes</option><option>D1</option><option>D2</option><option>D3</option><option>D4</option><option>U18</option></select></div>
         <div class="fg" style="align-self:flex-end;"><button class="btn btn-p" onclick="renderProgression()">Afficher</button></div>
       </div>
-      <div class="chart-box"><canvas id="chart-progression" height="220"></canvas></div>
-      <div id="prog-stats"></div>
+      <div class="chart-box"><div class="chart-title">📈 Progression des notes</div><canvas id="chart-progression" height="220"></canvas></div>
     </div>
   </div>
 </div>
 
 <!-- ══ ADMIN ══ -->
 <div class="section" id="section-admin">
-  <div class="card" style="border-color:#c4b5fd;background:#faf5ff;padding:.6rem .9rem;margin-bottom:.82rem;">
-    <span style="font-size:.72rem;font-weight:700;color:#7c3aed;">🔐 Administration — Accès réservé à l'Administrateur</span>
-  </div>
-  <!-- LISTE DES ARBITRES -->
-  <div class="admin-section" style="border-color:#7dd3fc;background:linear-gradient(135deg,#f0f9ff,#e0f2fe);">
-    <h2 style="color:#0891b2;">🏟️ Liste des Arbitres
-      <span style="font-size:.68rem;font-weight:400;color:#0e7490;margin-left:.5rem;">Utilisée pour l'autocomplétion dans les rapports</span>
-      <button class="btn" onclick="openArbModal()" style="font-size:.7rem;padding:.26rem .65rem;margin-left:auto;background:#0891b2;color:#fff;">+ Ajouter un arbitre</button>
-    </h2>
-    <div class="search-bar" style="margin-bottom:.65rem;">
-      <input type="text" id="arb-admin-search" placeholder="🔍 Rechercher par nom, licence, email…" oninput="renderArbAdmin()">
-    </div>
-    <div id="arb-admin-table"></div>
-  </div>
-  <!-- UTILISATEURS -->
+  <div class="card" style="border-color:#c4b5fd;background:#faf5ff;padding:.6rem .9rem;margin-bottom:.82rem;"><span style="font-size:.72rem;font-weight:700;color:#7c3aed;">🔐 Administration — Accès réservé à l'Administrateur</span></div>
   <div class="admin-section">
-    <h2>👥 Gestion des Utilisateurs
-      <button class="btn btn-v" onclick="openUserModal()" style="font-size:.7rem;padding:.26rem .65rem;margin-left:auto;">+ Créer un compte</button>
-    </h2>
-    <div id="role-quota" style="display:grid;grid-template-columns:repeat(3,1fr);gap:.62rem;margin-bottom:.85rem;"></div>
+    <h2>👥 Gestion des Utilisateurs<button class="btn btn-v" onclick="openUserModal()" style="font-size:.7rem;padding:.26rem .65rem;margin-left:auto;">+ Créer un compte</button></h2>
     <div id="users-table-wrap"></div>
   </div>
-  <div class="admin-section"><h2>📋 Journal des Connexions</h2><div id="conn-log-wrap"></div></div>
+  <div class="admin-section">
+    <h2>📋 Journal des Connexions</h2>
+    <div id="conn-log-wrap"></div>
+  </div>
+  <div class="admin-section">
+    <h2>🔑 Matrice des Permissions</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:.65rem;">
+      <div style="background:#fff;border-radius:9px;padding:.75rem;border:1.5px solid #c4b5fd;"><div style="font-size:.76rem;font-weight:700;margin-bottom:.45rem;"><span class="role-dot rd-obs">👁️ Observateur</span></div><div style="font-size:.7rem;line-height:1.8;">✔ Saisir un rapport<br>✔ Corriger avec l'IA<br>✔ Enregistrer / Imprimer<br>✗ Historique admin<br>✗ Statistiques</div></div>
+      <div style="background:#fff;border-radius:9px;padding:.75rem;border:1.5px solid #c4b5fd;"><div style="font-size:.76rem;font-weight:700;margin-bottom:.45rem;"><span class="role-dot rd-gest">📋 Gestionnaire</span></div><div style="font-size:.7rem;line-height:1.8;">✔ Tout Observateur<br>✔ Historique & édition rapports<br>✔ Changer statuts<br>✗ Statistiques<br>✗ Gestion des comptes</div></div>
+      <div style="background:#fff;border-radius:9px;padding:.75rem;border:1.5px solid #c4b5fd;"><div style="font-size:.76rem;font-weight:700;margin-bottom:.45rem;"><span class="role-dot rd-admin">🔐 Administrateur</span></div><div style="font-size:.7rem;line-height:1.8;">✔ Tout Gestionnaire<br>✔ Tableau de bord stats<br>✔ Suivi & comparaison<br>✔ Valider & notifier<br>✔ Gestion des comptes</div></div>
+    </div>
+  </div>
 </div>
 
 </div><!-- /container -->
@@ -446,29 +327,12 @@ input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{ac
 <div class="qnav-overlay" id="qnav-overlay" onclick="toggleQNav()"></div>
 <div class="qnav-panel" id="qnav-panel">
   <div class="qnav-hdr"><h2>🔍 Navigation Rapide</h2><button class="qnav-close" onclick="toggleQNav()">✕</button></div>
-  <div class="qnav-search"><input type="text" id="qnav-search-input" placeholder="🔍 Rechercher un arbitre…" oninput="filterQNav(this.value)"></div>
+  <div class="qnav-search"><input type="text" id="qnav-search-input" placeholder="🔍 Arbitre, équipes…" oninput="filterQNav(this.value)"></div>
   <div class="qnav-body" id="qnav-body"></div>
 </div>
 </div><!-- /app -->
-<div class="toast" id="toast"></div>
 
-<!-- MODAL Arbitre -->
-<div class="modal-bg" id="arb-modal" style="display:none;" onclick="if(event.target===this)closeArbModal()">
-  <div class="modal">
-    <button class="modal-close" onclick="closeArbModal()">✕</button>
-    <h2 id="arb-modal-title" style="color:#0891b2;">➕ Ajouter un arbitre</h2>
-    <input type="hidden" id="arb-modal-id">
-    <div class="fgrid" style="gap:.65rem;margin-top:.65rem;">
-      <div class="fg"><label>N° Licence</label><input type="text" id="am-licence" placeholder="Ex : 0890001"></div>
-      <div class="fg"><label>Nom * (majuscules)</label><input type="text" id="am-nom" placeholder="NOM"></div>
-      <div class="fg"><label>Prénom *</label><input type="text" id="am-prenom" placeholder="Prénom"></div>
-      <div class="fg"><label>Email</label><input type="email" id="am-email" placeholder="email@exemple.fr"></div>
-      <div class="fg"><label>Téléphone</label><input type="tel" id="am-tel" placeholder="06 00 00 00 00"></div>
-      <div class="fg"><label>Niveau</label><select id="am-cat"><option value="">-- Sélectionner --</option><option>Régional</option><option>D1</option><option>D2</option><option>D3</option><option>D4</option><option>U18</option><option>U15</option><option>Débutant</option></select></div>
-    </div>
-    <div class="btn-row" style="margin-top:.85rem;"><button class="btn btn-s" onclick="saveArbitre()">💾 Enregistrer</button><button class="btn btn-o" onclick="closeArbModal()">Annuler</button></div>
-  </div>
-</div>
+<div class="toast" id="toast"></div>
 
 <!-- MODAL Utilisateur -->
 <div class="modal-bg" id="user-modal" style="display:none;" onclick="if(event.target===this)closeUserModal()">
@@ -481,24 +345,31 @@ input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{ac
       <div class="fg"><label>Nom complet</label><input type="text" id="mu-nom" placeholder="NOM Prénom"></div>
       <div class="fg"><label>Email</label><input type="email" id="mu-email" placeholder="email@exemple.fr"></div>
       <div class="fg"><label>Rôle</label><select id="mu-role"><option value="obs">👁️ Observateur</option><option value="gest">📋 Gestionnaire</option><option value="admin">🔐 Administrateur</option></select></div>
-      <div class="fg"><label>Mot de passe</label><input type="password" id="mu-pass" placeholder="Laisser vide = pas de changement"></div>
+      <div class="fg full"><label>Mot de passe (laisser vide = pas de changement)</label><input type="password" id="mu-pass" placeholder="••••••••"></div>
     </div>
     <div class="btn-row" style="margin-top:.85rem;"><button class="btn btn-s" onclick="saveUser()">💾 Enregistrer</button><button class="btn btn-o" onclick="closeUserModal()">Annuler</button></div>
   </div>
 </div>
 
-<!-- MODAL Rapport -->
+<!-- MODAL Rapport détail -->
 <div class="modal-bg" id="rpt-modal" style="display:none;" onclick="if(event.target===this)closeRptModal()">
   <div class="modal" style="max-width:680px;"><button class="modal-close" onclick="closeRptModal()">✕</button><div id="rpt-modal-content"></div></div>
 </div>
+
+<!-- MODAL Notification validation -->
+<div class="modal-bg" id="notif-val-modal" style="display:none;" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal" style="max-width:480px;"><button class="modal-close" onclick="document.getElementById('notif-val-modal').style.display='none'">✕</button><h2>📧 Notifier l'Arbitre</h2><div id="notif-val-content" style="margin-top:.75rem;"></div></div>
+</div>
+
 <!-- MODAL Notifications -->
 <div class="modal-bg" id="notif-modal" style="display:none;" onclick="if(event.target===this)this.style.display='none'">
-  <div class="modal" style="max-width:400px;"><button class="modal-close" onclick="document.getElementById('notif-modal').style.display='none'">✕</button>
-  <h2>🔔 Notifications</h2><div id="notif-content" style="margin-top:.75rem;"></div></div>
+  <div class="modal" style="max-width:400px;"><button class="modal-close" onclick="document.getElementById('notif-modal').style.display='none'">✕</button><h2>🔔 Notifications</h2><div id="notif-content" style="margin-top:.75rem;"></div></div>
 </div>
 
 <script>
-// ══ DONNÉES ══════════════════════════════════════════════
+// ══════════════════════════════════════
+//  DONNÉES MÉTIER
+// ══════════════════════════════════════
 const SECTIONS={
   qa:{titre:'QUALITES ATHLETIQUES',criteres:['Capacité à reproduire les efforts, endurance','Explosivité maîtrisée adaptée au profil','Proximité des zones sensibles (SDR, BT)','Anticipation et recherche d\'angle','Placements sur remises en jeu']},
   ct:{titre:'COMPETENCES TECHNIQUES',criteres:['Analyse et gestion des duels (tacles, semelles, coudes)','Décisions techniques dans les zones sensibles','Application de l\'avantage et sens du jeu','Gestuelle et coup de sifflet (lisibilité)','Lois du jeu, instructions CRA']},
@@ -509,162 +380,176 @@ const NV={pf:15,qa:13,pa:11,atp:9};
 const TOTAL=20;
 const TL={cj_j1:'J1 Antisportif',cj_j2:'J2 Désapprobation',cj_j3:'J3 Infraction',cj_j4:'J4 Retarder',cj_j5:'J5 Distance',cj_j6:'J6 Entrée',cj_j7:'J7 Quitter',cr_r1:'R1 Faute grossière',cr_r2:'R2 Brutalité',cr_r3:'R3 Crachat',cr_r4:'R4 Main délib.',cr_r5:'R5 Occasion',cr_r6:'R6 Langage',cr_r7:'R7 2e avert.',cb_b1:'CB1',cb_b2:'CB2',cb_coach:'CB Coach→Cap',cb_coach2:'CB Coach→VCap',but:'But',autre:'Autre'};
 const TI={cj_j1:'🟡',cj_j2:'🟡',cj_j3:'🟡',cj_j4:'🟡',cj_j5:'🟡',cj_j6:'🟡',cj_j7:'🟡',cr_r1:'🔴',cr_r2:'🔴',cr_r3:'🔴',cr_r4:'🔴',cr_r5:'🔴',cr_r6:'🔴',cr_r7:'🔴',cb_b1:'⬜',cb_b2:'⬜',cb_coach:'⬜',cb_coach2:'⬜',but:'⚽',autre:'📌'};
-const RC={obs:{label:'👁️ Observateur',pill:'rp-obs',badge:'rb-obs',desc:'Observateur — Saisie et génération de rapports'},gest:{label:'📋 Gestionnaire',pill:'rp-gest',badge:'rb-gest',desc:'Gestionnaire — Saisie et suivi'},admin:{label:'🔐 Administrateur',pill:'rp-admin',badge:'rb-admin',desc:'Administrateur — Accès complet'}};
+const RC={obs:{label:'👁️ Observateur',pill:'rp-obs',badge:'rb-obs',desc:'Observateur — Saisie et génération de rapports'},gest:{label:'📋 Gestionnaire',pill:'rp-gest',badge:'rb-gest',desc:'Gestionnaire — Saisie, suivi et correction'},admin:{label:'🔐 Administrateur',pill:'rp-admin',badge:'rb-admin',desc:'Administrateur — Accès complet'}};
 const CC=['#2563eb','#16a34a','#dc2626','#7c3aed','#f59e0b','#0891b2'];
 
-// ══ ÉTAT ══════════════════════════════════════════════════
-let cRole=null,cUser=null,incidents=[],corrList=[],chartInst={},allReports=[],allArbitres=[],asTimer=null;
+// ══════════════════════════════════════
+//  ÉTAT GLOBAL
+// ══════════════════════════════════════
+let cRole=null,cUser=null,incidents=[],chartInst={},allReports=[],asTimer=null;
 let evalData={};
 Object.keys(SECTIONS).forEach(s=>{evalData[s]=SECTIONS[s].criteres.map(()=>({note:'',commentaire:''}));});
 const gv=id=>document.getElementById(id)?.value||'';
 
-// ══ JWT ═══════════════════════════════════════════════════
-const API_BASE = window.location.hostname === 'bfc-district.onrender.com' ? '' : 'https://bfc-district.onrender.com';
+// ══════════════════════════════════════
+//  TOKENS JWT (localStorage — standard)
+// ══════════════════════════════════════
 const TM={
-  _a:null,_r:null,
-  init(){try{this._a=localStorage.getItem('bfc_access');this._r=localStorage.getItem('bfc_refresh');}catch{}},
-  get access(){return this._a;},get refresh(){return this._r;},
-  set(a,r){this._a=a;if(r)this._r=r;try{localStorage.setItem('bfc_access',a);if(r)localStorage.setItem('bfc_refresh',r);}catch{}},
-  clear(){this._a=null;this._r=null;try{localStorage.removeItem('bfc_access');localStorage.removeItem('bfc_refresh');}catch{}}
+  get a(){return localStorage.getItem('bfc_at');},
+  get r(){return localStorage.getItem('bfc_rt');},
+  set(a,r){localStorage.setItem('bfc_at',a);if(r)localStorage.setItem('bfc_rt',r);},
+  clear(){localStorage.removeItem('bfc_at');localStorage.removeItem('bfc_rt');}
 };
-TM.init();
 
 async function apiFetch(url,opts={}){
-  const h={'Content-Type':'application/json',...(opts.headers||{}),...(TM.access?{'Authorization':`Bearer ${TM.access}`}:{})};
+  const h={'Content-Type':'application/json',...(opts.headers||{}),...(TM.a?{Authorization:`Bearer ${TM.a}`}:{})};
   let res=await fetch(url,{...opts,headers:h});
-  if(res.status===401&&TM.refresh){
-    try{const r2=await fetch(API_BASE+'/api/auth/refresh',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({refreshToken:TM.refresh})});
-    if(r2.ok){const d=await r2.json();TM.set(d.data?.accessToken);h['Authorization']=`Bearer ${TM.access}`;res=await fetch(url,{...opts,headers:h});}
-    else{TM.clear();doLogout();return null;}}catch{doLogout();return null;}
+  if(res.status===401&&TM.r){
+    try{
+      const rr=await fetch('/api/auth/refresh',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({refreshToken:TM.r})});
+      if(rr.ok){const d=await rr.json();TM.set(d.data.accessToken);h.Authorization=`Bearer ${TM.a}`;res=await fetch(url,{...opts,headers:h});}
+      else{TM.clear();doLogout();return null;}
+    }catch{TM.clear();doLogout();return null;}
   }
   return res;
 }
 
-// ══ API HELPERS ══════════════════════════════════════════
-async function loadReports(){try{const r=await apiFetch('/api/reports');if(r?.ok){const d=await r.json();return d.data||[];}}catch{}return[];}
-async function saveRpt(rpt){
-  try{const exists=allReports.find(r=>r.id===rpt.id);
-  if(exists){await apiFetch(`/api/reports/${rpt.id}`,{method:'PUT',body:JSON.stringify(rpt)});}
-  else{const res=await apiFetch('/api/reports',{method:'POST',body:JSON.stringify(rpt)});if(res?.ok){const d=await res.json();if(d.data?.id)rpt.id=d.data.id;}}
-  allReports=await loadReports();}catch{}
-}
-async function delRpt(id){try{await apiFetch(`/api/reports/${id}`,{method:'DELETE'});allReports=await loadReports();}catch{}}
-async function loadUsers(){try{const r=await apiFetch('/api/users');if(r?.ok){const d=await r.json();return d.data||[];}}catch{}return[];}
-
-async function loadArbitres(){
-  try{const r=await apiFetch('/api/arbitres');if(r?.ok){const d=await r.json();allArbitres=d.data||[];return allArbitres;}}catch{}return[];
-}
-async function saveDraft(){
-  try{const d={fields:{categorie:gv('categorie'),arbitreNom:gv('arbitre-nom'),arbitreEmail:gv('arbitre-email'),arbitreLicence:gv('arbitre-licence'),obsNom:gv('obs-nom'),assistants:gv('assistants'),competition:gv('competition'),equipes:gv('equipes'),date:gv('date-match'),sRec:document.getElementById('sc-rec')?.value,sVis:document.getElementById('sc-vis')?.value,ctx:gv('ctx'),apf:gv('apf'),aaxes:gv('aaxes'),agene:gv('agene'),signature:gv('signature')},incidents,evalData};
-  await apiFetch('/api/draft',{method:'POST',body:JSON.stringify(d)});
-  const ind=document.getElementById('autosave-ind');if(ind){ind.textContent='✅ Brouillon sauvegardé';ind.className='autosave saved';setTimeout(()=>{ind.textContent='';ind.className='autosave';},3000);}}catch{}
-}
-async function loadDraft(){try{const r=await apiFetch('/api/draft');if(r?.ok){const d=await r.json();return d.data;}}catch{}return null;}
-async function clearDraft(){try{await apiFetch('/api/draft',{method:'DELETE'});}catch{}}
-
-// ══ AUTOCOMPLETE ARBITRE ══════════════════════════════════
-async function searchArbitre(val){
-  const dd=document.getElementById('arb-dropdown');
-  if(!val||val.length<2){dd.classList.remove('show');return;}
-  if(!allArbitres.length)await loadArbitres();
-  const q=val.toLowerCase();
-  const found=allArbitres.filter(a=>(a.nom||'').toLowerCase().includes(q)||(a.prenom||'').toLowerCase().includes(q)||(a.licence||'').toLowerCase().includes(q)).slice(0,8);
-  if(!found.length){dd.innerHTML='<div style="padding:.6rem .75rem;color:var(--doux);font-size:.78rem;">⚠️ Aucun résultat — vérifiez la liste dans Administration.</div>';dd.classList.add('show');return;}
-  dd.innerHTML=found.map(a=>`<div class="arb-item" onclick="selectArbitre(${a.id})">
-    <div class="arb-item-nom">👤 ${a.nom} ${a.prenom}</div>
-    <div class="arb-item-info">📋 ${a.licence||'—'}&nbsp;&nbsp;📧 ${a.email||'—'}&nbsp;&nbsp;🏷️ ${a.categorie||'—'}</div>
-  </div>`).join('');
-  dd.classList.add('show');
+async function callClaude(system,userMsg){
+  try{
+    const r=await apiFetch('/api/claude',{method:'POST',body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system,messages:[{role:'user',content:userMsg}]})});
+    if(!r)return'';const d=await r.json();
+    return(d.content?.map(b=>b.text||'').join('')||'').trim();
+  }catch{return'';}
 }
 
-function selectArbitre(id){
-  const a=allArbitres.find(x=>x.id===id);if(!a)return;
-  const nomComplet=`${a.nom} ${a.prenom}`.trim();
-  document.getElementById('arbitre-nom').value=nomComplet;
-  document.getElementById('arbitre-email').value=a.email||'';
-  document.getElementById('arbitre-licence').value=a.licence||'';
-  document.getElementById('arb-search-input').value=nomComplet;
-  document.getElementById('arb-found-nom').textContent=nomComplet;
-  document.getElementById('arb-found-licence').innerHTML=`📋 <strong>${a.licence||'—'}</strong>`;
-  document.getElementById('arb-found-email').innerHTML=`📧 ${a.email||'—'}`;
-  document.getElementById('arb-found-cat').innerHTML=`🏷️ ${a.categorie||'—'}`;
-  document.getElementById('arb-found-card').classList.add('show');
-  document.getElementById('arb-dropdown').classList.remove('show');
-  toast(`✅ ${nomComplet} sélectionné`,'ok');
+// ══════════════════════════════════════
+//  API STORAGE (remplace window.storage)
+// ══════════════════════════════════════
+async function loadReports(){
+  try{const r=await apiFetch('/api/reports');if(!r)return[];const d=await r.json();allReports=d.data||[];return allReports;}catch{return[];}
+}
+async function saveRptAPI(rpt){
+  try{await apiFetch('/api/reports',{method:'POST',body:JSON.stringify(rpt)});}catch(e){console.error(e);}
+}
+async function updateRptAPI(id,rpt){
+  try{await apiFetch(`/api/reports/${id}`,{method:'PUT',body:JSON.stringify(rpt)});}catch(e){console.error(e);}
+}
+async function delRpt(id){
+  try{await apiFetch(`/api/reports/${id}`,{method:'DELETE'});allReports=allReports.filter(r=>r.id!==id);}catch(e){console.error(e);}
+}
+async function loadDraft(){
+  try{const r=await apiFetch('/api/draft');if(!r)return null;const d=await r.json();return d.data||null;}catch{return null;}
+}
+async function saveDraftAPI(data){
+  try{await apiFetch('/api/draft',{method:'POST',body:JSON.stringify(data)});}catch{}
+}
+async function clearDraft(){
+  try{await apiFetch('/api/draft',{method:'DELETE'});}catch{}
 }
 
-function clearArbitre(){
-  ['arb-search-input','arbitre-nom','arbitre-email','arbitre-licence'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-  document.getElementById('arb-found-card').classList.remove('show');
-  document.getElementById('arb-dropdown').classList.remove('show');
-}
-
-document.addEventListener('click',e=>{if(!e.target.closest('.arb-search-wrap'))document.getElementById('arb-dropdown')?.classList.remove('show');});
-
-// ══ AUTH ══════════════════════════════════════════════════
+// ══════════════════════════════════════
+//  AUTH
+// ══════════════════════════════════════
 function setLR(r){
-  LR = r;
+  const cfg=RC[r];
   document.querySelectorAll('.ltab').forEach((b,i)=>b.classList.toggle('active',['obs','gest','admin'][i]===r));
   const desc=document.getElementById('role-desc');
-  desc.className='role-badge-lg '+RC[r].badge;
-  desc.innerHTML=`<span>${RC[r].label.split(' ')[0]}</span><span>${RC[r].desc}</span>`;
-}
-async function doLogin(){
-  const u=document.getElementById('login-user').value.trim();const p=document.getElementById('login-pass').value;
-  const errEl=document.getElementById('login-err');
-  const showErr=msg=>{errEl.textContent=msg;errEl.style.display='block';setTimeout(()=>errEl.style.display='none',3500);};
-  try{const res=await fetch(API_BASE+'/api/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:u,password:p})});
-  const d=await res.json();if(!res.ok){showErr(d.error?.message||'Identifiant ou mot de passe incorrect.');return;}
-  const pay=d.data||d;if(!pay?.accessToken){showErr('Erreur serveur.');return;}
-  TM.set(pay.accessToken,pay.refreshToken);cRole=pay.role;cUser={id:pay.id,username:u,nom:pay.nom,role:pay.role};
-  await completeLogin();}catch{showErr('Impossible de contacter le serveur.');}
-}
-async function completeLogin(){
-  document.getElementById('login-screen').style.display='none';document.getElementById('app').style.display='block';
-  applyRole();showSec('rapport');goP(0);
-  allReports=await loadReports();allArbitres=await loadArbitres();
-  asTimer=setInterval(saveDraft,30000);await checkDraft();await updateNotifBadge();
-  toast(`Bienvenue, ${cUser.nom} !`,'ok');
-}
-async function doLogout(){
-  try{if(TM.access)await apiFetch('/api/auth/logout',{method:'POST',body:JSON.stringify({refreshToken:TM.refresh})});}catch{}
-  clearInterval(asTimer);TM.clear();cRole=null;cUser=null;
-  document.getElementById('login-screen').style.display='flex';document.getElementById('app').style.display='none';
-}
-function applyRole(){
-  const cfg=RC[cRole];const pill=document.getElementById('role-pill');pill.className='role-pill '+cfg.pill;pill.textContent=cfg.label;
-  const isAdmin=cRole==='admin';const isPriv=isAdmin||cRole==='gest';
-  ['historique','stats','arbitres-suivi','admin'].forEach(t=>{const el=document.getElementById('mn-'+t);if(el)el.style.display=isAdmin?'block':'none';});
-  document.getElementById('qnav-btn').style.display='flex';
-  document.getElementById('btn-email').style.display=isAdmin?'inline-flex':'none';
-}
-async function checkDraft(){
-  const draft=await loadDraft();if(!draft)return;if(!confirm('💾 Un brouillon a été trouvé. Restaurer ?'))return;
-  const f=draft.fields||{};
-  const map={'categorie':'categorie','arbitre-nom':'arbitreNom','arbitre-email':'arbitreEmail','arbitre-licence':'arbitreLicence','obs-nom':'obsNom','assistants':'assistants','competition':'competition','equipes':'equipes','date-match':'date','ctx':'ctx','apf':'apf','aaxes':'aaxes','agene':'agene','signature':'signature'};
-  Object.entries(map).forEach(([id,k])=>{const el=document.getElementById(id);if(el&&f[k])el.value=f[k];});
-  if(f.sRec)document.getElementById('sc-rec').value=f.sRec;if(f.sVis)document.getElementById('sc-vis').value=f.sVis;
-  if(draft.incidents)incidents=draft.incidents;if(draft.evalData)evalData=draft.evalData;
-  updateScore();renderInc();buildSec('qa');buildSec('ct');buildSec('cd');buildSec('pm');
-  // Afficher carte si licence remplie
-  if(f.arbitreNom){
-    document.getElementById('arb-search-input').value=f.arbitreNom;
-    if(f.arbitreLicence){document.getElementById('arb-found-nom').textContent=f.arbitreNom;document.getElementById('arb-found-licence').innerHTML=`📋 <strong>${f.arbitreLicence}</strong>`;document.getElementById('arb-found-email').innerHTML=`📧 ${f.arbitreEmail||'—'}`;document.getElementById('arb-found-cat').textContent='';document.getElementById('arb-found-card').classList.add('show');}
-  }
-  toast('📋 Brouillon restauré !','ok');
+  desc.className='role-badge-lg '+cfg.badge;
+  desc.innerHTML=`<span>${cfg.label.split(' ')[0]}</span><span>${cfg.desc}</span>`;
 }
 
-// ══ NAVIGATION ═════════════════════════════════════════════
+async function doLogin(){
+  const u=document.getElementById('login-user').value.trim();
+  const p=document.getElementById('login-pass').value;
+  const errEl=document.getElementById('login-err');
+  const btnEl=document.getElementById('btn-login-submit');
+  errEl.style.display='none';
+  btnEl.innerHTML='<span class="spinner"></span> Connexion…';btnEl.disabled=true;
+  try{
+    const res=await fetch('/api/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:u,password:p})});
+    const d=await res.json();
+    if(!res.ok){errEl.textContent=d.error?.message||'Identifiant ou mot de passe incorrect.';errEl.style.display='block';return;}
+    const pay=d.data;
+    TM.set(pay.accessToken,pay.refreshToken);
+    cRole=pay.role;cUser={id:pay.id,username:u,nom:pay.nom,role:pay.role};
+    await completeLogin();
+    toast(`Bienvenue, ${pay.nom} !`,'ok');
+  }catch{errEl.textContent='Erreur réseau. Vérifiez votre connexion.';errEl.style.display='block';}
+  finally{btnEl.innerHTML='Se connecter →';btnEl.disabled=false;}
+}
+
+async function completeLogin(){
+  document.getElementById('login-screen').style.display='none';
+  document.getElementById('app').style.display='block';
+  applyRole();showSec('rapport');goP(0);
+  allReports=await loadReports();
+  asTimer=setInterval(autoSave,30000);
+  await checkDraft();
+  await updateNotifBadge();
+  document.getElementById('date-match').valueAsDate=new Date();
+}
+
+async function doLogout(){
+  try{if(TM.a)await apiFetch('/api/auth/logout',{method:'POST',body:JSON.stringify({refreshToken:TM.r})});}catch{}
+  clearInterval(asTimer);TM.clear();cRole=null;cUser=null;
+  document.getElementById('login-screen').style.display='flex';
+  document.getElementById('app').style.display='none';
+  document.getElementById('login-user').value='';document.getElementById('login-pass').value='';
+}
+
+function applyRole(){
+  const cfg=RC[cRole];const pill=document.getElementById('role-pill');pill.className='role-pill '+cfg.pill;pill.textContent=cfg.label;
+  const isAdmin=cRole==='admin',isGestOrAdmin=cRole==='admin'||cRole==='gest';
+  document.getElementById('mn-historique').style.display=isGestOrAdmin?'block':'none';
+  document.getElementById('mn-stats').style.display=isAdmin?'block':'none';
+  document.getElementById('mn-arbitres').style.display=isAdmin?'block':'none';
+  document.getElementById('mn-admin').style.display=isAdmin?'block':'none';
+  document.getElementById('qnav-btn').style.display='flex';
+  document.getElementById('btn-email').style.display=isAdmin?'inline-flex':'none';
+  const hl=document.getElementById('hist-role-label');
+  if(hl)hl.textContent=isAdmin?'🔐 Accès Administrateur':'📋 Accès Gestionnaire';
+}
+
+async function checkDraft(){
+  const draft=await loadDraft();if(!draft)return;
+  if(!confirm('💾 Un brouillon a été trouvé. Voulez-vous le restaurer ?'))return;
+  restoreDraft(draft);toast('📋 Brouillon restauré !','ok');
+}
+
+function restoreDraft(draft){
+  const f=draft.fields||{};
+  const map={'categorie':'categorie','arbitre-nom':'arbitreNom','arbitre-email':'arbitreEmail','obs-nom':'obsNom','assistants':'assistants','competition':'competition','equipes':'equipes','date-match':'date','ctx':'ctx','apf':'apf','aaxes':'aaxes','agene':'agene','signature':'signature'};
+  Object.entries(map).forEach(([id,k])=>{const el=document.getElementById(id);if(el&&f[k])el.value=f[k];});
+  if(f.sRec)document.getElementById('sc-rec').value=f.sRec;
+  if(f.sVis)document.getElementById('sc-vis').value=f.sVis;
+  if(draft.incidents)incidents=draft.incidents;
+  if(draft.evalData)evalData=draft.evalData;
+  updateScore();renderInc();['qa','ct','cd','pm'].forEach(buildSec);
+}
+
+async function autoSave(){
+  const data={fields:{categorie:gv('categorie'),arbitreNom:gv('arbitre-nom'),arbitreEmail:gv('arbitre-email'),obsNom:gv('obs-nom'),assistants:gv('assistants'),competition:gv('competition'),equipes:gv('equipes'),date:gv('date-match'),sRec:document.getElementById('sc-rec')?.value,sVis:document.getElementById('sc-vis')?.value,ctx:gv('ctx'),apf:gv('apf'),aaxes:gv('aaxes'),agene:gv('agene'),signature:gv('signature')},incidents,evalData};
+  await saveDraftAPI(data);
+  const ind=document.getElementById('autosave-ind');
+  if(ind){ind.textContent='✅ Brouillon sauvegardé';ind.className='autosave saved';setTimeout(()=>{ind.textContent='';ind.className='autosave';},3000);}
+}
+
+// ══════════════════════════════════════
+//  NAVIGATION
+// ══════════════════════════════════════
 function showSec(n){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.mnav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('section-'+n)?.classList.add('active');
   document.getElementById('mn-'+n)?.classList.add('active');
-  if(n==='historique')renderHist();if(n==='stats')renderStats();
-  if(n==='arbitres-suivi')renderArbitreList();if(n==='admin')renderAdmin();
+  if(n==='historique')renderHist();
+  if(n==='stats')renderStats();
+  if(n==='arbitres')renderArbitreList();
+  if(n==='admin')renderAdmin();
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function goP(n){if(n===undefined||n===null)return;
+
+function goP(n){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+n)?.classList.add('active');
   document.querySelectorAll('.step-btn').forEach((b,i)=>{b.classList.remove('active','done');if(i<n)b.classList.add('done');});
@@ -672,32 +557,55 @@ function goP(n){if(n===undefined||n===null)return;
   if(n===6)calcNote();if(n===7)buildResume();
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
 function showSubTab(t){
   document.querySelectorAll('.sub-page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.stab').forEach(b=>b.classList.remove('active'));
   document.getElementById('subtab-'+t)?.classList.add('active');
   const idx={suivi:0,comparaison:1,progression:2}[t];
   document.querySelectorAll('.stab')[idx]?.classList.add('active');
-  if(t==='comparaison')populateCompSels();if(t==='progression')populateProgSels();
+  if(t==='comparaison')populateCompSels();
+  if(t==='progression')populateProgSels();
 }
-function nouveauRapport(){
-  if(!confirm('Commencer un nouveau rapport ?'))return;
+
+async function nouveauRapport(){
+  if(!confirm('Commencer un nouveau rapport ? Le formulaire actuel sera effacé.'))return;
   incidents=[];Object.keys(SECTIONS).forEach(s=>{evalData[s]=SECTIONS[s].criteres.map(()=>({note:'',commentaire:''}));});
-  ['categorie','arbitre-nom','arbitre-email','arbitre-licence','obs-nom','assistants','competition','equipes','ctx','apf','aaxes','agene','signature','note-20','note-100'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  ['categorie','arbitre-nom','arbitre-email','obs-nom','assistants','competition','equipes','ctx','apf','aaxes','agene','signature','note-20','note-100'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
   document.getElementById('sc-rec').value=0;document.getElementById('sc-vis').value=0;updateScore();
   document.getElementById('date-match').valueAsDate=new Date();document.getElementById('note-box').style.display='none';
-  clearArbitre();renderInc();buildSec('qa');buildSec('ct');buildSec('cd');buildSec('pm');showSec('rapport');goP(0);clearDraft();toast('🆕 Nouveau rapport prêt.','ok');
+  renderInc();['qa','ct','cd','pm'].forEach(buildSec);showSec('rapport');goP(0);await clearDraft();toast('🆕 Nouveau rapport prêt.','ok');
 }
-function updateScore(){const r=document.getElementById('sc-rec').value;const v=document.getElementById('sc-vis').value;document.getElementById('score-display').textContent=`${r} - ${v}`;document.getElementById('score').value=`${r}-${v}`;}
 
-// ══ INCIDENTS ══════════════════════════════════════════════
-function addInc(){const t=document.getElementById('inc-type').value;const d=document.getElementById('inc-desc').value.trim();if(!d){toast('Saisissez une description.','err');return;}incidents.push({id:Date.now(),type:t,desc:d});document.getElementById('inc-desc').value='';renderInc();}
+// ══════════════════════════════════════
+//  SCORE
+// ══════════════════════════════════════
+function updateScore(){
+  const r=document.getElementById('sc-rec').value;const v=document.getElementById('sc-vis').value;
+  document.getElementById('score-display').textContent=`${r} - ${v}`;
+  document.getElementById('score').value=`${r}-${v}`;
+}
+
+// ══════════════════════════════════════
+//  INCIDENTS
+// ══════════════════════════════════════
+function addInc(){
+  const t=document.getElementById('inc-type').value;const d=document.getElementById('inc-desc').value.trim();
+  if(!d){toast('Saisissez une description.','err');return;}
+  incidents.push({id:Date.now(),type:t,desc:d});document.getElementById('inc-desc').value='';renderInc();
+}
 function removeInc(id){incidents=incidents.filter(i=>i.id!==id);renderInc();}
-function renderInc(){const el=document.getElementById('inc-list');if(!incidents.length){el.innerHTML='<p style="color:var(--doux);font-size:.74rem;text-align:center;padding:.62rem;">Aucun incident.</p>';return;}el.innerHTML=incidents.map(i=>`<div class="inc-tag t-${i.type}"><span class="tbadge">${TI[i.type]} ${TL[i.type]}</span><span class="desc">${i.desc}</span><button class="btn-rm" onclick="removeInc(${i.id})">✕</button></div>`).join('');}
+function renderInc(){
+  const el=document.getElementById('inc-list');
+  if(!incidents.length){el.innerHTML='<p style="color:var(--doux);font-size:.74rem;text-align:center;padding:.62rem;">Aucun incident.</p>';return;}
+  el.innerHTML=incidents.map(i=>`<div class="inc-tag t-${i.type}"><span class="tbadge">${TI[i.type]} ${TL[i.type]}</span><span class="desc">${i.desc}</span><button class="btn-rm" onclick="removeInc(${i.id})">✕</button></div>`).join('');
+}
 
-// ══ GRILLES ÉVAL ═══════════════════════════════════════════
+// ══════════════════════════════════════
+//  GRILLES ÉVALUATION
+// ══════════════════════════════════════
 function buildSec(sid){
-  const sec=SECTIONS[sid];const cont=document.getElementById('sec-'+sid);
+  const sec=SECTIONS[sid];const cont=document.getElementById('sec-'+sid);if(!cont)return;
   const leg=`<div class="legende"><div class="leg-item"><span class="b-pf">PF</span>Point Fort=15</div><div class="leg-item"><span class="b-qa">QA</span>Qualité Acquise=13</div><div class="leg-item"><span class="b-pa">PA</span>À Améliorer=11</div><div class="leg-item"><span class="b-atp">ATP</span>Travail Prioritaire=9</div></div>`;
   const rows=sec.criteres.map((crit,idx)=>{
     const opts=['pf','qa','pa','atp'].map(n=>`<div class="rpill"><input type="radio" name="${sid}-${idx}" id="${sid}-${idx}-${n}" value="${n}" onchange="setEval('${sid}',${idx},'${n}')" ${evalData[sid][idx].note===n?'checked':''}><label for="${sid}-${idx}-${n}" class="${n}">${n.toUpperCase()}</label></div>`).join('');
@@ -705,29 +613,31 @@ function buildSec(sid){
   }).join('');
   cont.innerHTML=leg+`<table class="eval-table"><thead><tr><th class="cc">Critère</th><th colspan="4">Évaluation</th><th style="min-width:210px;">Commentaires</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
+
 function setEval(sid,idx,note){evalData[sid][idx].note=note;calcNote();genComm(sid,idx,note);}
 
 async function genComm(sid,idx,note){
   const crit=SECTIONS[sid].criteres[idx];const ta=document.getElementById(`cm-${sid}-${idx}`);if(!ta)return;
   const niv={pf:'Point Fort (15/20)',qa:'Qualité Acquise (13/20)',pa:'Point à Améliorer (11/20)',atp:'Axe de Travail Prioritaire (9/20)'};
   ta.value='⏳ Génération…';ta.style.color='var(--doux)';ta.disabled=true;
-  try{const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:`Observateur officiel CDA District BFC. Rédige 2 phrases max, professionnelles, vocabulaire technique arbitrage. Sans guillemets.`,messages:[{role:'user',content:`Critère: "${crit}"\nNiveau: ${niv[note]}`}]})});const d=await r.json();ta.value=(d.content?.map(b=>b.text||'').join('')||'').trim();ta.style.color='var(--texte)';evalData[sid][idx].commentaire=ta.value;calcNoteIA();}catch{ta.value='';}ta.disabled=false;
+  const txt=await callClaude(`Observateur officiel CDA District BFC. Rédige 2 phrases max, professionnelles, vocabulaire technique arbitrage. Sans guillemets.`,`Critère: "${crit}"\nNiveau: ${niv[note]}`);
+  ta.value=txt||'';ta.style.color='var(--texte)';ta.disabled=false;
+  if(txt)evalData[sid][idx].commentaire=txt;
 }
 
-// ══ CALCUL NOTE ════════════════════════════════════════════
+// ══════════════════════════════════════
+//  CALCUL NOTE
+// ══════════════════════════════════════
 function calcNote(){
-  let total=0,remplis=0;Object.keys(SECTIONS).forEach(s=>evalData[s].forEach(it=>{if(it.note&&NV[it.note]!==undefined){total+=NV[it.note];remplis++;}}));
+  let total=0,remplis=0;
+  Object.keys(SECTIONS).forEach(s=>evalData[s].forEach(it=>{if(it.note&&NV[it.note]!==undefined){total+=NV[it.note];remplis++;}}));
   if(!remplis){document.getElementById('note-20').value='';document.getElementById('note-100').value='';document.getElementById('note-box').style.display='none';document.getElementById('nf-val').textContent='—';document.getElementById('nf').style.background='var(--bleu)';return;}
-  const n20=Math.round(Math.min(15,Math.max(9,total/TOTAL))*2)/2;affNote(n20,Math.round(n20*5),remplis);
+  const n20=Math.round(Math.min(15,Math.max(9,total/TOTAL))*2)/2;
+  affNote(n20,Math.round(n20*5),remplis);
 }
-async function calcNoteIA(){
-  Object.keys(SECTIONS).forEach(s=>SECTIONS[s].criteres.forEach((_,i)=>{const el=document.getElementById(`cm-${s}-${i}`);if(el)evalData[s][i].commentaire=el.value;}));
-  const lignes=[];Object.keys(SECTIONS).forEach(s=>SECTIONS[s].criteres.forEach((c,i)=>{const ev=evalData[s][i];if(ev.note||ev.commentaire)lignes.push(`[${(ev.note||'?').toUpperCase()}] ${c} : "${ev.commentaire||''}"`); }));
-  if(!lignes.length)return;
-  try{const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:`FFF BFC. PF=15,QA=13,PA=11,ATP=9. Note/${TOTAL}. Entre 9 et 15. JSON: {"note":12.5,"justification":"1 phrase"}`,messages:[{role:'user',content:`Évaluations:\n${lignes.join('\n')}`}]})});const d=await r.json();const raw=d.content?.map(b=>b.text||'').join('').trim();const json=JSON.parse(raw.replace(/```json|```/g,'').trim());const n20=Math.round(Math.min(15,Math.max(9,parseFloat(json.note)))*2)/2;let remplis=0;Object.keys(SECTIONS).forEach(s=>evalData[s].forEach(it=>{if(it.note)remplis++;}));affNote(n20,Math.round(n20*5),remplis,json.justification);}catch{}
-}
-function affNote(n20,n100,remplis,justif=''){
-  document.getElementById('note-20').value=n20.toFixed(1);document.getElementById('note-100').value=n100||Math.round(n20*5);document.getElementById('nf-val').textContent=n20.toFixed(2);
+
+function affNote(n20,n100,remplis,mention_extra=''){
+  document.getElementById('note-20').value=n20.toFixed(1);document.getElementById('note-100').value=n100;document.getElementById('nf-val').textContent=n20.toFixed(2);
   let mention='',bg='';
   if(n20>=14){mention='⭐ Très Bien';bg='linear-gradient(135deg,#15803d,#22c55e)';document.getElementById('nf').style.background='#15803d';}
   else if(n20>=12){mention='✅ Bien';bg='linear-gradient(135deg,#1a3a6b,#2563eb)';document.getElementById('nf').style.background='#1a3a6b';}
@@ -735,320 +645,441 @@ function affNote(n20,n100,remplis,justif=''){
   else{mention='🟠 À Améliorer';bg='linear-gradient(135deg,#b45309,#f59e0b)';document.getElementById('nf').style.background='#b45309';}
   const box=document.getElementById('note-box');box.style.display='block';box.style.background=bg;
   document.getElementById('note-big').textContent=n20.toFixed(2);
-  document.getElementById('note-mention').textContent=`/ 20 — ${mention} · (${remplis}/${TOTAL} critères)${justif?'\n'+justif:''}`;
+  document.getElementById('note-mention').textContent=`/ 20 — ${mention} · (${remplis}/${TOTAL} critères)${mention_extra?'\n'+mention_extra:''}`;
 }
 
-// ══ RÉSUMÉ & EXPORT ════════════════════════════════════════
+// ══════════════════════════════════════
+//  CORRECTION IA
+// ══════════════════════════════════════
+async function corrigerIA(){
+  Object.keys(SECTIONS).forEach(s=>SECTIONS[s].criteres.forEach((_,i)=>{const el=document.getElementById(`cm-${s}-${i}`);if(el)evalData[s][i].commentaire=el.value;}));
+  const champs=[{id:'ctx',lbl:'Contexte'},{id:'apf',lbl:'Points forts'},{id:'aaxes',lbl:'Axes de progression'},{id:'agene',lbl:'Appréciation générale'}];
+  const panel=document.getElementById('corr-panel');const loading=document.getElementById('corr-loading');const results=document.getElementById('corr-results');
+  panel.style.display='block';loading.style.display='block';results.innerHTML='';
+  let html='';
+  for(const {id,lbl} of champs){
+    const val=gv(id);if(!val.trim())continue;
+    const corr=await callClaude(`Tu es correcteur pour la CDA District BFC. Corrige orthographe, grammaire et style du texte suivant. Retourne uniquement le texte corrigé, sans commentaire ni guillemets.`,val);
+    if(!corr)continue;
+    const changed=corr!==val;
+    html+=`<div style="margin-bottom:.75rem;background:#fff;border-radius:9px;padding:.75rem;border:1px solid var(--bord);">
+      <div style="font-size:.68rem;font-weight:700;color:var(--bleu);margin-bottom:.35rem;">${lbl} ${changed?'✏️ (corrigé)':'✅ (aucune correction)'}</div>
+      <div style="font-size:.75rem;line-height:1.6;white-space:pre-wrap;">${corr}</div>
+      ${changed?`<button class="btn btn-p" onclick="appliquerCorr('${id}',this)" data-corr="${encodeURIComponent(corr)}" style="font-size:.68rem;padding:.2rem .65rem;margin-top:.45rem;">Appliquer</button>`:''}
+    </div>`;
+  }
+  loading.style.display='none';results.innerHTML=html||'<p style="color:var(--doux);font-size:.8rem;text-align:center;">Aucun texte à corriger.</p>';
+}
+
+function appliquerCorr(id,btn){
+  const val=decodeURIComponent(btn.dataset.corr);const el=document.getElementById(id);if(el)el.value=val;btn.textContent='✅ Appliqué';btn.disabled=true;btn.classList.replace('btn-p','btn-s');
+}
+
+// ══════════════════════════════════════
+//  APERÇU & EXPORT
+// ══════════════════════════════════════
 function buildResume(){
   Object.keys(SECTIONS).forEach(s=>SECTIONS[s].criteres.forEach((_,i)=>{const el=document.getElementById(`cm-${s}-${i}`);if(el)evalData[s][i].commentaire=el.value;}));
-  let t=`═══════════════════════════════════════════════\nRAPPORT ARBITRE CENTRAL — DISTRICT BFC / FFF\n═══════════════════════════════════════════════\n\nCatégorie   : ${gv('categorie')}\nArbitre     : ${gv('arbitre-nom')}\nN° Licence  : ${gv('arbitre-licence')}\nEmail       : ${gv('arbitre-email')}\nObservateur : ${gv('obs-nom')}\nCompétition : ${gv('competition')}\nÉquipes     : ${gv('equipes')}\nDate        : ${gv('date-match')}     Score : ${gv('score')}\n\n─── INCIDENTS (${incidents.length}) ─────────────────────────────\n`;
+  let t=`═══════════════════════════════════════════════\nRAPPORT ARBITRE CENTRAL — DISTRICT BFC / FFF\n═══════════════════════════════════════════════\n\nCatégorie   : ${gv('categorie')}\nArbitre     : ${gv('arbitre-nom')}\nObservateur : ${gv('obs-nom')}\nCompétition : ${gv('competition')}\nÉquipes     : ${gv('equipes')}\nDate        : ${gv('date-match')}     Score : ${gv('score')}\n\n─── INCIDENTS (${incidents.length}) ─────────────────────────────\n`;
   t+=incidents.length?incidents.map(i=>`  ${TI[i.type]} [${TL[i.type]}] ${i.desc}`).join('\n'):'  Aucun incident.';
   Object.keys(SECTIONS).forEach(s=>{t+=`\n\n${'─'.repeat(48)}\n${SECTIONS[s].titre}\n${'─'.repeat(48)}\n`;SECTIONS[s].criteres.forEach((crit,i)=>{const ev=evalData[s][i];t+=`  [${ev.note?(ev.note.toUpperCase()+' ('+NV[ev.note]+'/20)'):'—'}] ${crit}\n`;if(ev.commentaire)t+=`         ${ev.commentaire}\n`;});});
-  t+=`\n${'═'.repeat(48)}\nAPPRECIATION GENERALE\n${'═'.repeat(48)}\nNote : ${gv('note-20')}/20\n\n`;
+  t+=`\n${'═'.repeat(48)}\nAPPRECIATION GENERALE\nNote : ${gv('note-20')}/20  (${gv('note-100')}/100)\n\n`;
   if(gv('ctx'))t+=`Contexte :\n${gv('ctx')}\n\n`;if(gv('apf'))t+=`Points forts :\n${gv('apf')}\n\n`;if(gv('aaxes'))t+=`Axes :\n${gv('aaxes')}\n\n`;if(gv('agene'))t+=`Appréciation générale :\n${gv('agene')}\n\n`;
   t+=`Signature : ${gv('signature')}\n${'═'.repeat(48)}`;
   const rb=document.getElementById('resume-box');if(rb)rb.textContent=t;return t;
 }
+
 function collectRpt(){
-  return{id:Date.now(),categorie:gv('categorie'),arbitre:gv('arbitre-nom'),arbitreLicence:gv('arbitre-licence'),arbitreEmail:gv('arbitre-email'),obsNom:gv('obs-nom'),assistants:gv('assistants'),competition:gv('competition'),equipes:gv('equipes'),date:gv('date-match'),score:gv('score'),incidents:[...incidents],evalData:JSON.parse(JSON.stringify(evalData)),note20:parseFloat(gv('note-20'))||0,note100:parseInt(gv('note-100'))||0,ctx:gv('ctx'),apf:gv('apf'),aaxes:gv('aaxes'),agene:gv('agene'),signature:gv('signature'),statut:'🟡 En attente de validation',auteurId:cUser?.id,auteurNom:cUser?.nom,createdAt:new Date().toISOString()};
-}
-async function submitReport(){
-  buildResume();const data=collectRpt();if(!data.arbitre){toast('Saisissez le nom de l\'arbitre.','err');return;}
-  await saveRpt(data);await clearDraft();exportWord();await updateNotifBadge();toast('✅ Rapport enregistré !','ok');setTimeout(()=>showSec('historique'),1500);
-}
-async function saveFileAs(blob,filename){
-  if(window.showSaveFilePicker){try{const h=await window.showSaveFilePicker({suggestedName:filename,types:[{description:'Document',accept:{'text/plain':['.rtf','.txt']}}]});const w=await h.createWritable();await w.write(blob);await w.close();return;}catch(e){if(e.name==='AbortError')return;}}
-  const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;a.click();URL.revokeObjectURL(url);
-}
-function exportWord(){
-  const CP={'é':"\\'e9",'è':"\\'e8",'ê':"\\'ea",'à':"\\'e0",'â':"\\'e2",'ù':"\\'f9",'û':"\\'fb",'ô':"\\'f4",'î':"\\'ee",'ï':"\\'ef",'ç':"\\'e7",'Ç':"\\'c7"};
-  const esc=s=>(s||'').replace(/\\/g,'\\\\').replace(/\{/g,'\\{').replace(/\}/g,'\\}').replace(/[éèêàâùûôîïçÇ]/g,c=>CP[c]||c).replace(/[^\x00-\x7E]/g,c=>`\\u${c.charCodeAt(0)}?`);
-  const NL='\r\n';const D=[];const w=s=>D.push(s);
-  w('{\\rtf1\\ansi\\ansicpg1252\\deff0{\\fonttbl{\\f0\\fswiss\\fcharset0 Calibri;}}');
-  w('{\\colortbl ;\\red26\\green58\\blue107;\\red30\\green41\\blue59;\\red100\\green116\\blue139;}');
-  w('\\paperw11906\\paperh16838\\margl1440\\margr1440\\margt1440\\margb1440');
-  w('\\pard\\qc\\sb300\\sa100{\\f0\\fs32\\b\\cf1 RAPPORT ARBITRE CENTRAL \\endash  DISTRICT BFC / FFF\\b0}\\par');
-  const H2=lbl=>w(`\\pard\\sb200\\sa80{\\f0\\fs22\\b\\cf1 ${esc(lbl)}\\b0}\\par`);
-  const Field=(lbl,val)=>w(`\\pard\\sa80\\li200{\\f0\\fs20{\\b ${esc(lbl)}: }{\\cf2 ${esc(val||'—')}}}\\par`);
-  const Body=t=>{if(t)w(`\\pard\\sa80\\li400{\\f0\\fs20\\cf3 ${esc(t)}}\\par`);};
-  H2('INFORMATIONS DU MATCH');Field('Catégorie',gv('categorie'));Field('Arbitre',gv('arbitre-nom'));Field('N° Licence',gv('arbitre-licence'));Field('Observateur',gv('obs-nom'));Field('Compétition',gv('competition'));Field('Équipes',gv('equipes'));Field('Date',gv('date-match'));Field('Score Final',gv('score'));
-  H2(`INCIDENTS (${incidents.length})`);incidents.length?incidents.forEach(i=>Body(`[${TL[i.type]}] ${i.desc}`)):Body('Aucun incident.');
-  Object.keys(SECTIONS).forEach(sid=>{H2(SECTIONS[sid].titre);SECTIONS[sid].criteres.forEach((crit,idx)=>{const ev=evalData[sid][idx];const nv=ev.note?`${ev.note.toUpperCase()} (${NV[ev.note]}/20)`:'--';w(`\\pard\\sa60{\\f0\\fs20{\\b [${nv}] }${esc(crit)}}\\par`);if(ev.commentaire)Body(ev.commentaire);});});
-  w(`\\pard\\sb100\\sa200{\\f0\\fs26\\b\\cf1 NOTE GLOBALE : ${gv('note-20')}/20  (${gv('note-100')}/100)\\b0}\\par`);
-  [['Contexte',gv('ctx')],['Points forts',gv('apf')],['Axes de progression',gv('aaxes')],['Appréciation générale',gv('agene')]].forEach(([lbl,val])=>{if(val){H2(lbl);Body(val);}});
-  w(`\\pard\\sb400{\\f0\\fs18\\cf3 Signature : ${esc(gv('signature'))} | District BFC}\\par}`);
-  const nom=(gv('arbitre-nom')||'ARBITRE').replace(/\s+/g,'_').toUpperCase();
-  saveFileAs(new Blob([D.join(NL)],{type:'text/plain;charset=utf-8'}),`Rapport_${nom}_${gv('date-match')||'DATE'}.rtf`);
-}
-function openEmail(){
-  const nom=gv('arbitre-nom')||'l\'arbitre';const email=gv('arbitre-email')||'';
-  const subject=encodeURIComponent(`Rapport d'arbitrage — ${nom} — ${gv('date-match')} — District BFC`);
-  const body=encodeURIComponent(`Bonjour ${nom},\n\nVotre rapport d'arbitrage du ${gv('date-match')} a été traité.\nLicence : ${gv('arbitre-licence')}\nNote obtenue : ${gv('note-20')}/20\n\nPoints forts :\n${gv('apf')}\n\nAxes de progression :\n${gv('aaxes')}\n\nCordialement,\nLa CDA District BFC`);
-  window.open(`mailto:${email}?subject=${subject}&body=${body}`);
+  return{id:String(Date.now()),categorie:gv('categorie'),arbitre:gv('arbitre-nom'),arbitreEmail:gv('arbitre-email'),obsNom:gv('obs-nom'),assistants:gv('assistants'),competition:gv('competition'),equipes:gv('equipes'),date:gv('date-match'),score:gv('score'),incidents:[...incidents],evalData:JSON.parse(JSON.stringify(evalData)),note20:parseFloat(gv('note-20'))||0,note100:parseInt(gv('note-100'))||0,ctx:gv('ctx'),apf:gv('apf'),aaxes:gv('aaxes'),agene:gv('agene'),signature:gv('signature'),statut:'🟡 En attente de validation',auteurId:cUser?.id,auteurNom:cUser?.nom};
 }
 
-// ══ HISTORIQUE ══════════════════════════════════════════════
+async function submitReport(){
+  buildResume();const data=collectRpt();
+  if(!data.arbitre){toast('Saisissez le nom de l\'arbitre.','err');return;}
+  await saveRptAPI(data);
+  allReports=await loadReports();
+  await clearDraft();
+  exportRTF(data);
+  await updateNotifBadge();
+  toast('✅ Rapport enregistré et exporté !','ok');
+}
+
+// ══════════════════════════════════════
+//  EXPORT RTF (Word compatible)
+// ══════════════════════════════════════
+function exportRTF(data){
+  const CP={'é':"\\'e9",'è':"\\'e8",'ê':"\\'ea",'ë':"\\'eb",'É':"\\'c9",'È':"\\'c8",'Ê':"\\'ca",'à':"\\'e0",'â':"\\'e2",'À':"\\'c0",'ù':"\\'f9",'û':"\\'fb",'ô':"\\'f4",'î':"\\'ee",'ï':"\\'ef",'ç':"\\'e7",'Ç':"\\'c7",'œ':"\\'9c",'\u2019':"\\'92",'—':'\\emdash ','–':'\\endash ','«':"\\'ab",'»':"\\'bb"};
+  const esc=s=>(s||'').replace(/\\/g,'\\\\').replace(/\{/g,'\\{').replace(/\}/g,'\\}').replace(/[éèêëÉÈÊàâÀùûôîïçÇœ\u2019—–«»]/g,c=>CP[c]||c).replace(/[^\x00-\x7E]/g,c=>`\\u${c.charCodeAt(0)}?`);
+  const D=[];const w=s=>D.push(s);const NL='\r\n';
+  w('{\\rtf1\\ansi\\ansicpg1252\\deff0');w('{\\fonttbl{\\f0\\fswiss\\fcharset0 Calibri;}}');w('{\\colortbl ;\\red26\\green58\\blue107;\\red255\\green255\\blue255;\\red30\\green41\\blue59;\\red100\\green116\\blue139;}');w('\\paperw11906\\paperh16838\\margl1440\\margr1440\\margt1440\\margb1440\\widowctrl');
+  w('\\pard\\qc\\sb300\\sa100{\\f0\\fs32\\b\\cf1 RAPPORT ARBITRE CENTRAL \\endash  DISTRICT BFC / FFF\\b0}\\par');
+  const H2=lbl=>w(`\\pard\\sb200\\sa80{\\f0\\fs22\\b\\cf1 ${esc(lbl)}\\b0}\\par`);
+  const Field=(lbl,val)=>w(`\\pard\\sa80\\li200{\\f0\\fs20{\\b ${esc(lbl)}: }{\\cf3 ${esc(val||'—')}}}\\par`);
+  const Body=t=>{if(t)w(`\\pard\\sa80\\li400{\\f0\\fs20\\cf4 ${esc(t)}}\\par`);};
+  H2('INFORMATIONS DU MATCH');Field('Catégorie',data.categorie);Field('Arbitre',data.arbitre);Field('Observateur',data.obsNom);Field('Assistants',data.assistants);Field('Compétition',data.competition);Field('Équipes',data.equipes);Field('Date',data.date);Field('Score Final',data.score);
+  H2(`INCIDENTS (${(data.incidents||[]).length})`);
+  (data.incidents||[]).length?(data.incidents||[]).forEach(i=>Body(`[${TL[i.type]}] ${i.desc}`)):Body('Aucun incident.');
+  Object.keys(SECTIONS).forEach(sid=>{H2(SECTIONS[sid].titre);SECTIONS[sid].criteres.forEach((crit,idx)=>{const ev=(data.evalData||{})[sid]?.[idx]||{};const nv=ev.note?`${ev.note.toUpperCase()} (${NV[ev.note]}/20)`:'--';w(`\\pard\\sa60{\\f0\\fs20{\\b [${nv}] }${esc(crit)}}\\par`);if(ev.commentaire)Body(ev.commentaire);});});
+  w(`\\pard\\sb100\\sa200\\box\\brdrs\\brdrw15{\\f0\\fs26\\b\\cf1 ${esc('NOTE GLOBALE : ')}${data.note20}/20  (${data.note100}/100)\\b0}\\par`);
+  [['Contexte & difficulté',data.ctx],['Points forts',data.apf],['Axes de progression',data.aaxes],['Appréciation générale',data.agene]].forEach(([lbl,val])=>{if(val){H2(lbl);Body(val);}});
+  w(`\\pard\\sb400{\\f0\\fs18\\cf4 ${esc('Signature : ')}${esc(data.signature||'')} | District BFC \\endash  FFF}\\par`);w('}');
+  const nom=(data.arbitre||'ARBITRE').replace(/\s+/g,'_').toUpperCase();
+  const blob=new Blob([D.join(NL)],{type:'application/rtf;charset=utf-8'});
+  const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`Rapport_${nom}_${data.date||'DATE'}.rtf`;a.click();URL.revokeObjectURL(url);
+}
+
+// ══════════════════════════════════════
+//  HISTORIQUE
+// ══════════════════════════════════════
 async function renderHist(){
   allReports=await loadReports();
-  const search=(document.getElementById('hist-search')?.value||'').toLowerCase();
-  const sF=document.getElementById('hist-statut')?.value||'';const cF=document.getElementById('hist-cat')?.value||'';
-  let rpts=allReports.filter(r=>cRole==='admin'||r.auteurId===cUser?.id);
-  if(search)rpts=rpts.filter(r=>(r.arbitre||'').toLowerCase().includes(search)||(r.arbitreLicence||'').toLowerCase().includes(search)||(r.equipes||'').toLowerCase().includes(search));
-  if(sF)rpts=rpts.filter(r=>(r.statut||'').includes(sF));if(cF)rpts=rpts.filter(r=>r.categorie===cF);
+  const search=(gv('hist-search')).toLowerCase();
+  const sF=gv('hist-statut');const cF=gv('hist-cat');
+  let rpts=allReports;
+  if(search)rpts=rpts.filter(r=>(r.arbitre||'').toLowerCase().includes(search)||(r.equipes||'').toLowerCase().includes(search));
+  if(sF)rpts=rpts.filter(r=>(r.statut||'').includes(sF));
+  if(cF)rpts=rpts.filter(r=>r.categorie===cF);
   const cont=document.getElementById('hist-content');
   if(!rpts.length){cont.innerHTML='<div class="empty-state"><div class="ei">📋</div><p>Aucun rapport trouvé.</p></div>';return;}
-  cont.innerHTML=`<table class="data-table"><thead><tr><th>Date</th><th>Arbitre</th><th>Licence</th><th>Équipes</th><th>Note</th><th>Statut</th><th>Actions</th></tr></thead>
-  <tbody>${rpts.map(r=>`<tr>
-    <td>${r.date||'—'}</td>
-    <td><strong>${r.arbitre||'—'}</strong><br><span style="font-size:.65rem;color:var(--doux)">${r.categorie||''}</span></td>
-    <td style="font-size:.72rem;color:#0891b2;font-weight:600">${r.arbitreLicence||'—'}</td>
-    <td>${r.equipes||'—'}</td>
-    <td><strong style="color:${r.note20>=12?'var(--vert)':'var(--orange)'}">${r.note20?r.note20+'/20':'—'}</strong></td>
-    <td>${cRole==='admin'?`<select onchange="changeStatut(${r.id},this.value)" style="font-size:.65rem;padding:.18rem .38rem;border-radius:6px;">
-      <option ${!r.statut||r.statut.includes('attente')?'selected':''}>🟡 En attente de validation</option>
-      <option ${r.statut&&r.statut.includes('Validé')?'selected':''}>✅ Validé</option>
-      <option ${r.statut&&r.statut.includes('Retourné')?'selected':''}>🔴 Retourné à l'observateur</option>
-      <option ${r.statut&&r.statut.includes('Archivé')?'selected':''}>📁 Archivé</option>
-    </select>`:`<span class="status-badge ${r.statut&&r.statut.includes('Validé')?'sb-ok':'sb-wait'}">${r.statut||'En attente'}</span>`}</td>
-    <td style="display:flex;gap:.28rem;">
-      <button class="btn btn-o" onclick="viewRpt(${r.id})" style="font-size:.68rem;padding:.22rem .55rem;">👁</button>
-      ${cRole==='admin'?`<button class="btn btn-r" onclick="delRptConfirm(${r.id})" style="font-size:.68rem;padding:.22rem .55rem;">🗑</button>`:''}
-    </td></tr>`).join('')}</tbody></table>`;
+  const isAdmin=cRole==='admin',isGestOrAdmin=isAdmin||cRole==='gest';
+  cont.innerHTML=`<div style="overflow-x:auto;"><table class="data-table">
+    <thead><tr><th>Date</th><th>Arbitre</th><th>Équipes</th><th>Note</th><th>Statut</th><th>Actions</th></tr></thead>
+    <tbody>${rpts.map(r=>`<tr>
+      <td>${r.date||'—'}</td>
+      <td><strong>${r.arbitre||'—'}</strong><br><span style="font-size:.65rem;color:var(--doux)">${r.categorie||''} · ${r.auteurNom||''}</span></td>
+      <td>${r.equipes||'—'}</td>
+      <td><strong style="color:${(r.note20||0)>=12?'var(--vert)':'var(--orange)'}">${r.note20?r.note20+'/20':'—'}</strong></td>
+      <td>${isGestOrAdmin?`<select onchange="changeStatut('${r.id}',this.value)" style="font-size:.65rem;padding:.18rem .38rem;border-radius:6px;"><option ${(r.statut||'').includes('attente')?'selected':''}>🟡 En attente de validation</option><option ${(r.statut||'').includes('Validé')?'selected':''}>✅ Validé</option><option ${(r.statut||'').includes('Retourné')?'selected':''}>🔴 Retourné à l'observateur</option><option ${(r.statut||'').includes('Archivé')?'selected':''}>📁 Archivé</option></select>`:`<span class="status-badge ${(r.statut||'').includes('Validé')?'sb-ok':(r.statut||'').includes('Retourné')?'sb-ret':(r.statut||'').includes('Archivé')?'sb-arch':'sb-wait'}">${r.statut||'En attente'}</span>`}</td>
+      <td style="white-space:nowrap;display:flex;gap:.28rem;align-items:center;">
+        <button class="btn btn-o" onclick="viewRpt('${r.id}')" style="font-size:.68rem;padding:.22rem .55rem;">👁</button>
+        <button class="btn btn-o" onclick="reexportRTF('${r.id}')" style="font-size:.68rem;padding:.22rem .55rem;" title="Télécharger Word">📄</button>
+        ${isAdmin?`<button class="btn btn-r" onclick="delRptConfirm('${r.id}')" style="font-size:.68rem;padding:.22rem .55rem;">🗑</button>`:''}
+      </td>
+    </tr>`).join('')}
+    </tbody>
+  </table></div>`;
 }
-async function changeStatut(id,statut){allReports=await loadReports();const rpt=allReports.find(r=>r.id===id);if(!rpt)return;rpt.statut=statut;await saveRpt(rpt);toast('✅ Statut mis à jour.','ok');}
+
+async function changeStatut(id,statut){
+  await apiFetch(`/api/reports/${id}/statut`,{method:'PATCH',body:JSON.stringify({statut})});
+  allReports=await loadReports();
+  if(statut.includes('Validé')){const rpt=allReports.find(r=>r.id===id);if(rpt)showNotifValidation(rpt);}
+  toast('✅ Statut mis à jour.','ok');
+  renderHist();
+}
+
+function reexportRTF(id){
+  const r=allReports.find(x=>x.id===id);if(!r)return;exportRTF(r);
+}
+
 function viewRpt(id){
   const r=allReports.find(x=>x.id===id);if(!r)return;
-  document.getElementById('rpt-modal-content').innerHTML=`<h2 style="color:var(--bleu);margin-bottom:.75rem;">📄 ${r.arbitre||'—'} — ${r.date||'—'}</h2>
+  const secAvgs=Object.keys(SECTIONS).map(sid=>{let vals=[];if(r.evalData&&r.evalData[sid])r.evalData[sid].forEach(ev=>{if(ev.note&&NV[ev.note])vals.push(NV[ev.note]);});return{label:SECTIONS[sid].titre.split(' ').slice(0,2).join(' '),avg:vals.length?(vals.reduce((a,b)=>a+b,0)/vals.length).toFixed(1):null};});
+  const isGestOrAdmin=cRole==='admin'||cRole==='gest';
+  document.getElementById('rpt-modal-content').innerHTML=`
+    <h2 style="color:var(--bleu);margin-bottom:.75rem;">📄 ${r.arbitre||'—'} — ${r.date||'—'}</h2>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.75rem;font-size:.8rem;">
-      <div><strong>Licence :</strong> <span style="color:#0891b2;font-weight:700">${r.arbitreLicence||'—'}</span></div>
-      <div><strong>Email :</strong> ${r.arbitreEmail||'—'}</div>
       <div><strong>Équipes :</strong> ${r.equipes||'—'}</div><div><strong>Score :</strong> ${r.score||'—'}</div>
-      <div><strong>Catégorie :</strong> ${r.categorie||'—'}</div><div><strong>Observateur :</strong> ${r.obsNom||'—'}</div>
+      <div><strong>Catégorie :</strong> ${r.categorie||'—'}</div><div><strong>Compétition :</strong> ${r.competition||'—'}</div>
     </div>
     <div style="background:linear-gradient(135deg,var(--bleu),var(--bleu2));border-radius:10px;padding:.85rem;color:#fff;text-align:center;margin-bottom:.75rem;">
       <div style="font-family:'Bebas Neue',cursive;font-size:2.8rem;line-height:1">${r.note20||'—'} / 20</div>
+      <div style="font-size:.78rem;opacity:.85">${r.note100||'—'} / 100</div>
     </div>
-    ${r.apf?`<div style="background:var(--vert-pale);border-radius:8px;padding:.55rem;margin-bottom:.5rem;"><div style="font-size:.65rem;font-weight:700;color:var(--vert)">POINTS FORTS</div><p style="font-size:.8rem;margin-top:.15rem">${r.apf}</p></div>`:''}
-    ${r.aaxes?`<div style="background:var(--orange-pale);border-radius:8px;padding:.55rem;margin-bottom:.5rem;"><div style="font-size:.65rem;font-weight:700;color:var(--orange)">AXES DE PROGRESSION</div><p style="font-size:.8rem;margin-top:.15rem">${r.aaxes}</p></div>`:''}
-    <div style="margin-top:.75rem;"><button class="btn btn-o" onclick="closeRptModal()">Fermer</button></div>`;
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;margin-bottom:.75rem;">
+      ${secAvgs.map(s=>`<div style="background:#f8fafc;border-radius:8px;padding:.5rem .65rem;border:1px solid var(--bord);"><div style="font-size:.62rem;color:var(--doux);font-weight:700">${s.label}</div><div style="font-family:'Bebas Neue',cursive;font-size:1.4rem;color:var(--bleu)">${s.avg||'—'}</div></div>`).join('')}
+    </div>
+    ${r.apf?`<div style="background:var(--vert-pale);border-radius:8px;padding:.55rem .7rem;margin-bottom:.5rem;"><div style="font-size:.65rem;font-weight:700;color:var(--vert);">POINTS FORTS</div><p style="font-size:.8rem">${r.apf}</p></div>`:''}
+    ${r.aaxes?`<div style="background:var(--orange-pale);border-radius:8px;padding:.55rem .7rem;margin-bottom:.5rem;"><div style="font-size:.65rem;font-weight:700;color:var(--orange);">AXES DE PROGRESSION</div><p style="font-size:.8rem">${r.aaxes}</p></div>`:''}
+    ${r.agene?`<div style="background:var(--bleu-pale);border-radius:8px;padding:.55rem .7rem;"><div style="font-size:.65rem;font-weight:700;color:var(--bleu2);">APPRÉCIATION GÉNÉRALE</div><p style="font-size:.8rem">${r.agene}</p></div>`:''}
+    <div style="margin-top:.75rem;display:flex;gap:.5rem;flex-wrap:wrap;">
+      <button class="btn btn-p" onclick="reexportRTF('${r.id}')" style="font-size:.75rem;">📄 Télécharger Word</button>
+      ${r.arbitreEmail&&isGestOrAdmin?`<a href="mailto:${r.arbitreEmail}" class="btn btn-s" style="font-size:.75rem;text-decoration:none;">📧 Contacter</a>`:''}
+      <button class="btn btn-o" onclick="closeRptModal()" style="font-size:.75rem;">Fermer</button>
+    </div>`;
   document.getElementById('rpt-modal').style.display='flex';
 }
 function closeRptModal(){document.getElementById('rpt-modal').style.display='none';}
 async function delRptConfirm(id){if(!confirm('Supprimer définitivement ce rapport ?'))return;await delRpt(id);renderHist();toast('🗑 Rapport supprimé.','ok');}
-async function exportZip(){
-  allReports=await loadReports();if(!allReports.length){toast('Aucun rapport à exporter.','err');return;}
-  const zip=new JSZip();
-  allReports.forEach(r=>{const nom=(r.arbitre||'ARBITRE').replace(/\s+/g,'_').toUpperCase();zip.file(`Rapport_${nom}_${r.date||'DATE'}.txt`,`RAPPORT ARBITRE — DISTRICT BFC\nArbitre : ${r.arbitre}\nLicence : ${r.arbitreLicence||'—'}\nDate : ${r.date}\nNote : ${r.note20}/20`);});
-  saveFileAs(await zip.generateAsync({type:'blob'}),`Rapports_BFC.zip`);toast('📦 ZIP exporté !','ok');
+
+function showNotifValidation(rpt){
+  const email=rpt.arbitreEmail||'';const nom=rpt.arbitre||'—';
+  const subject=encodeURIComponent(`✅ Votre rapport a été validé — ${rpt.date||''}`);
+  const body=encodeURIComponent(`Bonjour ${nom},\n\nVotre rapport d'arbitrage du ${rpt.date||'—'} (${rpt.equipes||'—'}) a été validé par la Commission Départementale de l'Arbitrage du District BFC.\n\nNote obtenue : ${rpt.note20||'—'}/20\n\nPoints forts :\n${rpt.apf||'—'}\n\nAxes :\n${rpt.aaxes||'—'}\n\nCordialement,\nLa CDA District BFC`);
+  document.getElementById('notif-val-content').innerHTML=`
+    <div style="background:var(--vert-pale);border:1px solid #86efac;border-radius:9px;padding:.75rem;margin-bottom:.85rem;"><div style="font-size:.82rem;font-weight:700;color:var(--vert);">✅ Rapport de ${nom} validé !</div><div style="font-size:.75rem;color:var(--doux);margin-top:.2rem;">Note : ${rpt.note20||'—'}/20 · ${rpt.date||'—'}</div></div>
+    ${email?`<p style="font-size:.8rem;margin-bottom:.75rem;">Notifier l'arbitre par email :</p><div style="background:#f1f5f9;border-radius:8px;padding:.65rem;font-size:.75rem;color:var(--doux);margin-bottom:.85rem;">📧 ${email}</div><a href="mailto:${email}?subject=${subject}&body=${body}" class="btn btn-s" style="width:100%;justify-content:center;text-decoration:none;">📧 Ouvrir l'email de notification</a>`
+    :`<div style="background:var(--orange-pale);border-radius:8px;padding:.65rem;font-size:.78rem;color:var(--orange);">⚠️ Aucun email renseigné pour cet arbitre.</div>`}
+    <div style="margin-top:.75rem;"><button class="btn btn-o" onclick="document.getElementById('notif-val-modal').style.display='none'" style="width:100%;justify-content:center;">Fermer</button></div>`;
+  document.getElementById('notif-val-modal').style.display='flex';
 }
 
-// ══ STATISTIQUES ═══════════════════════════════════════════
+function openEmail(){
+  const nom=gv('arbitre-nom');const email=gv('arbitre-email');const date=gv('date-match');
+  const subject=encodeURIComponent(`Rapport d'arbitrage — ${nom} — ${date}`);
+  const body=encodeURIComponent(`Bonjour ${nom},\n\nVeuillez trouver ci-après votre rapport d'arbitrage.\n\nNote : ${gv('note-20')}/20\n\nPoints forts :\n${gv('apf')}\n\nAxes :\n${gv('aaxes')}\n\nCordialement,\nLa CDA District BFC`);
+  window.open(`mailto:${email}?subject=${subject}&body=${body}`);
+}
+
+async function exportZip(){
+  const rpts=await loadReports();if(!rpts.length){toast('Aucun rapport à exporter.','err');return;}
+  const zip=new JSZip();
+  rpts.forEach(r=>{
+    const nom=(r.arbitre||'ARBITRE').replace(/\s+/g,'_').toUpperCase();
+    const txt=`RAPPORT ARBITRE — DISTRICT BFC\n${'='.repeat(40)}\nArbitre : ${r.arbitre}\nDate : ${r.date}\nScore : ${r.score}\nNote : ${r.note20}/20\nStatut : ${r.statut}\n\nPoints forts :\n${r.apf||'—'}\n\nAxes :\n${r.aaxes||'—'}\n\nAppréciation :\n${r.agene||'—'}`;
+    zip.file(`Rapport_${nom}_${r.date||'DATE'}.txt`,txt);
+  });
+  const content=await zip.generateAsync({type:'blob'});
+  const url=URL.createObjectURL(content);const a=document.createElement('a');a.href=url;a.download='Rapports_BFC.zip';a.click();URL.revokeObjectURL(url);
+  toast(`📦 ZIP de ${rpts.length} rapport(s) exporté !`,'ok');
+}
+
+// ══════════════════════════════════════
+//  STATISTIQUES
+// ══════════════════════════════════════
 async function renderStats(){
-  allReports=await loadReports();const rpts=allReports;const now=new Date();
+  const rpts=await loadReports();const now=new Date();
   const thisMonth=rpts.filter(r=>{const d=new Date(r.createdAt||r.date);return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear();});
   const avg=rpts.length?rpts.reduce((s,r)=>s+(r.note20||0),0)/rpts.length:0;
   document.getElementById('stats-cards').innerHTML=`
     <div class="stat-card"><div class="stat-val">${rpts.length}</div><div class="stat-lbl">Total rapports</div></div>
-    <div class="stat-card"><div class="stat-val" style="color:${avg>=12?'var(--vert)':'var(--orange)'}">${avg.toFixed(1)}</div><div class="stat-lbl">Note moyenne</div></div>
+    <div class="stat-card"><div class="stat-val" style="color:${avg>=12?'var(--vert)':'var(--orange)'}">${avg.toFixed(1)}</div><div class="stat-lbl">Note moyenne /20</div></div>
     <div class="stat-card"><div class="stat-val" style="color:var(--violet)">${thisMonth.length}</div><div class="stat-lbl">Ce mois</div></div>
     <div class="stat-card"><div class="stat-val" style="color:var(--vert)">${rpts.filter(r=>r.statut&&r.statut.includes('Validé')).length}</div><div class="stat-lbl">Validés</div></div>
-    <div class="stat-card"><div class="stat-val" style="color:#0891b2">${allArbitres.length}</div><div class="stat-lbl">Arbitres inscrits</div></div>`;
+    <div class="stat-card"><div class="stat-val" style="color:var(--rouge)">${rpts.filter(r=>!r.statut||r.statut.includes('attente')).length}</div><div class="stat-lbl">En attente</div></div>
+    <div class="stat-card"><div class="stat-val" style="color:var(--doux);font-size:1.4rem">${[...new Set(rpts.map(r=>r.arbitre).filter(Boolean))].length}</div><div class="stat-lbl">Arbitres suivis</div></div>`;
   Object.values(chartInst).forEach(c=>c.destroy());chartInst={};
   const moisLabels=[],moisData=[];
   for(let i=5;i>=0;i--){const d=new Date();d.setMonth(d.getMonth()-i);moisLabels.push(d.toLocaleString('fr',{month:'short'}));const m=rpts.filter(r=>{const rd=new Date(r.createdAt||r.date);return rd.getMonth()===d.getMonth()&&rd.getFullYear()===d.getFullYear();});moisData.push(m.length?(m.reduce((s,r)=>s+(r.note20||0),0)/m.length).toFixed(2):null);}
   chartInst.evol=new Chart(document.getElementById('chart-evolution'),{type:'line',data:{labels:moisLabels,datasets:[{label:'Note moyenne',data:moisData,borderColor:'#2563eb',backgroundColor:'rgba(37,99,235,.1)',tension:.4,fill:true,pointRadius:5}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{min:8,max:16}}}});
-  chartInst.rept=new Chart(document.getElementById('chart-repartition'),{type:'doughnut',data:{labels:['⭐ Très Bien','✅ Bien','🔵 Satisfaisant','🟠 À Améliorer'],datasets:[{data:[rpts.filter(r=>r.note20>=14).length,rpts.filter(r=>r.note20>=12&&r.note20<14).length,rpts.filter(r=>r.note20>=10&&r.note20<12).length,rpts.filter(r=>r.note20>0&&r.note20<10).length],backgroundColor:['#16a34a','#2563eb','#60a5fa','#dc2626']}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:10}}}}}});
+  chartInst.rept=new Chart(document.getElementById('chart-repartition'),{type:'doughnut',data:{labels:['⭐ Très Bien','✅ Bien','🔵 Satisfaisant','🟠 À Améliorer'],datasets:[{data:[rpts.filter(r=>r.note20>=14).length,rpts.filter(r=>r.note20>=12&&r.note20<14).length,rpts.filter(r=>r.note20>=10&&r.note20<12).length,rpts.filter(r=>(r.note20||0)>0&&r.note20<10).length],backgroundColor:['#16a34a','#2563eb','#60a5fa','#dc2626']}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{font:{size:10}}}}}});
   const secLabels=Object.values(SECTIONS).map(s=>s.titre.split(' ').slice(0,2).join(' '));
   const secData=Object.keys(SECTIONS).map(sid=>{let vals=[];rpts.forEach(r=>{if(r.evalData&&r.evalData[sid])r.evalData[sid].forEach(ev=>{if(ev.note&&NV[ev.note])vals.push(NV[ev.note]);});});return vals.length?(vals.reduce((a,b)=>a+b,0)/vals.length).toFixed(2):0;});
   chartInst.sec=new Chart(document.getElementById('chart-sections'),{type:'bar',data:{labels:secLabels,datasets:[{data:secData,backgroundColor:CC}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{min:8,max:16}}}});
-  chartInst.mois=new Chart(document.getElementById('chart-mois'),{type:'bar',data:{labels:moisLabels,datasets:[{data:moisLabels.map((_,i)=>{const d=new Date();d.setMonth(d.getMonth()-(5-i));return rpts.filter(r=>{const rd=new Date(r.createdAt||r.date);return rd.getMonth()===d.getMonth()&&rd.getFullYear()===d.getFullYear();}).length;}),backgroundColor:'#1a3a6b'}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}});
+  chartInst.mois=new Chart(document.getElementById('chart-mois'),{type:'bar',data:{labels:moisLabels,datasets:[{label:'Rapports',data:moisLabels.map((_,i)=>{const d=new Date();d.setMonth(d.getMonth()-(5-i));return rpts.filter(r=>{const rd=new Date(r.createdAt||r.date);return rd.getMonth()===d.getMonth()&&rd.getFullYear()===d.getFullYear();}).length;}),backgroundColor:'#1a3a6b'}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}});
   const sorted=[...rpts].filter(r=>r.note20).sort((a,b)=>new Date(b.date)-new Date(a.date));
-  document.getElementById('notes-history-list').innerHTML=sorted.map(r=>{const pct=((r.note20-9)/6*100).toFixed(0);const col=r.note20>=14?'var(--vert)':r.note20>=12?'var(--bleu2)':r.note20>=10?'var(--orange)':'var(--rouge)';return`<div class="note-history-row"><div style="min-width:80px;font-size:.72rem;color:var(--doux)">${r.date||'—'}</div><div style="flex:1;font-size:.78rem;font-weight:600">${r.arbitre||'—'}</div><div style="flex:2;padding:0 .5rem"><div class="note-bar" style="width:${pct}%;background:${col}"></div></div><div style="min-width:50px;text-align:right;font-weight:700;color:${col}">${r.note20}/20</div></div>`;}  ).join('') || '<p style="color:var(--doux);text-align:center;padding:1rem;font-size:.8rem">Aucune note.</p>';
+  document.getElementById('notes-history-list').innerHTML=sorted.length?sorted.map(r=>{const pct=((r.note20-9)/6*100).toFixed(0);const col=r.note20>=14?'var(--vert)':r.note20>=12?'var(--bleu2)':r.note20>=10?'var(--orange)':'var(--rouge)';return`<div class="note-history-row"><div style="min-width:80px;font-size:.72rem;color:var(--doux)">${r.date||'—'}</div><div style="flex:1;font-size:.78rem;font-weight:600">${r.arbitre||'—'}</div><div style="flex:2;padding:0 .5rem"><div class="note-bar" style="width:${Math.min(100,Math.max(0,pct))}%;background:${col}"></div></div><div style="min-width:50px;text-align:right;font-weight:700;color:${col}">${r.note20}/20</div></div>`;}).join(''):'<p style="color:var(--doux);font-size:.8rem;text-align:center;padding:1rem;">Aucune note.</p>';
 }
 
-// ══ SUIVI ARBITRES ═════════════════════════════════════════
+// ══════════════════════════════════════
+//  SUIVI ARBITRES
+// ══════════════════════════════════════
 async function renderArbitreList(){
-  allReports=await loadReports();const arbitres=[...new Set(allReports.map(r=>r.arbitre).filter(Boolean))].sort();
+  const rpts=await loadReports();const arbitres=[...new Set(rpts.map(r=>r.arbitre).filter(Boolean))].sort();
   const sel=document.getElementById('arb-select');if(!sel)return;const prev=sel.value;
   sel.innerHTML='<option value="">-- Choisir un arbitre --</option>';
   arbitres.forEach(a=>{const o=document.createElement('option');o.value=a;o.textContent=a;sel.appendChild(o);});
   if(prev&&arbitres.includes(prev)){sel.value=prev;renderArbitre();}
 }
+
 async function renderArbitre(){
   const nom=document.getElementById('arb-select')?.value;const cont=document.getElementById('arb-content');
   if(!nom){cont.innerHTML='<div class="empty-state"><div class="ei">👤</div><p>Sélectionnez un arbitre.</p></div>';return;}
-  allReports=await loadReports();const rpts=allReports.filter(r=>r.arbitre===nom).sort((a,b)=>new Date(a.date)-new Date(b.date));
+  const rpts=allReports.filter(r=>r.arbitre===nom).sort((a,b)=>new Date(a.date)-new Date(b.date));
   if(!rpts.length){cont.innerHTML='<div class="empty-state"><div class="ei">📋</div><p>Aucun rapport.</p></div>';return;}
   const avg=rpts.reduce((s,r)=>s+(r.note20||0),0)/rpts.length;
-  const arbInfo=allArbitres.find(a=>`${a.nom} ${a.prenom}`.trim()===nom)||null;
+  const notes=rpts.filter(r=>r.note20).map(r=>r.note20);
+  const best=notes.length?Math.max(...notes):0;const worst=notes.length?Math.min(...notes):0;
+  const secAvgs=Object.keys(SECTIONS).map(sid=>{let vals=[];rpts.forEach(r=>{if(r.evalData&&r.evalData[sid])r.evalData[sid].forEach(ev=>{if(ev.note&&NV[ev.note])vals.push(NV[ev.note]);});});return{label:SECTIONS[sid].titre.split(' ').slice(0,2).join(' '),avg:vals.length?(vals.reduce((a,b)=>a+b,0)/vals.length).toFixed(1):null};});
   cont.innerHTML=`
-    ${arbInfo?`<div style="background:var(--bleu-pale);border-radius:10px;padding:.65rem .85rem;margin-bottom:.85rem;display:flex;align-items:center;gap:.75rem;">
-      <div style="font-size:1.5rem">👤</div><div>
-        <div style="font-weight:700;font-size:.88rem;color:var(--bleu)">${arbInfo.nom} ${arbInfo.prenom}</div>
-        <div style="font-size:.7rem;color:var(--doux);margin-top:.12rem">📋 ${arbInfo.licence||'—'} &nbsp;|&nbsp; 📧 ${arbInfo.email||'—'} &nbsp;|&nbsp; 🏷️ ${arbInfo.categorie||'—'} &nbsp;|&nbsp; 📞 ${arbInfo.telephone||'—'}</div>
-      </div></div>`:''}
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.65rem;margin-bottom:.85rem;">
       <div class="stat-card"><div class="stat-val">${rpts.length}</div><div class="stat-lbl">Rapports</div></div>
       <div class="stat-card"><div class="stat-val" style="color:${avg>=12?'var(--vert)':'var(--orange)'}">${avg.toFixed(1)}</div><div class="stat-lbl">Moyenne /20</div></div>
-      <div class="stat-card"><div class="stat-val" style="color:var(--vert)">${Math.max(...rpts.map(r=>r.note20||0)).toFixed(1)}</div><div class="stat-lbl">Meilleure</div></div>
+      <div class="stat-card"><div class="stat-val" style="color:var(--vert)">${best.toFixed(1)}</div><div class="stat-lbl">Meilleure note</div></div>
+      <div class="stat-card"><div class="stat-val" style="color:var(--rouge)">${worst.toFixed(1)}</div><div class="stat-lbl">Note la plus basse</div></div>
     </div>
-    <div class="chart-box" style="margin-bottom:.82rem;"><div class="chart-title">📈 Progression</div><canvas id="chart-arb" height="175"></canvas></div>
-    <table class="data-table"><thead><tr><th>Date</th><th>Équipes</th><th>Note</th><th>Statut</th><th></th></tr></thead>
-    <tbody>${rpts.slice().reverse().map(r=>`<tr><td>${r.date||'—'}</td><td>${r.equipes||'—'}</td><td><strong style="color:${r.note20>=12?'var(--vert)':'var(--orange)'}">${r.note20||'—'}/20</strong></td><td><span class="status-badge ${r.statut&&r.statut.includes('Validé')?'sb-ok':'sb-wait'}">${r.statut||'En attente'}</span></td><td><button class="btn btn-o" onclick="viewRpt(${r.id})" style="font-size:.68rem;padding:.2rem .52rem;">👁</button></td></tr>`).join('')}</tbody></table>`;
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:.85rem;">
+      ${secAvgs.map(s=>`<div style="background:#f8fafc;border-radius:8px;padding:.5rem;text-align:center;border:1px solid var(--bord);"><div style="font-size:.6rem;color:var(--doux)">${s.label}</div><div style="font-family:'Bebas Neue',cursive;font-size:1.4rem;color:var(--bleu)">${s.avg||'—'}</div></div>`).join('')}
+    </div>
+    <div class="chart-box" style="margin-bottom:.82rem;"><div class="chart-title">📈 Progression de ${nom}</div><canvas id="chart-arb" height="175"></canvas></div>
+    <div style="overflow-x:auto;"><table class="data-table"><thead><tr><th>Date</th><th>Équipes</th><th>Note</th><th>Statut</th><th></th></tr></thead>
+    <tbody>${[...rpts].reverse().map(r=>`<tr><td>${r.date||'—'}</td><td>${r.equipes||'—'}</td><td><strong style="color:${(r.note20||0)>=12?'var(--vert)':'var(--orange)'}">${r.note20||'—'}/20</strong></td><td><span class="status-badge ${(r.statut||'').includes('Validé')?'sb-ok':'sb-wait'}">${r.statut||'En attente'}</span></td><td><button class="btn btn-o" onclick="viewRpt('${r.id}')" style="font-size:.68rem;padding:.2rem .52rem;">👁</button></td></tr>`).join('')}
+    </tbody></table></div>`;
   if(chartInst.arb)chartInst.arb.destroy();
   chartInst.arb=new Chart(document.getElementById('chart-arb'),{type:'line',data:{labels:rpts.map(r=>r.date||''),datasets:[{label:'Note /20',data:rpts.map(r=>r.note20||null),borderColor:'#2563eb',backgroundColor:'rgba(37,99,235,.1)',tension:.4,fill:true,pointRadius:5}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{min:8,max:16}}}});
 }
+
+// ══════════════════════════════════════
+//  COMPARAISON
+// ══════════════════════════════════════
 async function populateCompSels(){
-  allReports=await loadReports();const arbitres=[...new Set(allReports.map(r=>r.arbitre).filter(Boolean))].sort();
+  const rpts=await loadReports();const arbitres=[...new Set(rpts.map(r=>r.arbitre).filter(Boolean))].sort();
   document.querySelectorAll('.comp-sel').forEach(sel=>{const prev=sel.value;sel.innerHTML='<option value="">-- Choisir --</option>';arbitres.forEach(a=>{const o=document.createElement('option');o.value=a;o.textContent=a;sel.appendChild(o);});if(prev&&arbitres.includes(prev))sel.value=prev;});
 }
+
 async function renderComparaison(){
   const sels=[...document.querySelectorAll('.comp-sel')].map(s=>s.value).filter(Boolean);
   const cont=document.getElementById('comp-content');
   if(sels.length<2){cont.innerHTML='<div class="empty-state"><div class="ei">⚖️</div><p>Sélectionnez au moins 2 arbitres.</p></div>';document.getElementById('comp-radar-box').style.display='none';document.getElementById('comp-bar-box').style.display='none';return;}
-  allReports=await loadReports();
-  const arbData=sels.map((nom,ci)=>{const rpts=allReports.filter(r=>r.arbitre===nom);const avg=rpts.length?rpts.reduce((s,r)=>s+(r.note20||0),0)/rpts.length:0;const secAvgs=Object.keys(SECTIONS).map(sid=>{let vals=[];rpts.forEach(r=>{if(r.evalData&&r.evalData[sid])r.evalData[sid].forEach(ev=>{if(ev.note&&NV[ev.note])vals.push(NV[ev.note]);});});return vals.length?(vals.reduce((a,b)=>a+b,0)/vals.length):0;});return{nom,avg,secAvgs,count:rpts.length,color:CC[ci]};});
+  const rpts=await loadReports();
+  const arbData=sels.map((nom,ci)=>{
+    const ar=rpts.filter(r=>r.arbitre===nom);const avg=ar.length?ar.reduce((s,r)=>s+(r.note20||0),0)/ar.length:0;
+    const secAvgs=Object.keys(SECTIONS).map(sid=>{let vals=[];ar.forEach(r=>{if(r.evalData&&r.evalData[sid])r.evalData[sid].forEach(ev=>{if(ev.note&&NV[ev.note])vals.push(NV[ev.note]);});});return vals.length?(vals.reduce((a,b)=>a+b,0)/vals.length):0;});
+    return{nom,avg,secAvgs,count:ar.length,color:CC[ci]};
+  });
   const secLabels=Object.values(SECTIONS).map(s=>s.titre.split(' ').slice(0,2).join(' '));
-  cont.innerHTML=`<table class="data-table"><thead><tr><th>Critère</th>${arbData.map(a=>`<th style="color:${a.color}">${a.nom}</th>`).join('')}</tr></thead><tbody>
+  cont.innerHTML=`<div style="overflow-x:auto;"><table class="data-table" style="margin-bottom:.85rem;"><thead><tr><th>Critère</th>${arbData.map(a=>`<th style="color:${a.color}">${a.nom}</th>`).join('')}</tr></thead><tbody>
     <tr><td><strong>Rapports</strong></td>${arbData.map(a=>`<td>${a.count}</td>`).join('')}</tr>
     <tr><td><strong>Moyenne</strong></td>${arbData.map(a=>`<td style="font-weight:700;color:${a.avg>=12?'var(--vert)':'var(--orange)'}">${a.avg.toFixed(2)}/20</td>`).join('')}</tr>
-    ${secLabels.map((lbl,i)=>`<tr><td>${lbl}</td>${arbData.map(a=>`<td>${a.secAvgs[i]?a.secAvgs[i].toFixed(1):'—'}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+    ${secLabels.map((lbl,i)=>`<tr><td>${lbl}</td>${arbData.map(a=>`<td>${a.secAvgs[i]?a.secAvgs[i].toFixed(1):'—'}</td>`).join('')}</tr>`).join('')}
+    </tbody></table></div>`;
   document.getElementById('comp-radar-box').style.display='block';
   if(chartInst.radar)chartInst.radar.destroy();
-  chartInst.radar=new Chart(document.getElementById('chart-radar'),{type:'radar',data:{labels:secLabels,datasets:arbData.map(a=>({label:a.nom,data:a.secAvgs,borderColor:a.color,backgroundColor:a.color+'33',pointBackgroundColor:a.color}))},options:{responsive:true,scales:{r:{min:8,max:15}},plugins:{legend:{position:'bottom'}}}});
+  chartInst.radar=new Chart(document.getElementById('chart-radar'),{type:'radar',data:{labels:[...secLabels,'Moyenne'],datasets:arbData.map(a=>({label:a.nom,data:[...a.secAvgs,a.avg],borderColor:a.color,backgroundColor:a.color+'33',pointBackgroundColor:a.color}))},options:{responsive:true,scales:{r:{min:8,max:15,ticks:{stepSize:2}}},plugins:{legend:{position:'bottom'}}}});
   document.getElementById('comp-bar-box').style.display='block';
   if(chartInst.compBar)chartInst.compBar.destroy();
-  chartInst.compBar=new Chart(document.getElementById('chart-comp-bar'),{type:'bar',data:{labels:arbData.map(a=>a.nom),datasets:[{data:arbData.map(a=>a.avg.toFixed(2)),backgroundColor:arbData.map(a=>a.color)}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{min:8,max:16}}}});
+  chartInst.compBar=new Chart(document.getElementById('chart-comp-bar'),{type:'bar',data:{labels:arbData.map(a=>a.nom),datasets:[{label:'Note moyenne /20',data:arbData.map(a=>a.avg.toFixed(2)),backgroundColor:arbData.map(a=>a.color)}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{min:8,max:16}}}});
 }
+
+// ══════════════════════════════════════
+//  PROGRESSION
+// ══════════════════════════════════════
 async function populateProgSels(){
-  allReports=await loadReports();const arbitres=[...new Set(allReports.map(r=>r.arbitre).filter(Boolean))].sort();
-  const arbSel=document.getElementById('prog-arb');if(!arbSel)return;arbSel.innerHTML=arbitres.map(a=>`<option value="${a}">${a}</option>`).join('');
-  const years=[...new Set(allReports.map(r=>r.date?new Date(r.date).getFullYear():null).filter(Boolean))].sort((a,b)=>b-a);
-  const yearSel=document.getElementById('prog-year');if(!yearSel)return;if(!years.length)years.push(new Date().getFullYear());yearSel.innerHTML=years.map(y=>`<option value="${y}">${y}-${y+1}</option>`).join('');
+  const rpts=await loadReports();const arbitres=[...new Set(rpts.map(r=>r.arbitre).filter(Boolean))].sort();
+  const sel=document.getElementById('prog-arb');if(!sel)return;
+  sel.innerHTML=arbitres.map(a=>`<option value="${a}">${a}</option>`).join('');
+  const years=[...new Set(rpts.map(r=>(r.date||'').substring(0,4)).filter(Boolean))].sort().reverse();
+  const ysel=document.getElementById('prog-year');if(!ysel)return;
+  ysel.innerHTML=years.map(y=>`<option>${y}</option>`).join('');
 }
+
 async function renderProgression(){
-  allReports=await loadReports();const arbSel=document.getElementById('prog-arb');if(!arbSel)return;
-  const selArbs=[...arbSel.selectedOptions].map(o=>o.value);const year=parseInt(document.getElementById('prog-year')?.value)||new Date().getFullYear();
-  if(!selArbs.length){toast('Sélectionnez au moins un arbitre.','err');return;}
-  const seasonStart=new Date(year,8,1);const seasonEnd=new Date(year+1,7,31);
-  const datasets=selArbs.map((nom,ci)=>{let rpts=allReports.filter(r=>{if(r.arbitre!==nom)return false;const d=new Date(r.date);return d>=seasonStart&&d<=seasonEnd;});rpts.sort((a,b)=>new Date(a.date)-new Date(b.date));return{label:nom,data:rpts.map(r=>({x:r.date,y:r.note20})),borderColor:CC[ci],backgroundColor:CC[ci]+'22',tension:.4,fill:false,pointRadius:6};});
+  const sel=document.getElementById('prog-arb');const year=gv('prog-year');const cat=gv('prog-cat');
+  const selected=[...sel.selectedOptions].map(o=>o.value);
+  if(!selected.length||!year)return;
+  const rpts=allReports.filter(r=>{const y=(r.date||'').substring(0,4);return y===year&&(!cat||r.categorie===cat);});
   if(chartInst.prog)chartInst.prog.destroy();
-  chartInst.prog=new Chart(document.getElementById('chart-progression'),{type:'line',data:{datasets},options:{responsive:true,plugins:{legend:{position:'bottom'}},scales:{x:{type:'category'},y:{min:8,max:16}}}});
+  const datasets=selected.map((nom,i)=>{const ar=rpts.filter(r=>r.arbitre===nom).sort((a,b)=>new Date(a.date)-new Date(b.date));return{label:nom,data:ar.map(r=>r.note20||null),borderColor:CC[i],backgroundColor:CC[i]+'33',tension:.4,fill:false,pointRadius:5};});
+  const allDates=[...new Set(rpts.filter(r=>selected.includes(r.arbitre)).map(r=>r.date).filter(Boolean))].sort();
+  chartInst.prog=new Chart(document.getElementById('chart-progression'),{type:'line',data:{labels:allDates,datasets},options:{responsive:true,scales:{y:{min:8,max:16}},plugins:{legend:{position:'bottom'}}}});
 }
 
-// ══ GESTION LISTE ARBITRES (ADMIN) ═══════════════════════
-async function renderArbAdmin(){
-  allArbitres=await loadArbitres();
-  const q=(document.getElementById('arb-admin-search')?.value||'').toLowerCase();
-  const arbs=q?allArbitres.filter(a=>(a.nom||'').toLowerCase().includes(q)||(a.prenom||'').toLowerCase().includes(q)||(a.licence||'').toLowerCase().includes(q)||(a.email||'').toLowerCase().includes(q)):allArbitres;
-  const cont=document.getElementById('arb-admin-table');
-  if(!arbs.length){cont.innerHTML=`<div class="empty-state"><div class="ei">🏟️</div><p>${q?'Aucun résultat.':'Aucun arbitre. Cliquez sur "+ Ajouter un arbitre".'}</p></div>`;return;}
-  cont.innerHTML=`<table class="user-table arb-table" style="font-size:.74rem"><thead><tr><th>N° Licence</th><th>Nom</th><th>Prénom</th><th>Email</th><th>Téléphone</th><th>Niveau</th><th>Actions</th></tr></thead>
-  <tbody>${arbs.map(a=>`<tr>
-    <td><strong style="color:#0891b2;letter-spacing:.5px">${a.licence||'—'}</strong></td>
-    <td><strong>${a.nom||'—'}</strong></td>
-    <td>${a.prenom||'—'}</td>
-    <td style="font-size:.7rem">${a.email||'—'}</td>
-    <td style="font-size:.7rem">${a.telephone||'—'}</td>
-    <td><span style="background:#e0f2fe;color:#0891b2;border-radius:20px;padding:.06rem .4rem;font-size:.62rem;font-weight:700">${a.categorie||'—'}</span></td>
-    <td style="display:flex;gap:.25rem;">
-      <button class="btn btn-o" onclick="openArbModal(${a.id})" style="font-size:.68rem;padding:.2rem .5rem;" title="Modifier">✏️</button>
-      <button class="btn btn-r" onclick="delArbitre(${a.id})" style="font-size:.68rem;padding:.2rem .5rem;" title="Supprimer">🗑</button>
-    </td>
-  </tr>`).join('')}</tbody></table>
-  <div style="font-size:.68rem;color:var(--doux);padding:.42rem;text-align:right">${arbs.length} affiché(s) · ${allArbitres.length} total</div>`;
-}
-function openArbModal(arbId){
-  const id=arbId||'';
-  document.getElementById('arb-modal-id').value=id;
-  document.getElementById('arb-modal-title').textContent=id?'✏️ Modifier l\'arbitre':'➕ Ajouter un arbitre';
-  ['am-licence','am-nom','am-prenom','am-email','am-tel'].forEach(fid=>{const el=document.getElementById(fid);if(el)el.value='';});
-  document.getElementById('am-cat').value='';
-  if(id){const a=allArbitres.find(x=>x.id===id);if(a){document.getElementById('am-licence').value=a.licence||'';document.getElementById('am-nom').value=a.nom||'';document.getElementById('am-prenom').value=a.prenom||'';document.getElementById('am-email').value=a.email||'';document.getElementById('am-tel').value=a.telephone||'';document.getElementById('am-cat').value=a.categorie||'';}}
-  document.getElementById('arb-modal').style.display='flex';
-}
-function closeArbModal(){document.getElementById('arb-modal').style.display='none';}
-async function saveArbitre(){
-  const id=document.getElementById('arb-modal-id').value;
-  const data={licence:document.getElementById('am-licence').value.trim(),nom:document.getElementById('am-nom').value.trim().toUpperCase(),prenom:document.getElementById('am-prenom').value.trim(),email:document.getElementById('am-email').value.trim(),telephone:document.getElementById('am-tel').value.trim(),categorie:document.getElementById('am-cat').value};
-  if(!data.nom||!data.prenom){toast('Nom et prénom obligatoires.','err');return;}
-  try{let res;
-    if(id){res=await apiFetch(`/api/arbitres/${id}`,{method:'PUT',body:JSON.stringify(data)});}
-    else{res=await apiFetch('/api/arbitres',{method:'POST',body:JSON.stringify(data)});}
-    if(!res?.ok){const d=await res?.json();toast(d?.error?.message||'Erreur.','err');return;}
-    allArbitres=await loadArbitres();closeArbModal();renderArbAdmin();toast('✅ Arbitre enregistré !','ok');
-  }catch{toast('Erreur serveur.','err');}
-}
-async function delArbitre(id){
-  if(!confirm('Supprimer cet arbitre de la liste ?'))return;
-  try{await apiFetch(`/api/arbitres/${id}`,{method:'DELETE'});allArbitres=await loadArbitres();renderArbAdmin();toast('🗑 Arbitre supprimé.','ok');}
-  catch{toast('Erreur serveur.','err');}
-}
-
-// ══ ADMIN — UTILISATEURS ══════════════════════════════════
+// ══════════════════════════════════════
+//  ADMIN — UTILISATEURS
+// ══════════════════════════════════════
 async function renderAdmin(){
-  const users=await loadUsers();
-  const cObs=users.filter(u=>u.role==='obs'&&u.actif!==false).length;
-  const cGest=users.filter(u=>u.role==='gest'&&u.actif!==false).length;
-  const cAdmin=users.filter(u=>u.role==='admin'&&u.actif!==false).length;
-  document.getElementById('role-quota').innerHTML=`
-    <div style="background:#fff;border-radius:10px;padding:.75rem;border:1.5px solid #86efac;text-align:center;"><div style="font-size:.6rem;font-weight:700;color:var(--doux)">👁️ OBSERVATEURS</div><div style="font-family:'Bebas Neue',cursive;font-size:2rem;color:var(--vert)">${cObs}<span style="font-size:.9rem;font-family:'Inter',sans-serif">/100</span></div><div style="font-size:.62rem;color:var(--doux)">Quota : 1 à 100</div></div>
-    <div style="background:#fff;border-radius:10px;padding:.75rem;border:1.5px solid #86efac;text-align:center;"><div style="font-size:.6rem;font-weight:700;color:var(--doux)">📋 GESTIONNAIRES</div><div style="font-family:'Bebas Neue',cursive;font-size:2rem;color:#15803d">${cGest}<span style="font-size:.9rem;font-family:'Inter',sans-serif">/5</span></div><div style="font-size:.62rem;color:var(--doux)">Quota : 1 à 5</div></div>
-    <div style="background:#fff;border-radius:10px;padding:.75rem;border:1.5px solid #c4b5fd;text-align:center;"><div style="font-size:.6rem;font-weight:700;color:var(--doux)">🔐 ADMINISTRATEURS</div><div style="font-family:'Bebas Neue',cursive;font-size:2rem;color:#7c3aed">${cAdmin}<span style="font-size:.9rem;font-family:'Inter',sans-serif">/2</span></div><div style="font-size:.62rem;color:var(--doux)">Quota : 1 à 2</div></div>`;
-  document.getElementById('users-table-wrap').innerHTML=`<table class="user-table"><thead><tr><th>Identifiant</th><th>Nom</th><th>Rôle</th><th>Email</th><th>Statut</th><th>Actions</th></tr></thead>
-  <tbody>${users.map(u=>`<tr><td><code style="font-size:.76rem">${u.username}</code></td><td>${u.nom}</td><td><span class="role-dot rd-${u.role}">${RC[u.role]?.label||u.role}</span></td><td style="font-size:.72rem">${u.email||'—'}</td><td>${u.actif!==false?'✅ Actif':'🔴 Inactif'}</td><td style="display:flex;gap:.25rem;"><button class="btn btn-o" onclick="openUserModal(${u.id})" style="font-size:.68rem;padding:.2rem .5rem;">✏️</button>${u.id!==cUser?.id?`<button class="btn ${u.actif!==false?'btn-r':'btn-s'}" onclick="toggleUser(${u.id})" style="font-size:.68rem;padding:.2rem .5rem;">${u.actif!==false?'Désact.':'Activer'}</button>`:''}</td></tr>`).join('')}</tbody></table>`;
-  await renderArbAdmin();
-  try{const r=await apiFetch('/api/connlog');if(r?.ok){const d=await r.json();const log=d.data||[];
-  document.getElementById('conn-log-wrap').innerHTML=log.length?`<table class="user-table"><thead><tr><th>Date/Heure</th><th>Utilisateur</th><th>Rôle</th><th>Action</th></tr></thead><tbody>${log.slice(0,30).map(l=>`<tr><td style="font-size:.68rem">${new Date(l.timestamp).toLocaleString('fr')}</td><td>${l.nom}</td><td><span class="role-dot rd-${l.role}">${RC[l.role]?.label.split(' ')[0]||''}</span></td><td>${l.action}</td></tr>`).join('')}</tbody></table>`:'<p style="color:var(--doux);font-size:.78rem;padding:.5rem;">Aucune connexion enregistrée.</p>';}}catch{}
-}
-async function openUserModal(userId){
-  document.getElementById('modal-user-id').value=userId||'';document.getElementById('modal-title').textContent=userId?'Modifier le compte':'Créer un compte';
-  ['mu-username','mu-nom','mu-email','mu-pass'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-  const users=await loadUsers?.()??[];
+  await renderUsers();await renderConnLog();
 }
 
-let LR = 'obs';
-function setLR(role) {
-  LR = role;
-
-  document.querySelectorAll('.ltab').forEach(b => b.classList.remove('active'));
-  if (role === 'obs') document.querySelectorAll('.ltab')[0].classList.add('active');
-  if (role === 'gest') document.querySelectorAll('.ltab')[1].classList.add('active');
-  if (role === 'admin') document.querySelectorAll('.ltab')[2].classList.add('active');
-
-  const desc = document.getElementById('role-desc');
-  desc.className = 'role-badge-lg ' + RC[role].badge;
-  desc.innerHTML = `<span>${RC[role].label.split(' ')[0]}</span><span>${RC[role].desc}</span>`;
+async function renderUsers(){
+  const r=await apiFetch('/api/users');if(!r)return;const d=await r.json();const users=d.data||[];
+  document.getElementById('users-table-wrap').innerHTML=`<div style="overflow-x:auto;"><table class="user-table">
+    <thead><tr><th>ID</th><th>Identifiant</th><th>Nom</th><th>Rôle</th><th>Email</th><th>Statut</th><th>Dernière co.</th><th>Actions</th></tr></thead>
+    <tbody>${users.map(u=>`<tr>
+      <td>${u.id}</td><td><code>${u.username}</code></td><td>${u.nom||'—'}</td>
+      <td><span class="role-dot ${u.role==='admin'?'rd-admin':u.role==='gest'?'rd-gest':'rd-obs'}">${u.role==='admin'?'🔐 Admin':u.role==='gest'?'📋 Gest':'👁️ Obs'}</span></td>
+      <td>${u.email||'—'}</td>
+      <td><span class="status-badge ${u.actif?'sb-ok':'sb-ret'}">${u.actif?'Actif':'Inactif'}</span></td>
+      <td style="font-size:.68rem">${u.last_login?new Date(u.last_login).toLocaleDateString('fr'):'Jamais'}</td>
+      <td style="display:flex;gap:.25rem;">
+        <button class="btn btn-o" onclick="openUserModal(${u.id})" style="font-size:.65rem;padding:.18rem .52rem;">✏️</button>
+        ${u.id!==cUser?.id?`<button class="btn btn-r" onclick="deleteUser(${u.id})" style="font-size:.65rem;padding:.18rem .52rem;">🗑</button>`:''}
+      </td>
+    </tr>`).join('')}
+    </tbody>
+  </table></div>`;
 }
-async function doLogin() {
-  const username = document.getElementById('login-user').value.trim();
-  const password = document.getElementById('login-pass').value.trim();
 
-  try {
-    const r = await fetch(API_BASE + '/api/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password })
-    });
+async function renderConnLog(){
+  const r=await apiFetch('/api/connlog');if(!r)return;const d=await r.json();const log=d.data||[];
+  document.getElementById('conn-log-wrap').innerHTML=`<div style="overflow-x:auto;"><table class="data-table">
+    <thead><tr><th>Date/Heure</th><th>Utilisateur</th><th>Rôle</th><th>Action</th><th>IP</th></tr></thead>
+    <tbody>${log.slice(0,30).map(l=>`<tr><td style="font-size:.7rem">${new Date(l.timestamp).toLocaleString('fr')}</td><td>${l.username}</td><td>${l.role}</td><td>${l.action==='login'?'🔐 Connexion':'⏻ Déconnexion'}</td><td style="font-size:.68rem;color:var(--doux)">${l.ip||'—'}</td></tr>`).join('')}
+    </tbody>
+  </table></div>`;
+}
 
-    if (!r.ok) {
-      alert('Identifiant ou mot de passe incorrect');
-      return;
-    }
-
-    const result = await r.json();
-const user = result.data;
-
-localStorage.setItem('token', user.accessToken);
-localStorage.setItem('user', JSON.stringify(user));
-    document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('app').style.display = 'block';
-    showSec('rapport');
-  } catch (e) {
-    alert('Erreur : ' + e.message);
-console.error(e);
+function openUserModal(id){
+  document.getElementById('modal-title').textContent=id?'Modifier le compte':'Créer un compte';
+  document.getElementById('modal-user-id').value=id||'';
+  ['mu-username','mu-nom','mu-email','mu-pass'].forEach(f=>document.getElementById(f).value='');
+  document.getElementById('mu-role').value='obs';
+  if(id){
+    const u=(allReports.__users||[]).find(u=>u.id===id);
+    apiFetch('/api/users').then(r=>r.json()).then(d=>{const u=d.data?.find(x=>x.id===id);if(!u)return;document.getElementById('mu-username').value=u.username||'';document.getElementById('mu-nom').value=u.nom||'';document.getElementById('mu-email').value=u.email||'';document.getElementById('mu-role').value=u.role||'obs';});
   }
+  document.getElementById('user-modal').style.display='flex';
 }
+function closeUserModal(){document.getElementById('user-modal').style.display='none';}
+
+async function saveUser(){
+  const id=document.getElementById('modal-user-id').value;
+  const body={username:gv('mu-username'),nom:gv('mu-nom'),email:gv('mu-email'),role:gv('mu-role'),actif:true};
+  const pass=gv('mu-pass');if(pass)body.password=pass;
+  if(!body.username){toast('Identifiant requis.','err');return;}
+  const r=id?await apiFetch(`/api/users/${id}`,{method:'PUT',body:JSON.stringify(body)}):await apiFetch('/api/users',{method:'POST',body:JSON.stringify(body)});
+  if(!r)return;const d=await r.json();
+  if(!r.ok){toast(d.error?.message||'Erreur','err');return;}
+  closeUserModal();await renderAdmin();toast(id?'✅ Compte modifié.':'✅ Compte créé.','ok');
+}
+
+async function deleteUser(id){
+  if(!confirm('Supprimer ce compte ?'))return;
+  const r=await apiFetch(`/api/users/${id}`,{method:'DELETE'});if(!r)return;
+  const d=await r.json();if(!r.ok){toast(d.error?.message||'Erreur','err');return;}
+  await renderAdmin();toast('🗑 Compte supprimé.','ok');
+}
+
+// ══════════════════════════════════════
+//  NOTIFICATIONS
+// ══════════════════════════════════════
+async function updateNotifBadge(){
+  const rpts=await loadReports();const n=rpts.filter(r=>!r.statut||r.statut.includes('attente')).length;
+  const badge=document.getElementById('notif-badge');
+  if(n>0){badge.style.display='flex';badge.textContent=n;}else{badge.style.display='none';}
+}
+
+function showNotifs(){
+  const n=allReports.filter(r=>!r.statut||r.statut.includes('attente'));
+  document.getElementById('notif-content').innerHTML=n.length?`<div style="font-size:.8rem;margin-bottom:.65rem;">${n.length} rapport(s) en attente de validation :</div>`+n.slice(0,10).map(r=>`<div style="background:#f8fafc;border-radius:8px;padding:.55rem .7rem;margin-bottom:.42rem;cursor:pointer;" onclick="showSec('historique')"><div style="font-size:.8rem;font-weight:600">${r.arbitre||'—'}</div><div style="font-size:.7rem;color:var(--doux)">${r.date||'—'} · ${r.equipes||'—'}</div></div>`).join(''):'<p style="color:var(--doux);font-size:.82rem;text-align:center;">Aucune notification.</p>';
+  document.getElementById('notif-modal').style.display='flex';
+}
+
+// ══════════════════════════════════════
+//  QUICK NAV
+// ══════════════════════════════════════
+function toggleQNav(){
+  document.getElementById('qnav-panel').classList.toggle('show');
+  document.getElementById('qnav-overlay').classList.toggle('show');
+  if(document.getElementById('qnav-panel').classList.contains('show'))buildQNav(allReports);
+}
+
+function buildQNav(rpts){
+  const en_attente=rpts.filter(r=>!r.statut||r.statut.includes('attente'));
+  const recents=[...rpts].sort((a,b)=>new Date(b.createdAt||b.date)-new Date(a.createdAt||a.date)).slice(0,8);
+  let html='';
+  if(en_attente.length){html+=`<div class="qnav-sec"><div class="qnav-sec-title">🔔 En attente (${en_attente.length})</div>${en_attente.slice(0,8).map(r=>`<button class="qnav-item" onclick="viewRpt('${r.id}');toggleQNav()"><span class="qi-label">${r.arbitre||'—'}</span><span class="qi-badge" style="background:var(--jaune-pale);color:#a16207;">${r.date||'—'}</span></button>`).join('')}</div>`;}
+  html+=`<div class="qnav-sec"><div class="qnav-sec-title">📋 Récents</div>${recents.map(r=>`<button class="qnav-item" onclick="viewRpt('${r.id}');toggleQNav()"><span class="qi-label">${r.arbitre||'—'}</span><span class="qi-note">${r.note20?r.note20+'/20':''}</span></button>`).join('')}</div>`;
+  document.getElementById('qnav-body').innerHTML=html||'<div style="padding:1.5rem;text-align:center;color:var(--doux);">Aucun rapport.</div>';
+}
+
+function filterQNav(q){
+  const rpts=q?allReports.filter(r=>(r.arbitre||'').toLowerCase().includes(q.toLowerCase())||(r.equipes||'').toLowerCase().includes(q.toLowerCase())):allReports;
+  buildQNav(rpts);
+}
+
+// ══════════════════════════════════════
+//  TOAST
+// ══════════════════════════════════════
+let toastTimer=null;
+function toast(msg,type=''){
+  const el=document.getElementById('toast');el.textContent=msg;el.className='toast'+(type?' '+type:'');
+  void el.offsetWidth;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3500);
+}
+
+// ══════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════
+window.addEventListener('DOMContentLoaded',()=>{
+  setLR('obs');
+  ['qa','ct','cd','pm'].forEach(buildSec);
+  // Tenter la session JWT existante
+  if(TM.a){
+    apiFetch('/api/auth/session').then(r=>r&&r.json()).then(d=>{
+      if(d?.data){cRole=d.data.role;cUser=d.data;completeLogin();}
+    }).catch(()=>{});
+  }
+});
 </script>
 </body>
 </html>
