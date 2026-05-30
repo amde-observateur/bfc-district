@@ -70,6 +70,44 @@ input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{ac
 .qnav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.38);z-index:300;display:none;}.qnav-overlay.show{display:block;}.qnav-panel{position:fixed;top:0;left:-310px;width:295px;height:100vh;background:#fff;box-shadow:4px 0 24px rgba(0,0,0,.18);z-index:301;transition:left .28s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;}.qnav-panel.show{left:0;}.qnav-hdr{background:var(--bleu);color:#fff;padding:.85rem 1rem;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}.qnav-hdr h2{font-size:.86rem;font-weight:700;letter-spacing:.3px;}.qnav-close{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;width:28px;height:28px;border-radius:7px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;}.qnav-search{padding:.55rem .85rem;border-bottom:1px solid var(--bord);flex-shrink:0;}.qnav-search input{width:100%;padding:.4rem .62rem;border:1.5px solid var(--bord);border-radius:8px;font-family:'Inter',sans-serif;font-size:.78rem;outline:none;}.qnav-search input:focus{border-color:var(--bleu2);}.qnav-body{flex:1;overflow-y:auto;}.qnav-sec{border-bottom:1px solid var(--bord);}.qnav-sec-title{padding:.45rem .9rem;font-size:.62rem;font-weight:700;color:var(--doux);text-transform:uppercase;letter-spacing:.5px;background:#f8fafc;}.qnav-item{display:flex;align-items:center;justify-content:space-between;padding:.38rem .9rem;cursor:pointer;font-size:.78rem;color:var(--texte);transition:background .12s;border:none;background:none;width:100%;text-align:left;gap:.5rem;}.qnav-item:hover{background:#eff6ff;color:var(--bleu2);}.qnav-item .qi-label{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}.qnav-item .qi-badge{background:var(--bleu-pale);color:var(--bleu2);border-radius:20px;font-size:.6rem;font-weight:700;padding:.06rem .38rem;flex-shrink:0;}.qnav-item .qi-note{font-size:.65rem;color:var(--doux);flex-shrink:0;}
 .menu-btn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;width:32px;height:32px;border-radius:8px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}.menu-btn:hover{background:rgba(255,255,255,.25);}
 .spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;}@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ── RÉPERTOIRE ARBITRES ── */
+.rep-search-bar{display:flex;gap:.5rem;margin-bottom:.75rem;align-items:center;flex-wrap:wrap;}
+.rep-search-bar input{flex:1;min-width:160px;padding:.42rem .7rem;border:1.5px solid var(--bord);border-radius:8px;font-family:'Inter',sans-serif;font-size:.78rem;outline:none;}
+.rep-search-bar input:focus{border-color:var(--bleu2);}
+.rep-count{font-size:.72rem;color:var(--doux);white-space:nowrap;}
+.rep-table-wrap{overflow-x:auto;border-radius:9px;border:1px solid var(--bord);}
+.rep-table{width:100%;border-collapse:collapse;font-size:.74rem;}
+.rep-table th{background:var(--bleu);color:#fff;padding:.42rem .5rem;text-align:left;font-size:.67rem;font-weight:700;cursor:pointer;white-space:nowrap;user-select:none;}
+.rep-table th:hover{background:#1e3a6e;}
+.rep-table th .sort-icon{margin-left:.2rem;opacity:.6;}
+.rep-table td{padding:.36rem .5rem;border-bottom:1px solid var(--bord);vertical-align:middle;}
+.rep-table tr:hover td{background:#eff6ff;cursor:pointer;}
+.rep-table tr:last-child td{border-bottom:none;}
+.rep-select-btn{background:var(--bleu2);color:#fff;border:none;border-radius:5px;padding:.2rem .5rem;font-size:.65rem;cursor:pointer;white-space:nowrap;}
+.rep-select-btn:hover{background:#1d4ed8;}
+.arb-picker-btn{background:var(--bleu-pale);color:var(--bleu2);border:1.5px solid var(--bleu2);border-radius:7px;padding:.28rem .65rem;font-size:.72rem;cursor:pointer;white-space:nowrap;font-weight:600;}
+.arb-picker-btn:hover{background:var(--bleu2);color:#fff;}
+/* Modal arbitre */
+.arb-modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;display:none;align-items:center;justify-content:center;}
+.arb-modal-bg.show{display:flex;}
+.arb-modal{background:#fff;border-radius:13px;width:min(96vw,620px);max-height:80vh;display:flex;flex-direction:column;box-shadow:0 8px 32px rgba(0,0,0,.22);}
+.arb-modal-hdr{background:var(--bleu);color:#fff;padding:.75rem 1rem;border-radius:13px 13px 0 0;display:flex;align-items:center;justify-content:space-between;}
+.arb-modal-hdr h3{font-size:.88rem;font-weight:700;}
+.arb-modal-close{background:rgba(255,255,255,.2);border:none;color:#fff;width:26px;height:26px;border-radius:6px;cursor:pointer;font-size:.9rem;}
+.arb-modal-search{padding:.6rem .85rem;border-bottom:1px solid var(--bord);}
+.arb-modal-search input{width:100%;padding:.42rem .7rem;border:1.5px solid var(--bord);border-radius:8px;font-family:'Inter',sans-serif;font-size:.8rem;outline:none;}
+.arb-modal-search input:focus{border-color:var(--bleu2);}
+.arb-modal-list{overflow-y:auto;flex:1;}
+.arb-modal-item{display:flex;align-items:center;justify-content:space-between;padding:.42rem .85rem;border-bottom:1px solid #f1f5f9;cursor:pointer;gap:.5rem;}
+.arb-modal-item:hover{background:#eff6ff;}
+.arb-modal-item .ami-name{font-weight:600;font-size:.78rem;color:var(--texte);}
+.arb-modal-item .ami-info{font-size:.68rem;color:var(--doux);}
+.arb-modal-item .ami-club{font-size:.65rem;color:var(--bleu2);margin-top:.1rem;}
+/* Formulaire ajout arbitre */
+.arb-form{background:#f8fafc;border-radius:9px;padding:.85rem;margin-bottom:.9rem;border:1.5px solid var(--bord);}
+.arb-form h4{font-size:.78rem;font-weight:700;margin-bottom:.65rem;color:var(--bleu);}
+
 @media print{#login-screen,.main-nav,.note-flottante,header,.steps-nav,.btn,.btn-row,.autosave,#corr-panel,.toast,.modal-bg{display:none!important;}.section{display:block!important;}#section-historique,#section-stats,#section-arbitres,#section-admin{display:none!important;}body{background:#fff!important;}.card{border:1px solid #ccc;box-shadow:none;}.eval-table{font-size:8pt;}.preview-box{max-height:none;}.note-box{background:#1a3a6b!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
 @media(max-width:600px){.inc-row{grid-template-columns:1fr 1fr;}.eval-table{font-size:.68rem;}#score-display{font-size:1.7rem;}.data-table th:nth-child(3),.data-table td:nth-child(3){display:none;}.comp-selectors{flex-direction:column;}}
 </style>
@@ -106,6 +144,7 @@ input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{ac
 </header>
 <nav class="main-nav" id="main-nav">
   <button class="mnav-btn active" onclick="showSec('rapport')" id="mn-rapport">📝 Rapport</button>
+  <button class="mnav-btn" onclick="showSec('repertoire')" id="mn-repertoire" style="display:none;">📋 Répertoire</button>
   <button class="mnav-btn admin-nav" onclick="showSec('historique')" id="mn-historique" style="display:none;">📁 Historique</button>
   <button class="mnav-btn admin-nav" onclick="showSec('stats')" id="mn-stats" style="display:none;">📊 Tableau de bord</button>
   <button class="mnav-btn admin-nav" onclick="showSec('arbitres')" id="mn-arbitres" style="display:none;">👥 Arbitres</button>
@@ -133,7 +172,7 @@ input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{ac
       <div class="card-header"><span class="card-icon">🏟️</span><div><div class="card-title">Informations du Match</div><div class="card-sub">Données générales de la rencontre</div></div></div>
       <div class="fgrid">
         <div class="fg"><label>Catégorie</label><select id="categorie"><option>D1</option><option>D2</option><option selected>D3</option><option>D4</option><option>U18</option><option>U15</option><option>U13</option><option>U11</option><option>U9</option><option>Régional</option></select></div>
-        <div class="fg"><label>Nom de l'Arbitre</label><input type="text" id="arbitre-nom" placeholder="NOM Prénom"></div>
+        <div class="fg"><label>Nom de l'Arbitre <button class="arb-picker-btn" onclick="openArbPicker()" type="button">🔍 Répertoire</button></label><input type="text" id="arbitre-nom" placeholder="NOM Prénom"></div>
         <div class="fg"><label>Email de l'Arbitre (optionnel)</label><input type="email" id="arbitre-email" placeholder="arbitre@exemple.fr"></div>
         <div class="fg"><label>Observateur</label><input type="text" id="obs-nom" placeholder="NOM Prénom"></div>
         <div class="fg"><label>Assistants</label><input type="text" id="assistants" placeholder="Officiels ou bénévoles"></div>
@@ -482,6 +521,7 @@ async function completeLogin(){
   document.getElementById('login-screen').style.display='none';
   document.getElementById('app').style.display='block';
   applyRole();showSec('rapport');goP(0);
+  loadArbitres();
   allReports=await loadReports();
   asTimer=setInterval(autoSave,30000);
   await checkDraft();
@@ -505,6 +545,7 @@ function applyRole(){
   document.getElementById('mn-arbitres').style.display=isAdmin?'block':'none';
   document.getElementById('mn-admin').style.display=isAdmin?'block':'none';
   document.getElementById('qnav-btn').style.display='flex';
+  document.getElementById('mn-repertoire').style.display='';
   document.getElementById('btn-email').style.display=isAdmin?'inline-flex':'none';
   const hl=document.getElementById('hist-role-label');
   if(hl)hl.textContent=isAdmin?'🔐 Accès Administrateur':'📋 Accès Gestionnaire';
@@ -538,6 +579,7 @@ async function autoSave(){
 //  NAVIGATION
 // ══════════════════════════════════════
 function showSec(n){
+  if(n==='repertoire' && allArbitres.length===0) loadArbitres();
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.mnav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('section-'+n)?.classList.add('active');
@@ -555,7 +597,14 @@ function goP(n){
   document.querySelectorAll('.step-btn').forEach((b,i)=>{b.classList.remove('active','done');if(i<n)b.classList.add('done');});
   document.getElementById('sb'+n)?.classList.add('active');
   if(n===6)calcNote();if(n===7)buildResume();
-  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(()=>{
+    const page=document.getElementById('page-'+n);
+    const nav=document.querySelector('.steps-nav');
+    if(page && nav){
+      const top=page.getBoundingClientRect().top+window.scrollY;
+      window.scrollTo({top:top-nav.offsetHeight-58,behavior:'smooth'});
+    } else { window.scrollTo({top:0,behavior:'smooth'}); }
+  },50);
 }
 
 function showSubTab(t){
@@ -1081,5 +1130,70 @@ window.addEventListener('DOMContentLoaded',()=>{
   }
 });
 </script>
+
+<!-- ═══ MODAL PICKER ARBITRE ═══ -->
+<div class="arb-modal-bg" id="arb-modal-bg">
+  <div class="arb-modal">
+    <div class="arb-modal-hdr">
+      <h3>🔍 Sélectionner un Arbitre</h3>
+      <button class="arb-modal-close" onclick="closeArbPicker()">✕</button>
+    </div>
+    <div class="arb-modal-search">
+      <input type="text" id="arb-modal-search-input" placeholder="Rechercher par nom, prénom, club…" oninput="filterArbModal(this.value)">
+    </div>
+    <div class="arb-modal-list" id="arb-modal-list"></div>
+  </div>
+</div>
+
+<!-- ═══ SECTION RÉPERTOIRE ═══ -->
+<div class="section" id="section-repertoire">
+  <div class="card">
+    <div class="card-header"><span class="card-icon">📋</span><div><div class="card-title">Répertoire des Arbitres</div><div class="card-sub">District BFC — Commission Départementale de l'Arbitrage</div></div></div>
+    
+    <div class="rep-search-bar">
+      <input type="text" id="rep-search" placeholder="🔍 Rechercher nom, prénom, licence, club…" oninput="filterRep(this.value)">
+      <span class="rep-count" id="rep-count"></span>
+      <button class="btn btn-p" onclick="toggleArbForm()" id="btn-add-arb" style="display:none;font-size:.72rem;padding:.32rem .75rem;">➕ Ajouter</button>
+    </div>
+
+    <div id="arb-add-form" style="display:none;">
+      <div class="arb-form">
+        <h4>➕ Nouvel Arbitre</h4>
+        <div class="fgrid">
+          <div class="fg"><label>Nom *</label><input type="text" id="arb-f-nom" placeholder="NOM"></div>
+          <div class="fg"><label>Prénom *</label><input type="text" id="arb-f-prenom" placeholder="Prénom"></div>
+          <div class="fg"><label>N° Licence</label><input type="text" id="arb-f-licence" placeholder="N° Licence FFF"></div>
+          <div class="fg"><label>Localité</label><input type="text" id="arb-f-localite" placeholder="Ville"></div>
+          <div class="fg"><label>Téléphone</label><input type="text" id="arb-f-tel" placeholder="06 XX XX XX XX"></div>
+          <div class="fg"><label>Email</label><input type="email" id="arb-f-email" placeholder="email@exemple.fr"></div>
+          <div class="fg full"><label>Club d'appartenance</label><input type="text" id="arb-f-club" placeholder="Nom du club"></div>
+        </div>
+        <div class="btn-row" style="margin-top:.5rem;">
+          <button class="btn btn-o" onclick="toggleArbForm()">Annuler</button>
+          <button class="btn btn-p" onclick="saveArbitre()">💾 Enregistrer</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="rep-table-wrap">
+      <table class="rep-table" id="rep-table">
+        <thead>
+          <tr>
+            <th onclick="sortRep('nom')">Nom <span class="sort-icon" id="si-nom">↕</span></th>
+            <th onclick="sortRep('prenom')">Prénom <span class="sort-icon" id="si-prenom">↕</span></th>
+            <th onclick="sortRep('licence')">N° Licence <span class="sort-icon" id="si-licence">↕</span></th>
+            <th onclick="sortRep('localite')">Localité <span class="sort-icon" id="si-localite">↕</span></th>
+            <th onclick="sortRep('telephone')">Téléphone <span class="sort-icon" id="si-telephone">↕</span></th>
+            <th onclick="sortRep('email')">Email <span class="sort-icon" id="si-email">↕</span></th>
+            <th onclick="sortRep('club')">Club <span class="sort-icon" id="si-club">↕</span></th>
+            <th id="rep-actions-col" style="display:none;">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="rep-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
