@@ -139,6 +139,7 @@ input[type=range]{width:100%;accent-color:var(--bleu2);}input[type=range].vis{ac
 @media print{#login-screen,.main-nav,.note-flottante,header,.steps-nav,.btn,.btn-row,.autosave,#corr-panel,.toast,.modal-bg{display:none!important;}.section{display:block!important;}#section-historique,#section-stats,#section-arbitres,#section-admin{display:none!important;}body{background:#fff!important;}.card{border:1px solid #ccc;box-shadow:none;}.eval-table{font-size:8pt;}.preview-box{max-height:none;}.note-box{background:#1a3a6b!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
 @media(max-width:600px){.inc-row{grid-template-columns:1fr 1fr;}.eval-table{font-size:.68rem;}#score-display{font-size:1.7rem;}.data-table th:nth-child(3),.data-table td:nth-child(3){display:none;}.comp-selectors{flex-direction:column;}}
 </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 <body>
 
@@ -1440,37 +1441,78 @@ function pickArbitre(id){
 }
 
 
-function importCSV(input){
+async function importExcel(input){
   const file=input.files[0]; if(!file) return;
+  toast('📥 Lecture du fichier…','ok');
   const reader=new FileReader();
   reader.onload=async function(e){
-    const text=e.target.result;
-    const lines=text.split(/\r?\n/).filter(l=>l.trim());
-    if(!lines.length){toast('Fichier vide.','err');return;}
-    // Détecter séparateur (virgule ou point-virgule)
-    const sep=lines[0].includes(';')?';':',';
-    // Essayer de détecter l'entête
-    const headers=lines[0].split(sep).map(h=>h.trim().toLowerCase().replace(/['"]/g,''));
-    const colMap={nom:-1,prenom:-1,licence:-1,localite:-1,telephone:-1,email:-1,club:-1};
-    const aliases={nom:['nom','name','last'],prenom:['prenom','prénom','first','firstname'],licence:['licence','license','no licence','n° licence'],localite:['localite','localité','ville','city'],telephone:['telephone','téléphone','tel','phone','mobile'],email:['email','mail','courriel'],club:['club','appartenance','club appartenance']};
-    headers.forEach((h,i)=>{Object.entries(aliases).forEach(([k,vals])=>{if(vals.some(v=>h.includes(v)))colMap[k]=i;});});
-    // Si pas d'entête détectée, supposer l'ordre standard
-    if(colMap.nom===-1){colMap.nom=0;colMap.prenom=1;colMap.licence=2;colMap.localite=3;colMap.telephone=4;colMap.email=5;colMap.club=6;}
-    const startLine=headers.some(h=>h.includes('nom')||h.includes('name'))?1:0;
-    let count=0, errors=0;
-    for(let i=startLine;i<lines.length;i++){
-      const cols=lines[i].split(sep).map(c=>c.trim().replace(/^["']|["']$/g,''));
-      const nom=(colMap.nom>=0?cols[colMap.nom]||'':'').toUpperCase().trim();
-      if(!nom) continue;
-      const body={nom,prenom:colMap.prenom>=0?cols[colMap.prenom]||'':'',licence:colMap.licence>=0?cols[colMap.licence]||'':'',localite:colMap.localite>=0?cols[colMap.localite]||'':'',telephone:colMap.telephone>=0?cols[colMap.telephone]||'':'',email:colMap.email>=0?cols[colMap.email]||'':'',club:colMap.club>=0?cols[colMap.club]||'':''};
-      try{ await apiFetch('/api/arbitres',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}); count++; }
-      catch(e){ errors++; }
+    try{
+      let rows=[];
+      if(file.name.match(/\.xlsx?$/i)){
+        // Excel : utiliser SheetJS
+        const data=new Uint8Array(e.target.result);
+        const wb=XLSX.read(data,{type:'array'});
+        const ws=wb.Sheets[wb.SheetNames[0]];
+        rows=XLSX.utils.sheet_to_json(ws,{header:1,defval:''});
+      } else {
+        // CSV
+        const text=new TextDecoder('utf-8').decode(new Uint8Array(e.target.result));
+        const sep=text.split('\n')[0].includes(';')?';':',';
+        rows=text.split(/\r?\n/).filter(l=>l.trim()).map(l=>l.split(sep).map(c=>c.trim().replace(/^["']|["']$/g,'')));
+      }
+      if(!rows.length){toast('Fichier vide.','err');return;}
+
+      // Détecter entête
+      const headers=rows[0].map(h=>String(h).trim().toLowerCase());
+      const aliases={nom:['nom','name'],prenom:['prenom','prénom','first'],licence:['licence','license','n° licence','no licence'],localite:['localite','localité','ville','city'],telephone:['telephone','téléphone','tel','phone','mobile'],email:['email','mail','courriel'],club:['club','appartenance']};
+      const colMap={nom:0,prenom:1,licence:2,localite:3,telephone:4,email:5,club:6};
+      let hasHeader=false;
+      headers.forEach((h,i)=>{
+        Object.entries(aliases).forEach(([k,vals])=>{
+          if(vals.some(v=>h.includes(v))){colMap[k]=i;hasHeader=true;}
+        });
+      });
+      const startRow=hasHeader?1:0;
+
+      // Importer chaque ligne
+      let count=0,skipped=0;
+      const toImport=[];
+      for(let i=startRow;i<rows.length;i++){
+        const r=rows[i];
+        const nom=String(r[colMap.nom]||'').toUpperCase().trim();
+        if(!nom||nom==='NOM') continue;
+        toImport.push({
+          nom,
+          prenom:String(r[colMap.prenom]||'').trim(),
+          licence:String(r[colMap.licence]||'').trim(),
+          localite:String(r[colMap.localite]||'').trim(),
+          telephone:String(r[colMap.telephone]||'').trim(),
+          email:String(r[colMap.email]||'').trim(),
+          club:String(r[colMap.club]||'').trim()
+        });
+      }
+
+      // Trier alphabétiquement avant import
+      toImport.sort((a,b)=>a.nom.localeCompare(b.nom,'fr'));
+
+      for(const body of toImport){
+        try{
+          await apiFetch('/api/arbitres',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+          count++;
+        }catch(e){skipped++;}
+      }
+
+      input.value='';
+      await loadArbitres();
+      toast('✅ '+count+' arbitre(s) importé(s) et triés'+(skipped?' · '+skipped+' ignoré(s)':''),'ok');
+    }catch(err){
+      console.error(err);
+      toast('Erreur lecture fichier: '+err.message,'err');
     }
-    input.value='';
-    await loadArbitres();
-    toast('✅ '+count+' arbitre(s) importé(s)'+(errors?' ('+errors+' erreur(s))':''),'ok');
   };
-  reader.readAsText(file,'UTF-8');
+  // Lire en binaire pour Excel, texte pour CSV
+  if(file.name.match(/\.xlsx?$/i)) reader.readAsArrayBuffer(file);
+  else reader.readAsArrayBuffer(file);
 }
 
 function updateEquipes(){
@@ -1524,8 +1566,8 @@ window.addEventListener('DOMContentLoaded',()=>{
       <input type="text" id="rep-search" placeholder="🔍 Rechercher nom, prénom, licence, club…" oninput="filterRep(this.value)">
       <span class="rep-count" id="rep-count"></span>
       <button class="btn btn-p" onclick="toggleArbForm()" id="btn-add-arb" style="display:none;font-size:.72rem;padding:.32rem .75rem;">➕ Ajouter</button>
-      <label class="btn btn-o" id="btn-import-arb" style="display:none;font-size:.72rem;padding:.32rem .75rem;cursor:pointer;">📥 Importer CSV
-        <input type="file" accept=".csv,.xlsx,.xls" style="display:none;" onchange="importCSV(this)">
+      <label class="btn btn-o" id="btn-import-arb" style="display:none;font-size:.72rem;padding:.32rem .75rem;cursor:pointer;">📥 Importer Excel / CSV
+        <input type="file" accept=".xlsx,.xls,.csv" style="display:none;" onchange="importExcel(this)">
       </label>
     </div>
 
